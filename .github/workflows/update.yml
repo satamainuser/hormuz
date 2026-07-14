@@ -1,0 +1,42 @@
+name: update
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"      # 30分ごと
+  workflow_dispatch:            # 手動実行も可
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install httpx feedparser
+
+      - name: Collect
+        env:
+          DEEPL_KEY: ${{ secrets.DEEPL_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python collect.py
+
+      - name: Commit
+        run: |
+          git config user.name  "hormuz-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add docs/status.json docs/history.json docs/translations.json
+          # 中身が変わっていなければコミットしない
+          git diff --staged --quiet || git commit -m "status: $(date -u +%FT%TZ)"
+          git push
