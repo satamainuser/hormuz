@@ -1,0 +1,16 @@
+{
+  "level": 0,
+  "label": "営業中",
+  "en": "B R E A K I N G · N O T H I N G",
+  "sub": "きょうも海峡は開いています。特にお伝えすることはありません",
+  "reason": "どの当局も閉鎖を報告していません。航行警報・事案ともにゼロ。",
+  "evidence": "通航実績（AIS）は計測していません。当局の警報・事案報告のみに基づく判定です。",
+  "tiles": { "advisories_7d": 0, "incidents_30d": 0, "brent": { "price": 71.2, "change_pct": 0.31 }, "feeds_alive": "3/3" },
+  "closure_talk_90d": 0,
+  "days_no_closure": 0,
+  "days_logged": 1,
+  "statements": { "iran": null, "usa": null },
+  "feed": [],
+  "updated": "2026-07-14T05:32:00+00:00",
+  "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
+}

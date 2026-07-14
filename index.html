@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ホルムズ海峡、開いてる？</title>
+<meta name="description" content="ホルムズ海峡が開いているかどうかだけを確認するアプリ。全自動更新。">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--line:#161412;--paper:#F1E6C6;--gold:#C9A227;--accent:#1F7A45}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans JP",system-ui,sans-serif;background:#0C1216;color:#EFE6D0;
+     display:flex;flex-direction:column;align-items:center;padding:12px 12px 36px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.app{position:relative;width:100%;max-width:430px;border-radius:18px;overflow:hidden;
+     border:4px solid var(--line);box-shadow:0 22px 50px -20px #000}
+.ocean{position:absolute;inset:0;background:linear-gradient(180deg,#0A2F4C,#0F4E70 44%,#166E90 74%,#1C8CA8);transition:filter .7s}
+.wave{position:absolute;left:-50%;width:200%;height:50px;opacity:.24;
+  background:radial-gradient(ellipse 50px 12px at 50% 0,transparent 48%,rgba(255,255,255,.5) 50%,transparent 52%);
+  background-size:60px 24px;animation:drift linear infinite}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(60px)}}
+.bgship{position:absolute;z-index:1;animation:sail linear infinite}
+@keyframes sail{from{transform:translateX(-120px)}to{transform:translateX(540px)}}
+.shade{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(4,16,24,.42),rgba(4,16,24,.02) 42%,rgba(4,16,24,.5))}
+.c{position:relative;z-index:10}
+.flash{background:#C0392B;color:#fff;padding:7px 10px;display:flex;justify-content:space-between;align-items:center;border-bottom:4px solid var(--line)}
+.flash b{font-size:11.5px;font-weight:900;letter-spacing:.09em}
+.flash span{font-family:"IBM Plex Mono";font-size:8px;opacity:.92}
+
+/* tabs */
+.tabs{display:flex;background:rgba(5,14,20,.9);border-bottom:3px solid var(--line)}
+.tabs button{flex:1;padding:9px 0;font-family:"Noto Sans JP";font-size:11px;font-weight:900;
+  background:transparent;color:#8FA8B6;border:none;cursor:pointer;border-bottom:3px solid transparent}
+.tabs button[aria-selected="true"]{color:var(--paper);border-bottom-color:var(--gold)}
+
+/* speakers */
+.speaker{display:flex;align-items:center;gap:10px;padding:14px 12px 0}
+.speaker.bottom{padding:0 12px 14px}
+.portrait{flex:0 0 128px;align-self:flex-end;border:4px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 8px 0 -3px rgba(0,0,0,.5)}
+.speaker.bottom .portrait{align-self:flex-start}
+.portrait .cap{background:var(--line);color:var(--paper);font-family:"IBM Plex Mono";font-size:7.5px;letter-spacing:.16em;padding:3px 5px;text-align:center}
+.portrait svg{display:block;width:100%;height:auto;transition:filter .6s}
+.speaker.ir .portrait{transform:rotate(-1.6deg)}
+.speaker.us .portrait{transform:rotate(1.6deg)}
+.bub{position:relative;flex:1;min-height:104px;display:flex;flex-direction:column;justify-content:center;
+     color:var(--line);transition:opacity .5s;filter:drop-shadow(0 7px 0 rgba(0,0,0,.5))}
+.bub .body{position:relative;background:#F9F4E6;padding:16px 16px 14px}
+.bub .q{font-size:14.5px;font-weight:900;line-height:1.5}
+.bub .orig{margin-top:7px;font-family:"IBM Plex Mono";font-size:8.5px;line-height:1.5;color:#8B958C;border-left:2px solid #D8D0BA;padding-left:6px}
+.bub .mt{background:#E4DCC4;color:#5F6A5C;padding:1px 4px;border-radius:3px;font-size:7.5px}
+.bub .cite{margin-top:8px;font-family:"IBM Plex Mono";font-size:8px;color:#7C8880}
+.bub .cite a{color:#1E6B8C;text-decoration:none;border-bottom:1px solid #A9CBDA}
+.bub .tail{position:absolute;top:38px;width:0;height:0}
+.bub.calm .body{border-radius:20px}
+.bub.calm .tail{left:-15px;border:9px solid transparent;border-right:16px solid #F9F4E6;border-left:0}
+.bub.shout .body{padding:22px 20px 20px;clip-path:polygon(
+  0% 42%,6% 34%,2% 24%,10% 22%,8% 12%,17% 15%,19% 4%,26% 11%,32% 2%,37% 12%,45% 4%,49% 14%,
+  57% 6%,60% 16%,68% 8%,71% 19%,79% 12%,81% 23%,90% 18%,89% 29%,98% 27%,94% 37%,100% 44%,
+  93% 51%,99% 59%,90% 63%,95% 72%,86% 73%,88% 84%,79% 80%,77% 91%,69% 85%,64% 96%,58% 87%,
+  50% 97%,44% 87%,36% 95%,32% 84%,24% 90%,22% 79%,13% 82%,15% 71%,6% 70%,11% 61%,3% 55%)}
+.bub.shout .q{color:#B02318;font-size:15.5px;text-align:center;line-height:1.4;text-shadow:2px 2px 0 #F2C230}
+.bub.shout .orig{border-left:none;border-top:2px solid #E0C9A0;padding:5px 0 0;text-align:center}
+.bub.shout .cite{text-align:center}
+.bub.shout .tail{display:none}
+.bub.none .body{background:#EFE9D8}
+.bub.none .q{font-size:12.5px;color:#6B7568;font-weight:700;line-height:1.6}
+
+/* centre */
+.centre{padding:14px 12px 16px}
+.signwrap{display:flex;flex-direction:column;align-items:center}
+.chain{width:4px;height:14px;background:var(--gold)}
+.sign{width:100%;background:var(--paper);border-radius:10px;padding:18px 14px 13px;text-align:center;color:var(--line);
+  box-shadow:0 0 0 5px var(--gold),0 15px 0 -8px rgba(0,0,0,.55);transform:rotate(-1.2deg)}
+.sign .st{font-size:clamp(46px,14.5vw,64px);font-weight:900;letter-spacing:.1em;line-height:1.02;color:var(--accent);transition:color .5s}
+.sign .en{font-family:"IBM Plex Mono";font-size:9px;letter-spacing:.4em;color:#96793F;margin-top:7px}
+.sign .rule{height:1px;background:#D2BC86;margin:10px 22px 8px}
+.sign .sub{font-size:11.5px;font-weight:700;color:#4C5645;line-height:1.6}
+.danger{margin-top:14px;background:rgba(6,22,32,.74);border:3px solid var(--line);border-radius:10px;padding:11px 12px}
+.danger .hd{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:900}
+.danger .hd em{font-style:normal;font-family:"IBM Plex Mono";font-size:12.5px;color:var(--accent);transition:color .4s}
+.lvbar{display:flex;margin-top:8px;border:2px solid var(--line);border-radius:6px;overflow:hidden}
+.lvbar i{flex:1;font-style:normal;text-align:center;font-size:9.5px;font-weight:900;padding:6px 0;color:#7B8B96;background:#0B1C29;border-right:1px solid var(--line);transition:.3s}
+.lvbar i:last-child{border-right:none}
+.lvbar i.on{color:#fff}
+.dnote{font-size:10px;color:#B6CDD9;margin-top:8px;line-height:1.65}
+.evidence{font-size:9px;color:#7E97A6;margin-top:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.16);line-height:1.6}
+.fine{margin-top:8px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.16);border:2px solid var(--line);border-radius:8px;overflow:hidden}
+.fine div{background:rgba(6,22,32,.8);padding:8px 4px;text-align:center}
+.fine b{display:block;font-family:"IBM Plex Mono";font-size:13.5px;color:#fff}
+.fine span{display:block;font-size:7.5px;color:#9FBACB;margin-top:3px}
+.streak{margin-top:8px;text-align:center;font-size:10px;color:#E9D69C;background:rgba(6,22,32,.72);
+        border:1px dashed rgba(201,162,39,.55);border-radius:8px;padding:7px;line-height:1.7}
+.streak b{font-family:"IBM Plex Mono";font-size:13px;color:#F3D77A}
+.ticker{background:rgba(5,14,20,.94);border-top:3px solid #C0392B;padding:6px 8px;font-size:9px;white-space:nowrap;overflow:hidden}
+.ticker span{display:inline-block;animation:roll 26s linear infinite}
+@keyframes roll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.src{padding:8px 11px 11px;display:flex;justify-content:space-between;font-family:"IBM Plex Mono";font-size:8px;color:#8FB4C6;background:rgba(5,14,20,.94)}
+.src a{color:#8FB4C6}
+
+/* news */
+#news{display:none;padding:12px}
+.card{display:flex;gap:9px;background:rgba(6,22,32,.82);border:2px solid var(--line);border-radius:10px;padding:10px;margin-bottom:8px}
+.sev{flex:0 0 28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;
+     font-family:"IBM Plex Mono";font-weight:700;font-size:13px;color:#fff}
+.s-S{background:#B23A2E}.s-A{background:#D98324}.s-B{background:#4C7C9B}.s-C{background:#6E7C85}
+.card h3{font-size:12px;font-weight:900;line-height:1.5;color:#EFE6D0}
+.card .o{font-family:"IBM Plex Mono";font-size:8px;color:#8FA8B6;margin-top:4px;line-height:1.5}
+.card .w{font-size:9.5px;color:#9FB6C2;margin-top:5px;line-height:1.55}
+.card .m{margin-top:6px;font-family:"IBM Plex Mono";font-size:7.5px;color:#7E97A6;display:flex;gap:8px;flex-wrap:wrap}
+.card .m a{color:#7FC6E0}
+.empty{text-align:center;padding:28px 12px;color:#8FA8B6;font-size:12px;line-height:1.9}
+.empty b{color:#EFE6D0;font-size:14px}
+
+footer{width:100%;max-width:430px;margin-top:16px;font-size:10px;line-height:1.85;color:#7E8F99}
+footer b{color:#C9DAE3}
+footer a{color:#9FC3D4}
+</style></head><body>
+
+<svg width="0" height="0" style="position:absolute">
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope=".22"/></feComponentTransfer></filter>
+</svg>
+
+<div class="app">
+  <div class="ocean" id="ocean">
+    <div class="wave" style="top:40%;animation-duration:5s"></div>
+    <div class="wave" style="top:58%;animation-duration:7s;opacity:.18"></div>
+    <div class="wave" style="top:76%;animation-duration:9s;opacity:.14"></div>
+    <div class="wave" style="top:90%;animation-duration:11s;opacity:.1"></div>
+  </div>
+  <div id="fleet"></div><div class="shade"></div>
+
+  <div class="c">
+    <div class="flash"><b>【速報】ホルムズ海峡</b><span id="clock">—</span></div>
+    <div class="tabs">
+      <button id="t1" aria-selected="true">いまの状況</button>
+      <button id="t2" aria-selected="false">ニュースと声明</button>
+    </div>
+
+    <div id="status">
+      <div class="speaker ir">
+        <div class="portrait"><div class="cap">IRAN</div><svg viewBox="0 0 300 460" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="460" fill="#CFC9B4"/><path d="M10 460 l8-54 30-30 48-14 54 16 54-16 48 14 30 30 8 54z" fill="#2A2A2E"/><path d="M150 344 l-44-12 -14 34 10 94 h96 l10-94 -14-34z" fill="#5C6166"/><path d="M150 348 l-46-14 -8 22 54 24 54-24 -8-22z" fill="#EFE9DA"/><path d="M128 274 l52-6 4 60 -54 6z" fill="#C08A54"/><path d="M78 128 l30-44 60-18 58 26 20 52 -8 76 -22 50 -50 30 -56-14 -34-48z" fill="#DFA671"/><path d="M86 200 l16 90 34 46 44 8 40-36 18-96 -20 44 -66 14 -50-12z" fill="#E8E2D2"/><path d="M108 268 l24 52 40 20 -52-4z" fill="#CFC7B4"/><path d="M116 188 l70-8 6 18 -72 8z" fill="#CFC7B4"/><path d="M92 150 l54-8 4 30 -56 8z" fill="#F2EEE0"/><path d="M170 140 l48 6 -4 28 -48-6z" fill="#F2EEE0"/><path d="M146 150 l24-2 2 8 -26 2z" fill="#22242A"/><path d="M100 160 l30-4 4 10 -32 4z" fill="#22242A"/><path d="M180 152 l28 4 -2 10 -28-4z" fill="#22242A"/><path d="M90 122 l52-10 4 12 -54 10z" fill="#E8E2D2"/><path d="M176 114 l44 8 -3 12 -44-8z" fill="#E8E2D2"/><path d="M150 156 l16 4 6 46 -28 4 6-26z" fill="#C08A54"/><path d="M124 214 l52 4 -2 12 -52-4z" fill="#8E4A44"/><path d="M56 132 l6-52 34-44 66-20 62 24 30 50 -4 46 -22-30 -14-40 -46-24 -60-6 -46 26 -20 42 4 34z" fill="#22242A"/><path d="M64 92 l38-40 62-16 56 24 20 34 -22-14 -50-24 -58 8 -38 24z" fill="#3A3D46"/><path d="M72 132 l10-32 44-28 60-6 46 26 -52-12 -62 10 -38 24z" fill="#3A3D46"/><rect width="300" height="460" fill="url(#grain)" opacity=".5"/></svg></div>
+        <div class="bub calm" id="b-ir"><span class="tail"></span><div class="body"></div></div>
+      </div>
+
+      <div class="centre">
+        <div class="signwrap"><span class="chain"></span>
+          <div class="sign">
+            <div class="st" id="st">—</div>
+            <div class="en" id="en">L O A D I N G</div>
+            <div class="rule"></div>
+            <div class="sub" id="sub">最新の状況を取得しています…</div>
+          </div>
+        </div>
+        <div class="danger">
+          <div class="hd"><span>警戒レベル</span><em id="lvlab">— / 5</em></div>
+          <div class="lvbar" id="lvbar"></div>
+          <div class="dnote" id="reason">—</div>
+          <div class="evidence" id="evidence">—</div>
+        </div>
+        <div class="fine" id="tiles"></div>
+        <div class="streak" id="streak"></div>
+      </div>
+
+      <div class="speaker us bottom">
+        <div class="bub shout" id="b-us"><div class="body"></div></div>
+        <div class="portrait"><div class="cap">USA</div><svg viewBox="0 0 300 460" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="460" fill="#DED5BE"/><path d="M14 460 l6-52 26-30 44-16 60 16 60-16 44 16 26 30 6 52z" fill="#2C3E63"/><path d="M150 348 l-40-12 -8 30 22 94 h56 l20-94 -8-30z" fill="#1F2E4B"/><path d="M118 336 l32 34 34-34 -14-14 -20 16 -18-16z" fill="#F4EFE0"/><path d="M152 366 l-13-14 26-2z" fill="#8E2119"/><path d="M150 376 l-12 12 6 72 22-2 -6-72z" fill="#C0392B"/><path d="M124 268 l58-6 4 62 -60 6z" fill="#CC8447"/><path d="M74 112 l38-40 62-16 58 22 22 48 -4 78 -18 52 -48 34 -60-12 -40-46 -12-60z" fill="#E9A469"/><path d="M78 190 l30 6 22 74 44 30 -54-6 -34-40z" fill="#CC8447"/><path d="M96 108 l64-26 62 20 -6 26 -60-16 -54 20z" fill="#F6C596"/><path d="M92 152 l50-8 6 26 -52 8z" fill="#F7F1E1"/><path d="M182 142 l42 6 -4 24 -42-6z" fill="#F7F1E1"/><path d="M100 158 l32-6 4 12 -34 6z" fill="#241F1C"/><path d="M188 150 l30 4 -2 12 -30-4z" fill="#241F1C"/><path d="M92 126 l50-11 4 12 -52 11z" fill="#241F1C"/><path d="M184 119 l40 7 -3 12 -40-7z" fill="#241F1C"/><path d="M150 152 l16 4 8 60 -30 4 4-34z" fill="#CC8447"/><path d="M112 236 l66 6 -6 40 -64-8z" fill="#7E2A26"/><path d="M120 246 l50 4 -2 11 -50-5z" fill="#F7F1E1"/><path d="M96 220 l-8 60 14 22 6-2 -8-24 8-54z" fill="#CC8447"/><path d="M196 218 l10 60 -16 22 -6-4 10-22 -6-54z" fill="#CC8447"/><path d="M60 128 l4-56 40-46 68-16 66 22 30 46 -6 42 -18-26 -8-30 -46-22 -58-4 -46 24 -18 40 4 30z" fill="#F0CB58"/><path d="M66 96 l40-40 66-14 58 22 22 34 -20-12 -50-24 -60 6 -40 24z" fill="#D3A932"/><path d="M74 128 l12-30 44-26 62-4 44 22 -50-10 -62 8 -38 22z" fill="#D3A932"/><rect width="300" height="460" fill="url(#grain)" opacity=".5"/></svg></div>
+      </div>
+    </div>
+
+    <div id="news"></div>
+
+    <div class="ticker"><span id="tick"></span></div>
+    <div class="src">
+      <span>SRC: UKMTO / MARAD / NGA / 公式発表</span>
+      <a id="rules" href="#">判定ルール↗</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <b>これは参考情報です。航行・運航の判断には使用しないでください。</b>船舶運航者は UKMTO / MARAD 等の公的情報を参照してください。<br>
+  全自動更新（30分ごと）。掲載しているのは<b>自動で取得できる情報だけ</b>です。発言は公式発表の見出しを<b>機械翻訳</b>したもので、原文と出典リンクを必ず併記します。判定は<b>ルールベース</b>で、生成AIは翻訳にしか使っていません。情報源が取得できない場合は「営業中」ではなく<b>「確認中」</b>を表示します。
+</footer>
+
+<script>
+const LVNAME=['平常','注意','警戒','混乱','閉鎖'];
+const LVCOL=['#1F7A45','#7DA83A','#E09020','#D0602B','#C0392B'];
+const COLOR={0:'#1F7A45',1:'#1F7A45',2:'#E09020',3:'#C0392B',4:'#C0392B',9:'#8A959C'};
+const SEA={0:'none',1:'saturate(.88)',2:'saturate(.5) brightness(.85)',
+           3:'saturate(.2) brightness(.62)',4:'grayscale(.9) brightness(.45)',9:'grayscale(1) brightness(.6)'};
+const SHIPS={0:16,1:12,2:7,3:2,4:0,9:0};
+
+const boat=(w,o)=>`<svg viewBox="0 0 130 40" width="${w}" opacity="${o}" xmlns="http://www.w3.org/2000/svg"><g stroke="#0B1F2C" stroke-width="4" stroke-linejoin="round">
+<path d="M4 24 h120 l-13 13 H15z" fill="#E8E0C8"/><rect x="22" y="12" width="64" height="12" fill="#CFC3A2"/>
+<rect x="90" y="2" width="24" height="22" fill="#E8E0C8"/>
+<rect x="28" y="14" width="10" height="8" fill="#2E8C86" stroke-width="2"/>
+<rect x="44" y="14" width="10" height="8" fill="#C0392B" stroke-width="2"/>
+<rect x="60" y="14" width="10" height="8" fill="#E09020" stroke-width="2"/></g></svg>`;
+const ROWS=[[5,18,.40,26],[11,22,.48,24],[17,26,.55,22],[23,30,.62,21],[29,34,.70,20],
+[35,38,.76,19],[41,42,.82,18],[47,46,.88,17],[53,50,.92,16],[59,54,.96,15],
+[65,58,1,14],[71,62,1,13],[77,66,1,12],[83,70,1,11],[89,74,1,10],[95,78,1,9]];
+function fleet(n){
+  const f=document.getElementById('fleet'); f.innerHTML='';
+  const step=n>=16?1:Math.max(1,Math.round(ROWS.length/Math.max(n,1))); let c=0;
+  ROWS.forEach((r,i)=>{ if(i%step||c>=n) return;
+    const [t,w,o,dur]=r; const s=document.createElement('div');
+    s.className='bgship'; s.innerHTML=boat(w,o); s.style.top=t+'%';
+    s.style.animationDuration=(dur+(i%3))+'s'; s.style.animationDelay=(-(i*2.7)%dur)+'s';
+    f.appendChild(s); c++; });
+}
+const jp=iso=>{const d=new Date(iso);return `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`};
+const ago=iso=>{const m=Math.round((Date.now()-new Date(iso))/60000);
+  return m<60?`${m}分前`:m<1440?`${Math.floor(m/60)}時間前`:`${Math.floor(m/1440)}日前`};
+
+function bubble(el, s, side){
+  const b=el.querySelector('.body');
+  el.classList.remove('none');
+  if(!s){
+    el.classList.add('none');
+    b.innerHTML=`<div class="q">直近120日、ホルムズ海峡について<br>公式発言はありません。</div>`;
+    return;
+  }
+  b.innerHTML=`
+    <div class="q">${s.title_ja}</div>
+    <div class="orig">${s.title}</div>
+    <div class="cite">${s.source} · ${jp(s.published)} · <span class="mt">自動翻訳</span> · <a href="${s.url}" target="_blank" rel="noopener">原文↗</a></div>`;
+}
+
+function render(d){
+  const lv=d.level, ui=(lv===9?-1:lv);
+  document.documentElement.style.setProperty('--accent',COLOR[lv]);
+  document.getElementById('ocean').style.filter=SEA[lv];
+  fleet(SHIPS[lv]);
+
+  document.getElementById('st').textContent=d.label;
+  document.getElementById('en').textContent=d.en;
+  document.getElementById('sub').textContent=d.sub;
+  document.getElementById('reason').textContent=d.reason;
+  document.getElementById('evidence').textContent='根拠：'+d.evidence;
+  const ll=document.getElementById('lvlab');
+  ll.textContent=(lv===9?'— / 5':`LV.${lv} / 5`); ll.style.color=COLOR[lv];
+
+  document.getElementById('lvbar').innerHTML=LVNAME.map((n,i)=>{
+    const on=(ui>=0)&&(i<=ui); 
+    return `<i class="${on?'on':''}" style="${on?'background:'+LVCOL[i]:''}">${n}</i>`}).join('');
+
+  const t=d.tiles, brent=t.brent?('$'+t.brent.price):'—';
+  document.getElementById('tiles').innerHTML=`
+    <div><b>${t.advisories_7d}</b><span>航行警報 7日</span></div>
+    <div><b>${t.incidents_30d}</b><span>事案 30日</span></div>
+    <div><b>${brent}</b><span>Brent</span></div>
+    <div><b>${t.feeds_alive}</b><span>情報源 稼働</span></div>`;
+
+  document.getElementById('streak').innerHTML= (lv>=3)?'' :
+    `「閉鎖」に言及した公式発言 直近90日 <b>${d.closure_talk_90d}</b>件<br>閉鎖が観測されなかった日数 <b>${d.days_no_closure}</b>日`;
+
+  bubble(document.getElementById('b-ir'), d.statements.iran, 'ir');
+  bubble(document.getElementById('b-us'), d.statements.usa, 'us');
+
+  const crisis=(lv===3||lv===4);
+  document.querySelectorAll('.portrait svg').forEach(e=>e.style.filter=crisis?'grayscale(1) opacity(.45)':'none');
+  document.querySelectorAll('.bub').forEach(e=>e.style.opacity=crisis?.4:1);
+
+  document.getElementById('clock').textContent=jp(d.updated)+`（${ago(d.updated)}）`;
+  document.getElementById('rules').href=d.rules_url;
+  document.getElementById('tick').textContent=
+    `航行警報 ${t.advisories_7d}件（7日）　·　事案 ${t.incidents_30d}件（30日）　·　Brent ${brent}　·　情報源 ${t.feeds_alive} 稼働　·　閉鎖が観測されなかった日数 ${d.days_no_closure}日　·　`.repeat(2);
+
+  // news
+  const nw=document.getElementById('news');
+  nw.innerHTML = d.feed.length ? d.feed.map(i=>`
+    <div class="card">
+      <div class="sev s-${i.sev}">${i.sev}</div>
+      <div>
+        <h3>${i.title_ja}</h3>
+        <div class="o">${i.title}</div>
+        <div class="w">${i.sev_why}</div>
+        <div class="m"><span>${i.source}</span><span>${jp(i.published)}</span>
+          <span>自動翻訳</span><a href="${i.url}" target="_blank" rel="noopener">原文↗</a></div>
+      </div>
+    </div>`).join('') + `<p style="font-size:9.5px;color:#8FA8B6;line-height:1.8;margin-top:6px">
+      重要度は「通航に影響したか」だけで自動採点しています。声の大きさでは決めません。基準はコードに書いてあります。</p>`
+    : `<div class="empty"><b>ホルムズ海峡に関する警報・声明は<br>ありません。</b><br>いつも通りです。</div>`;
+}
+
+const t1=document.getElementById('t1'), t2=document.getElementById('t2');
+t1.onclick=()=>{status.style.display='';news.style.display='none';t1.ariaSelected=true;t2.ariaSelected=false};
+t2.onclick=()=>{status.style.display='none';news.style.display='block';t2.ariaSelected=true;t1.ariaSelected=false};
+
+fetch('status.json?'+Date.now()).then(r=>r.json()).then(render).catch(()=>{
+  // 取得失敗 → 断定しない
+  render({level:9,label:'確認中',en:'N O   D A T A',sub:'「開いている」とは断定できません',
+    reason:'ステータスを取得できていません。',
+    evidence:'通航実績（AIS）は計測していません。当局の警報・事案報告のみに基づく判定です。',
+    tiles:{advisories_7d:'—',incidents_30d:'—',brent:null,feeds_alive:'0/3'},
+    closure_talk_90d:0,days_no_closure:0,statements:{iran:null,usa:null},feed:[],
+    updated:new Date().toISOString(),rules_url:'#'});
+});
+setInterval(()=>fetch('status.json?'+Date.now()).then(r=>r.json()).then(render).catch(()=>{}), 5*60*1000);
+</script></body></html>
