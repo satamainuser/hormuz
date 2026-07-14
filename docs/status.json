@@ -2,17 +2,22 @@
   "level": 4,
   "label": "閉 鎖",
   "en": "C L O S E D",
-  "sub": "通航は計測できていません",
-  "reason": "当局が閉鎖を宣言しています。通航は計測できていません。",
-  "evidence": "通航は計測していません（AIS未接続）。当局の警報・宣言のみに基づく判定です。",
-  "ais": null,
+  "sub": "海峡に商船を確認できません。UKMTO / MARAD を確認してください",
+  "reason": "当局が閉鎖を宣言。海峡内に商船を確認できません。",
+  "evidence": "aisstream.io を180秒購読し、海峡内で位置情報を発信していた商船（AIS船種70-89）をMMSIでユニーク集計",
+  "ais": {
+    "vessels_now": 0,
+    "unclassified": 0,
+    "window_sec": 180,
+    "method": "aisstream.io を180秒購読し、海峡内で位置情報を発信していた商船（AIS船種70-89）をMMSIでユニーク集計"
+  },
   "tiles": {
-    "vessels_now": null,
+    "vessels_now": 0,
     "advisories_7d": 0,
     "incidents_30d": 0,
     "brent": {
-      "price": 84.71,
-      "change_pct": 1.69
+      "price": 84.79,
+      "change_pct": 1.79
     },
     "feeds_alive": "1/4"
   },
@@ -180,6 +185,6 @@
       "sev_why": "発言のみ。実際の通航状況とは別。"
     }
   ],
-  "updated": "2026-07-14T04:15:18+00:00",
+  "updated": "2026-07-14T04:21:45+00:00",
   "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
 }
