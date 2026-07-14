@@ -4,24 +4,23 @@
   "en": "C L O S E D",
   "sub": "AISを発信している船はゼロ。ただし船はAISを切れます",
   "reason": "当局が閉鎖を宣言。AISを発信している商船はゼロですが、これは「船がいない」ことを意味しません（AISは切れます）。",
-  "evidence": "aisstream.io を180秒購読し、海峡内でAISを発信していた商船（船種70-89）をMMSIでユニーク集計。AISを切っている船は数えられない。 AISは船が自分で発信するもので、強制ではありません。紛争下では攻撃を避けるためにAISを切る船が多く、この数字は「海峡にいる船の数」ではなく「AISを発信している船の数」です。",
+  "evidence": "aisstream.io を150秒購読し、海峡内でAISを発信していた商船（船種70-89）をMMSIでユニーク集計。AISは船が自分で発信するもので、義務ではありません。紛争下では攻撃を避けるためAISを切る船が多く、この数字は「海峡にいる船の数」ではなく「AISを発信している船の数」です。",
   "ais": {
     "ais_visible_cargo": 0,
     "ais_visible_any": 0,
-    "unclassified": 0,
-    "window_sec": 180,
-    "method": "aisstream.io を180秒購読し、海峡内でAISを発信していた商船（船種70-89）をMMSIでユニーク集計。AISを切っている船は数えられない。",
-    "caveat": "AISは船が自分で発信するもので、強制ではありません。紛争下では攻撃を避けるためにAISを切る船が多く、この数字は「海峡にいる船の数」ではなく「AISを発信している船の数」です。"
+    "window_sec": 150,
+    "method": "aisstream.io を150秒購読し、海峡内でAISを発信していた商船（船種70-89）をMMSIでユニーク集計。",
+    "caveat": "AISは船が自分で発信するもので、義務ではありません。紛争下では攻撃を避けるためAISを切る船が多く、この数字は「海峡にいる船の数」ではなく「AISを発信している船の数」です。"
   },
   "tiles": {
     "ais_visible_cargo": 0,
-    "advisories_7d": 0,
-    "incidents_30d": 0,
+    "advisories_7d": 43,
+    "incidents_30d": 10,
     "brent": {
-      "price": 84.61,
-      "change_pct": 1.57
+      "price": 84.88,
+      "change_pct": 1.9
     },
-    "feeds_alive": "1/4"
+    "feeds_alive": "4/4"
   },
   "closure_talk_90d": 1,
   "days_since_change": 0,
@@ -43,6 +42,246 @@
     "usa": null
   },
   "feed": [
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nQATAR.\nDNC 10.\nSURVEY OPERATIONS 08 MAY UNTIL FURTHER\nNOTICE BY M/V HORIZON GEOBAY\nIN AREA BOUND BY\n26-09.23N 051-48.00E, 26-06.54N 052-02.87E,\n25",
+      "title_ja": "PERSIAN GULF.\nQATAR.\nDNC 10.\nSURVEY OPERATIONS 08 MAY UNTIL FURTHER\nNOTICE BY M/V HORIZON GEOBAY\nIN AREA BOUND BY\n26-09.23N 051-48.00E, 26-06.54N 052-02.87E,\n25",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "GULF OF OMAN.\nIRAN.\nDNC 10.\nLATTICE BEACON 25-38.19N 057-45.86E\nINOPERATIVE.\n 62",
+      "title_ja": "GULF OF OMAN.\nIRAN.\nDNC 10.\nLATTICE BEACON 25-38.19N 057-45.86E\nINOPERATIVE.\n 62",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nU.A.E.\nDNC 10.\nPARTIALLY SUBMERGED WRECK\nIN VICINITY 25-11.64N 054-10.12E.\n 62",
+      "title_ja": "PERSIAN GULF.\nU.A.E.\nDNC 10.\nPARTIALLY SUBMERGED WRECK\nIN VICINITY 25-11.64N 054-10.12E.\n 62",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nKUWAIT.\nDNC 10.\nDANGEROUS WRECK MARKED BY BUOY IN 29-05.49N 048-22.09E.\n 62",
+      "title_ja": "PERSIAN GULF.\nKUWAIT.\nDNC 10.\nDANGEROUS WRECK MARKED BY BUOY IN 29-05.49N 048-22.09E.\n 62",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nQATAR.\nDNC 10.\nSURVEY OPERATIONS 11 NOV UNTIL FURTHER\nNOTICE BY VESSEL SURFER 1946\nIN AREA BOUND BY\n25-41.28N 052-25.05E, 25-41.05N 052-25.40E,\n25",
+      "title_ja": "PERSIAN GULF.\nQATAR.\nDNC 10.\nSURVEY OPERATIONS 11 NOV UNTIL FURTHER\nNOTICE BY VESSEL SURFER 1946\nIN AREA BOUND BY\n25-41.28N 052-25.05E, 25-41.05N 052-25.40E,\n25",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nQATAR.\nDNC 10.\nSURVEY OPERATIONS 10 NOV UNTIL FURTHER\nNOTICE BY M/V ALLIANZ, M/V SEDNA AND\nM/V BGP INNOVATOR IN AREA BOUND BY\n26-37.17N 051-49.49E",
+      "title_ja": "PERSIAN GULF.\nQATAR.\nDNC 10.\nSURVEY OPERATIONS 10 NOV UNTIL FURTHER\nNOTICE BY M/V ALLIANZ, M/V SEDNA AND\nM/V BGP INNOVATOR IN AREA BOUND BY\n26-37.17N 051-49.49E",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nQATAR.\nDNC 10.\n1. OBSTRUCTIONS REPORTED IN VICINITY:\n   A. 25-58.42N 051-35.40E.\n   B. 26-10.67N 051-53.03E.\n   500 METER BERTH REQUESTED.\n2. CANC",
+      "title_ja": "PERSIAN GULF.\nQATAR.\nDNC 10.\n1. OBSTRUCTIONS REPORTED IN VICINITY:\n   A. 25-58.42N 051-35.40E.\n   B. 26-10.67N 051-53.03E.\n   500 METER BERTH REQUESTED.\n2. CANC",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nBAHRAIN.\nDNC 10.\n1. CABLE OPERATIONS IN PROGRESS UNTIL FURTHER NOTICE\n   BY M/V HALL-1, M/V ABS, OCEAN-10 BARGE,\n   M/V OCEAN CAT AND TUG OCEAN AL",
+      "title_ja": "PERSIAN GULF.\nBAHRAIN.\nDNC 10.\n1. CABLE OPERATIONS IN PROGRESS UNTIL FURTHER NOTICE\n   BY M/V HALL-1, M/V ABS, OCEAN-10 BARGE,\n   M/V OCEAN CAT AND TUG OCEAN AL",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nIRAN.\nCABLE OPERATIONS IN PROGRESS UNTIL\nFURTHER NOTICE IN VICINITY\n29-19.68N 048-06.18E.\nWIDE BERTH REQUESTED.\n 62",
+      "title_ja": "PERSIAN GULF.\nIRAN.\nCABLE OPERATIONS IN PROGRESS UNTIL\nFURTHER NOTICE IN VICINITY\n29-19.68N 048-06.18E.\nWIDE BERTH REQUESTED.\n 62",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nU.A.E..\nDNC 10.\nDANGEROUS WRECK, LEAST DEPTH 16.7 METERS,\nIN 25-40.77N 055-22.08E.\n 62",
+      "title_ja": "PERSIAN GULF.\nU.A.E..\nDNC 10.\nDANGEROUS WRECK, LEAST DEPTH 16.7 METERS,\nIN 25-40.77N 055-22.08E.\n 62",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nU.A.E.\nDNC 10.\nLOST ANCHOR REPORTED IN 25-01.57N 053-03.22E.\n 62",
+      "title_ja": "PERSIAN GULF.\nU.A.E.\nDNC 10.\nLOST ANCHOR REPORTED IN 25-01.57N 053-03.22E.\n 62",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nKUWAIT.\nDNC 10.\n1. WRECK OF METEOROLOGICAL TOWER MARKED BY LIGHT\n   IN 28-46.0N 048-26.1E.\n2. CANCEL HYDROPAC 705/21\n 62",
+      "title_ja": "PERSIAN GULF.\nKUWAIT.\nDNC 10.\n1. WRECK OF METEOROLOGICAL TOWER MARKED BY LIGHT\n   IN 28-46.0N 048-26.1E.\n2. CANCEL HYDROPAC 705/21\n 62",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nBAHRAIN.\nDNC 10.\nPIPELINE OPERATIONS IN PROGRESS UNTIL\nFURTHER NOTICE IN AREA BOUND BY\n26-12.01N 050-39.61E, 26-12.07N 050-39.58E,\n26-11.19N 050-3",
+      "title_ja": "PERSIAN GULF.\nBAHRAIN.\nDNC 10.\nPIPELINE OPERATIONS IN PROGRESS UNTIL\nFURTHER NOTICE IN AREA BOUND BY\n26-12.01N 050-39.61E, 26-12.07N 050-39.58E,\n26-11.19N 050-3",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nIRAN.\nDNC 10.\n1. GAS LEAK, MARKED BY BUOY, FL W,\n   IN VICINITY 25-38.90N 054-27.80E.\n2. CANCEL HYDROPAC 526/23.\n 62",
+      "title_ja": "PERSIAN GULF.\nIRAN.\nDNC 10.\n1. GAS LEAK, MARKED BY BUOY, FL W,\n   IN VICINITY 25-38.90N 054-27.80E.\n2. CANCEL HYDROPAC 526/23.\n 62",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nU.A.E.\nDNC 10.\nODAS BUOYS, Q Y, ESTABLISHED IN:\nA. 25-59.00N 056-02.40E.\nB. 25-52.22N 055-51.20E.\n 62",
+      "title_ja": "PERSIAN GULF.\nU.A.E.\nDNC 10.\nODAS BUOYS, Q Y, ESTABLISHED IN:\nA. 25-59.00N 056-02.40E.\nB. 25-52.22N 055-51.20E.\n 62",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nU.A.E.\nDNC 10.\n1. UNDERWATER OPERATIONS IN PROGRESS UNTIL\n   FURTHER NOTICE IN 25-36.90N 054-25.50E.\n   ONE MILE BERTH REQUESTED.\n2. CANCEL HYDROP",
+      "title_ja": "PERSIAN GULF.\nU.A.E.\nDNC 10.\n1. UNDERWATER OPERATIONS IN PROGRESS UNTIL\n   FURTHER NOTICE IN 25-36.90N 054-25.50E.\n   ONE MILE BERTH REQUESTED.\n2. CANCEL HYDROP",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nBAHRAIN.\nDNC 10.\nBAHRAIN LIGHT BUOY 26-33.00N 051-03.59E UNLIT.\n 62",
+      "title_ja": "PERSIAN GULF.\nBAHRAIN.\nDNC 10.\nBAHRAIN LIGHT BUOY 26-33.00N 051-03.59E UNLIT.\n 62",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "NGA",
+      "title": "PERSIAN GULF.\nU.A.E.\nDNC 10.\nSUBMERGED OBSTRUCTION IN 25-20.90N 055-08.62E.\n 62",
+      "title_ja": "PERSIAN GULF.\nU.A.E.\nDNC 10.\nSUBMERGED OBSTRUCTION IN 25-20.90N 055-08.62E.\n 62",
+      "url": "https://msi.nga.mil/NavWarnings",
+      "published": "2026-07-14T04:47:19.008252+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "FACT FOCUS: A look at US and Iranian claims of control over the Strait of Hormuz - AP News",
+      "title_ja": "FACT FOCUS: A look at US and Iranian claims of control over the Strait of Hormuz - AP News",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPWlBxNlp0WGpNMjQ1S3NfNFJIVXB4SV9EVnFJLTItalZGTFMxekx0VVZ0bWNMRDRFdGxHVjV4eFpkeDhEZzltN2N1VnlYLUsyeTN4bEVzNUlBU3M3WE1veDNXa0NXMkxHS042cVRudVM1U01mVGt0M0lEQ2pvdTEtRjF1Q2tmbnhlWjNmaGJEVjA?oc=5",
+      "published": "2026-07-13T22:32:00+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Trump's Strait of Hormuz blockade erases the last concession to Iran in preliminary deal - ABC News - Breaking News, Latest News and Videos",
+      "title_ja": "Trump's Strait of Hormuz blockade erases the last concession to Iran in preliminary deal - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQMEVUb2cxazlVN1o3X1lJRmliczd2Y2F0alNEMXRQd1VCTjhNckdvV0FLYlVnRGN0TGRtU3pyVW5fRXlZWmk3SXVqcVFjenF5cHctdmVPNUtBZFVnWnRsS2VPalRnRklWNWlVMkl2Mm5OSHdicTNGbDhxWFZYRzVkblJWa0gtQXJmVF8yVmVtZ2pKcWlFT2l3Zmt3NXEtaUpqNDg5dk9PNU1NaVB3cV9oejJB0gG3AUFVX3lxTE1JVWFwNEZ2TXd1bG1lRjZ5ZlhlOXl1c3V6Q2dfYUhyQXpwV05WdlhQVGhtaTZDVDMxbVRrTmw5VnNQdlNzUTVlRngySVgwUWJjUi12cnhFVXRadFlkanRKNVl6Tm9TaXJVV1NESFJSbm13RWgwY1NLR1l0R1NidlBaUDA2R0xzVjJQM0FyN1dGMGZ6cTNTbWRUZk0xWENaRW8ycGd3b1dDMDR1YTZGbEc2YnVTT0JMdw?oc=5",
+      "published": "2026-07-13T22:19:52+00:00",
+      "is_incident": false,
+      "is_closure": true,
+      "sev": "S",
+      "sev_why": "閉鎖に言及した警報・報道。最優先。"
+    },
     {
       "kind": "statement",
       "source": "IRNA",
@@ -68,6 +307,66 @@
       "side": "iran",
       "sev": "C",
       "sev_why": "参考情報。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Trump’s Threat to Impose Fees in the Strait of Hormuz Contradicts His Aides - The New York Times",
+      "title_ja": "Trump’s Threat to Impose Fees in the Strait of Hormuz Contradicts His Aides - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNTE43RktkLVU2XzR2UXl5bFJqYkJzTkR3NGF1T3FBT1d2N1ktTjBPNXprWFJsZUgyMDZ1UTIyckRLaGdwNkhrU2JoNXgxcExSQTI1blU3UU1KVmd5clhIZWUwTEpJLXlJbzkxV0l5T01sd1hqNDllTDhNeWhJSTZCMGhodWl2RlRrRmZXUE9fdw?oc=5",
+      "published": "2026-07-13T20:00:40+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "The U.S. strikes Iran after Trump announces a renewed blockade and tolls in Hormuz - NPR",
+      "title_ja": "The U.S. strikes Iran after Trump announces a renewed blockade and tolls in Hormuz - NPR",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQVmlLY1ZpOG1HRzctaVYwN2hhMGt6NlpORnJLUmNGcFVKUXdtSkhxNGJaR2ltdUtQZ29VMnRFcFZ4RkNOZ1g3WkQweDZWWUlpN1M5M1V2N3NNYWpURTlwRUlVc3NjR3pnNXVSQ19XZGxZYy1yVWo3OEFpYVV4WEZxRDZMQQ?oc=5",
+      "published": "2026-07-13T16:53:40+00:00",
+      "is_incident": true,
+      "is_closure": true,
+      "sev": "S",
+      "sev_why": "閉鎖に言及した警報・報道。最優先。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Trump Insists U.S. Should 'Run' the Strait of Hormuz and Get Paid For It - Time Magazine",
+      "title_ja": "Trump Insists U.S. Should 'Run' the Strait of Hormuz and Get Paid For It - Time Magazine",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdjk1OEVEdlZCbFk0V3JqZmQzd2d3TDRzYTQ4S3FTY1F6OVRMTGxqaUxXUC05OHpFTzFGQ2Y2VXZLSlo3dzd5VV9fRVhiZHBPSm5EOUd1ZFFaRkF6c0w1RVJPdWsyRlowcFJhOUJCcVViM215dWhXOTJfbWNOZHNMV29qTm4xbkM3aU1fb1gzNFNlZWN0eHlXZlNZcw?oc=5",
+      "published": "2026-07-13T16:47:56+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "U.S. says more than 8 million barrels of oil transited Hormuz Sunday with military assistance - CNBC",
+      "title_ja": "U.S. says more than 8 million barrels of oil transited Hormuz Sunday with military assistance - CNBC",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOWUNSb1RSamY1T2g4UHJzNTZyLWsyaDVCOGJNMWtCdjUwWjJ6RlE5M0xZUTJFcGhyTzZqckVDSGpVbXYzdnBRNXQ3OU41ME1lbF9GbkN5c2xlOS1XeS1sSUJVQUJTZENCazh5Zm9vYVhoYVF4OG1kOXBXUXItYmFSMC10bEVPMUJvTTRPeS04bnczcnp2UWZnbjVwWlNCRWY2OWxNc1JR0gGrAUFVX3lxTE9jM0VtamxvNUJmNl9SUjc4VFMzUG9kOFFOaGlfQWhwVmVyVU5mTExFcnhGbFlkS1FQY21aRnJWUFVZOGducVhJRHczdmRjVzJVUDZvOXhsWFBWck81Rk52UU1IWktFMHZZRm9DV0NyNi0zdXI2UklTQzA4WFYyM2tqc1ljLU9BSnAzb1htYzNyTnVzWDUyZW1JdHI3d3hpUlBMeXdQUmgxNzB0VQ?oc=5",
+      "published": "2026-07-13T16:29:33+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Iran attacks on tankers in Strait of Hormuz kill and injure crewmembers, UAE says - PBS",
+      "title_ja": "Iran attacks on tankers in Strait of Hormuz kill and injure crewmembers, UAE says - PBS",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQYUpEQjRaMUpCT0JkVUllY3BuSVgtcElFei1nUHQ1Y1hhQkQ1cGF0YWJZbWVaSDBtRGEzQXpwUlczMlF3bDBwMWh4OXJ5NHBucXF3cVktemh4X0ZoUWdXRTZ4RUpDWElIdklmSVFIbVozTU1sYnJyTVE3aEZaWnE4a3J1YmNOc2ExSlA5UnBuUHBoaVUwRzFtSXVqZ2FmQ0NORW5qRjhDcktuWmNmZ0tJVnlaeUl1OXFHTFhnTkZtR2ZzRFZaQ1B0TDZ5V3HSAdIBQVVfeXFMT3RDU05La0tEckwtdjc5Nk9fcjVHXzZRR2JuVlA5R0tKSjgtLVZVaW5jX1VzREJqMG9EenZaTmgzbkg4TjZ1VFdIaDQ1ZTFFd2NUZWJwazR3SDJlQkVVdXRmalNUTjhBQUdLdk5HaTZKT0RybWNPckdKZFNGUFYyNl9UUlA1UUIyQzNhUXRtS2hOQjFXZmZUUFZpLVBuT2M1Ry1VeUJfc1dOeTcxLWl6VkQ4UzJja0ZpYVJRVHJRc3lGQ2JWUmhmaE0zS3kwU0ZMWXBR?oc=5",
+      "published": "2026-07-13T14:53:52+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
     {
       "kind": "statement",
@@ -135,6 +434,30 @@
       "sev_why": "参考情報。"
     },
     {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Trump: US to become ‘the guardian’ of the Strait of Hormuz - The Hill",
+      "title_ja": "Trump: US to become ‘the guardian’ of the Strait of Hormuz - The Hill",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPc3k1TmE5RC1nQm5xNW1rTU02RkdEczd1azBaRXY4aEJkenlDNHpTcUlnbURob2ZIYVBRWlZFZmdCQm4zdDUxX2E4LVgzRUtCQXEyQXk1SUdGQUtON1hpaTdDRVJLUGNETlFNak5sRUpyejJiMkJSY2lkNGFSV3IyenVRZkhRSnNKbl95VUd3LWNJd9IBlwFBVV95cUxPX01MejhWaXFvcUpxdGFXQ3I2SWVqS2F2WjBtVmJOeVVfM2tpdjZINzlKSHhzMjNXWEV0SUFzREZaVndDSVpBNUNpTnFtTVYxRUVKNDcwQUk2Mzg4ZThjOUN1WWp2Y19sVlAxV3Z4b2VhaWFaQ05MUUdYQXo3bElnMmpCb3RGdl9GY1pVLUtQRTlsT3Z3ay1N?oc=5",
+      "published": "2026-07-13T13:19:00+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Trump proposes 20% toll on cargo through Strait of Hormuz; restarts Iran blockade - CNBC",
+      "title_ja": "Trump proposes 20% toll on cargo through Strait of Hormuz; restarts Iran blockade - CNBC",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPVnd1UFRnWVZxeVZIaVdGWWtCQXRtSXY5NC04TTVLRkh2bkh0ZGNvUERlcHVKak9QRTk5TE9heEEwRWs1NFhHSDBCR2xYQ0swRUlHWFg3UXNxTFdMZ1BsbnF6czZocmk0T1pwdXBHVEliTGJIaExSdW9rMkFMWElsSzJiLTDSAYoBQVVfeXFMUEs3MXZaRlhER0tXNFVZNHNTZHMyNGZGU28yQWZ0bnFMTWVsMnlfM3pBX0hjaUhCLXZkcVJKMVRJSklwT0t6RTNJLXJNc0p0X2hiMzBudUxiSGs1bU50ZllabTdiRlF6WHowMENmV3BiVl9lUGNmaWhCbVBSVVVGSm83b2lqeFZWS3Nn?oc=5",
+      "published": "2026-07-13T12:56:25+00:00",
+      "is_incident": false,
+      "is_closure": true,
+      "sev": "S",
+      "sev_why": "閉鎖に言及した警報・報道。最優先。"
+    },
+    {
       "kind": "statement",
       "source": "Mehr",
       "title": "Strait of Hormuz traffic slows to multi-week low: Report",
@@ -174,6 +497,18 @@
       "sev_why": "参考情報。"
     },
     {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Iran war: US claims Strait of Hormuz is 'open' amid strikes - dw.com",
+      "title_ja": "Iran war: US claims Strait of Hormuz is 'open' amid strikes - dw.com",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQNVNPY0lhcGZoRXpWWmVWclhKWGcxQWM3OG1ncGdmVkJZbEd6djExLU5nVjlMdk9abUZ5WHJZVThDaWktMi1FSW9DUU0zQ0syN2ctOUlGcU9NUjFwd2w1OWFDUDNZSHRPd1RMYVhvN2lSLVpYUDFEeXEyTnM4bVpGRXVwX1M?oc=5",
+      "published": "2026-07-12T22:04:20+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
       "kind": "statement",
       "source": "IRNA",
       "title": "Transit through Strait of Hormuz currently ‘not possible’ due to illegal US actions: PGSA",
@@ -185,8 +520,20 @@
       "side": "iran",
       "sev": "B",
       "sev_why": "発言のみ。実際の通航状況とは別。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Trump says Strait of Hormuz open to commercial traffic - Reuters",
+      "title_ja": "Trump says Strait of Hormuz open to commercial traffic - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNM04zYVJRb2pfTkwzT0lIUm8wWHpKRkc4WE9TazFxdGQ4RktValc5UXhBbmM3ZGlHaFNBZm5MVDI4a3dDMG8zX2pza3NSb2o5dS1RYVNLUzFhd0wtOFZucWdhcHMzZFgyRWRaNUJUOUJ6VXp2ZEl4NXFmeXFiRWQzZDNQbWFqRDRpVnZXNmNwWmQ0a3RMeDRkTUQ0NkZXUUhZUHc?oc=5",
+      "published": "2026-07-12T13:30:09+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
     }
   ],
-  "updated": "2026-07-14T04:35:45+00:00",
+  "updated": "2026-07-14T04:47:19+00:00",
   "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
 }
