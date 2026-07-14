@@ -245,14 +245,15 @@ function render(d){
     return `<i class="${on?'on':''}" style="${on?'background:'+LVCOL[i]:''}">${n}</i>`}).join('');
 
   const t=d.tiles, brent=t.brent?('$'+t.brent.price):'—';
+  const ships=(t.ais_visible_cargo===null||t.ais_visible_cargo===undefined)?'—':t.ais_visible_cargo;
   document.getElementById('tiles').innerHTML=`
-    <div><b>${t.advisories_7d}</b><span>航行警報 7日</span></div>
+    <div><b>${ships}</b><span>AIS上の商船</span></div>
+    <div><b>${t.advisories_7d}</b><span>警報･報道 7日</span></div>
     <div><b>${t.incidents_30d}</b><span>事案 30日</span></div>
-    <div><b>${brent}</b><span>Brent</span></div>
     <div><b>${t.feeds_alive}</b><span>情報源 稼働</span></div>`;
 
-  document.getElementById('streak').innerHTML= (lv>=3)?'' :
-    `「閉鎖」に言及した公式発言 直近90日 <b>${d.closure_talk_90d}</b>件<br>閉鎖が観測されなかった日数 <b>${d.days_no_closure}</b>日`;
+  document.getElementById('streak').innerHTML=
+    `「閉鎖」に言及した公式発言 直近90日 <b>${d.closure_talk_90d}</b>件<br>この状態が続いて <b>${d.days_since_change}</b>日`;
 
   bubble(document.getElementById('b-ir'), d.statements.iran, 'ir');
   bubble(document.getElementById('b-us'), d.statements.usa, 'us');
@@ -264,7 +265,7 @@ function render(d){
   document.getElementById('clock').textContent=jp(d.updated)+`（${ago(d.updated)}）`;
   document.getElementById('rules').href=d.rules_url;
   document.getElementById('tick').textContent=
-    `航行警報 ${t.advisories_7d}件（7日）　·　事案 ${t.incidents_30d}件（30日）　·　Brent ${brent}　·　情報源 ${t.feeds_alive} 稼働　·　閉鎖が観測されなかった日数 ${d.days_no_closure}日　·　`.repeat(2);
+    `AIS上の商船 ${ships}隻　·　警報･報道 ${t.advisories_7d}件（7日）　·　事案 ${t.incidents_30d}件（30日）　·　Brent ${brent}　·　情報源 ${t.feeds_alive}　·　`.repeat(2);
 
   // news
   const nw=document.getElementById('news');
