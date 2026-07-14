@@ -91,7 +91,19 @@ def when(e):
 
 def mk(kind, src, title, url, published, **extra):
     low = (title or "").lower()
-    d = {"kind": kind, "source": src, "title": title, "title_ja": translate(title),
+
+    # NGAの航行警報は電文形式。直訳すると壊れるので要約する。
+    # ★ 判定（is_incident / is_closure）は要約ではなく原文から取る。ここは崩さない。
+    if src == "NGA":
+        summary = summarize_ja(title)
+        ja = summary or translate(title)
+        summarized = bool(summary)
+    else:
+        ja = translate(title)
+        summarized = False
+
+    d = {"kind": kind, "source": src, "title": title, "title_ja": ja,
+         "summarized": summarized,          # 画面に「AI要約」と出すため
          "url": url or "", "published": published,
          "is_incident": any(w in low for w in INCIDENT_WORDS),
          "is_closure":  any(w in low for w in CLOSURE_WORDS)}
@@ -389,6 +401,56 @@ def _deepl(text):
         return r.json()["translations"][0]["text"]
     except Exception:
         return None
+
+
+def summarize_ja(raw: str) -> str | None:
+    """NGA の航行警報は電文形式（PERSIAN GULF. QATAR. DNC 10. ...）で、
+    直訳すると日本語として壊れる。1文の日本語に要約する。
+
+    ★ ここが唯一、LLMに「翻訳以上のこと」をさせている場所。だから縛りをかける：
+      ・判定には一切使わない（危険度は原文のルールだけで決まる）
+      ・画面に「AI要約」と明記し、原文へのリンクを必ず残す
+      ・推測・誇張・情報の追加を禁止する
+      ・失敗したら要約を出さない（嘘を作るより、出さないほうがいい）
+    """
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key or not raw:
+        return None
+
+    cached = _cache.get("SUM::" + raw)
+    if cached:
+        return cached
+
+    try:
+        r = httpx.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={"x-api-key": key.strip(), "anthropic-version": "2023-06-01",
+                     "content-type": "application/json"},
+            json={
+                "model": "claude-haiku-4-5-20251001",
+                "max_tokens": 200,
+                "system": (
+                    "航行警報（電文形式）を、日本語1文に要約します。\n"
+                    "規則：\n"
+                    "・書かれている事実だけを使う。推測・補足・誇張を一切加えない。\n"
+                    "・「どこで」「何が」を必ず入れる。座標・図番号(DNC)・番号は省く。\n"
+                    "・危険度を評価しない。警告や呼びかけを足さない。\n"
+                    "・60字以内。要約文だけを返す。前置きも引用符も不要。\n"
+                    "例) 入力: PERSIAN GULF. QATAR. DNC 10. SURVEY OPERATIONS 08 MAY UNTIL "
+                    "FURTHER NOTICE BY M/V HORIZON GEOBAY IN AREA BOUND BY 26-09.23N...\n"
+                    "出力: ペルシャ湾カタール沖で、5月8日から当面のあいだ測量船による調査が行われています。"
+                ),
+                "messages": [{"role": "user", "content": raw[:1500]}],
+            },
+            timeout=30)
+        r.raise_for_status()
+        out = r.json()["content"][0]["text"].strip()
+        if out:
+            _cache["SUM::" + raw] = out
+            return out
+    except Exception as e:
+        print(f"  [warn] 要約: {type(e).__name__}: {str(e)[:60]}")
+    return None
 
 
 def _claude(text):
