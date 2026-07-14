@@ -38,6 +38,15 @@ jobs:
           git config user.name  "hormuz-bot"
           git config user.email "bot@users.noreply.github.com"
           git add docs/status.json docs/history.json docs/translations.json
-          # 中身が変わっていなければコミットしない
-          git diff --staged --quiet || git commit -m "status: $(date -u +%FT%TZ)"
-          git push
+          git diff --staged --quiet && echo "変更なし" && exit 0
+          git commit -m "status: $(date -u +%FT%TZ)"
+
+          # 実行中に人間が別のコミットをしていても衝突しない。
+          # 生成物（status.json 等）はこちらが正なので、rebase して押し込む。
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin main && git push origin main && exit 0
+            echo "push 失敗。${i}回目のリトライ..."
+            sleep 5
+          done
+          echo "push できませんでした"
+          exit 1
