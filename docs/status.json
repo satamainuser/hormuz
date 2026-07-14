@@ -2,22 +2,24 @@
   "level": 4,
   "label": "閉 鎖",
   "en": "C L O S E D",
-  "sub": "海峡に商船を確認できません。UKMTO / MARAD を確認してください",
-  "reason": "当局が閉鎖を宣言。海峡内に商船を確認できません。",
-  "evidence": "aisstream.io を180秒購読し、海峡内で位置情報を発信していた商船（AIS船種70-89）をMMSIでユニーク集計",
+  "sub": "AISを発信している船はゼロ。ただし船はAISを切れます",
+  "reason": "当局が閉鎖を宣言。AISを発信している商船はゼロですが、これは「船がいない」ことを意味しません（AISは切れます）。",
+  "evidence": "aisstream.io を180秒購読し、海峡内でAISを発信していた商船（船種70-89）をMMSIでユニーク集計。AISを切っている船は数えられない。 AISは船が自分で発信するもので、強制ではありません。紛争下では攻撃を避けるためにAISを切る船が多く、この数字は「海峡にいる船の数」ではなく「AISを発信している船の数」です。",
   "ais": {
-    "vessels_now": 0,
+    "ais_visible_cargo": 0,
+    "ais_visible_any": 0,
     "unclassified": 0,
     "window_sec": 180,
-    "method": "aisstream.io を180秒購読し、海峡内で位置情報を発信していた商船（AIS船種70-89）をMMSIでユニーク集計"
+    "method": "aisstream.io を180秒購読し、海峡内でAISを発信していた商船（船種70-89）をMMSIでユニーク集計。AISを切っている船は数えられない。",
+    "caveat": "AISは船が自分で発信するもので、強制ではありません。紛争下では攻撃を避けるためにAISを切る船が多く、この数字は「海峡にいる船の数」ではなく「AISを発信している船の数」です。"
   },
   "tiles": {
-    "vessels_now": 0,
+    "ais_visible_cargo": 0,
     "advisories_7d": 0,
     "incidents_30d": 0,
     "brent": {
-      "price": 84.79,
-      "change_pct": 1.79
+      "price": 84.59,
+      "change_pct": 1.55
     },
     "feeds_alive": "1/4"
   },
@@ -185,6 +187,6 @@
       "sev_why": "発言のみ。実際の通航状況とは別。"
     }
   ],
-  "updated": "2026-07-14T04:21:45+00:00",
+  "updated": "2026-07-14T04:34:52+00:00",
   "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
 }
