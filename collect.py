@@ -339,6 +339,12 @@ try:
 except Exception:
     _cache = {}
 
+# 起動時に、翻訳キーが読めているかを必ず表示する。無言の失敗を許さない。
+_HAS_DEEPL  = bool(os.environ.get("DEEPL_KEY"))
+_HAS_CLAUDE = bool(os.environ.get("ANTHROPIC_API_KEY"))
+print(f"[翻訳] DeepL={'あり' if _HAS_DEEPL else 'なし'} / Claude={'あり' if _HAS_CLAUDE else 'なし'} / キャッシュ={len(_cache)}件")
+_stats = {"cache": 0, "deepl": 0, "claude": 0, "failed": 0}
+
 
 def translate(text):
     """★ 失敗した結果をキャッシュしない。
@@ -351,14 +357,23 @@ def translate(text):
 
     hit = _cache.get(text)
     if hit and hit != text:          # 原文と同じものはキャッシュとして信用しない
+        _stats["cache"] += 1
         return hit
 
-    ja = _deepl(text) or _claude(text)
-    if not ja or ja == text:
-        return text                  # 訳せなければ原文のまま出す。ただし記録はしない。
+    ja = _deepl(text)
+    if ja and ja != text:
+        _stats["deepl"] += 1
+        _cache[text] = ja
+        return ja
 
-    _cache[text] = ja
-    return ja
+    ja = _claude(text)
+    if ja and ja != text:
+        _stats["claude"] += 1
+        _cache[text] = ja
+        return ja
+
+    _stats["failed"] += 1
+    return text                      # 訳せなければ原文のまま。ただし記録はしない。
 
 
 def _deepl(text):
@@ -391,7 +406,8 @@ def _claude(text):
                        timeout=30)
         r.raise_for_status()
         return r.json()["content"][0]["text"].strip()
-    except Exception:
+    except Exception as e:
+        print(f"  [warn] Claude翻訳: {type(e).__name__}: {str(e)[:80]}")
         return None
 
 
@@ -545,6 +561,8 @@ def main():
     except Exception:
         pass
 
+    print(f"\n[翻訳結果] DeepL={_stats['deepl']}件 Claude={_stats['claude']}件 "
+          f"キャッシュ={_stats['cache']}件 失敗={_stats['failed']}件")
     print(f"\nLV{level} {label} — {reason}")
     print(f"feeds={alive}/4  adv7={len(adv7)}  inc30={len(inc30)}  closures={len(closures)}")
 
