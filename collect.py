@@ -179,9 +179,35 @@ STATEMENT_FEEDS = {
 }
 
 
+# 米側の発言は公式RSSに載らないことが多い（Truth Social は機械取得できない）。
+# 報道からも拾う。ただし「報道による発言」であることをソース名に明記する。
+SPEAKER_NEWS = [
+  "https://news.google.com/rss/search?q=Trump+OR+%22White+House%22+OR+Pentagon+Hormuz+when:30d&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=Iran+OR+IRGC+OR+Araghchi+Hormuz+statement+when:30d&hl=en-US&gl=US&ceid=US:en",
+]
+US_WORDS   = ("trump", "white house", "pentagon", "centcom", "u.s.", "us ", "american", "washington")
+IRAN_WORDS = ("iran", "irgc", "tehran", "araghchi", "khamenei", "pezeshkian", "revolutionary guard")
+
+
+def side_of(title):
+    low = title.lower()
+    us  = any(w in low for w in US_WORDS)
+    ira = any(w in low for w in IRAN_WORDS)
+    if us and not ira:
+        return "usa"
+    if ira and not us:
+        return "iran"
+    # 両方出てくる場合は、先に出てきたほうを話者とみなす
+    iu = min([low.find(w) for w in US_WORDS if w in low] or [9999])
+    ii = min([low.find(w) for w in IRAN_WORDS if w in low] or [9999])
+    return "usa" if iu < ii else ("iran" if ii < 9999 else None)
+
+
 def statements(days=45):
     out = []
     since = NOW - dt.timedelta(days=days)
+
+    # ① 公式フィード（一次情報）
     for side, feeds in STATEMENT_FEEDS.items():
         for name, url in feeds:
             for e in entries(url):
@@ -193,7 +219,25 @@ def statements(days=45):
                 if not t or t < since:
                     continue
                 out.append(mk("statement", name, title, e.get("link"),
-                              t.isoformat(), side=side))
+                              t.isoformat(), side=side, primary=True))
+
+    # ② 報道（二次情報）。一次情報が無い側を埋める
+    seen = {x["title"] for x in out}
+    for url in SPEAKER_NEWS:
+        for e in entries(url):
+            title = clean(e.get("title"))
+            if not title or title in seen or "hormuz" not in title.lower():
+                continue
+            t = when(e)
+            if not t or t < since:
+                continue
+            sd = side_of(title)
+            if not sd:
+                continue
+            seen.add(title)
+            out.append(mk("statement", "報道", title, e.get("link"),
+                          t.isoformat(), side=sd, primary=False))
+
     return sorted(out, key=lambda x: x["published"], reverse=True)
 
 
@@ -459,6 +503,7 @@ def main():
 
     status = {
         "level": level,
+        "level_display": (None if level == 9 else level + 1),   # 平常=1 … 閉鎖=5
         "label": label,
         "en": {0: "O P E N", 1: "O P E N", 2: "C A U T I O N", 3: "D I S R U P T E D",
                4: "C L O S E D", 9: "N O   D A T A"}[level],
