@@ -1,40 +1,25 @@
 """
-ホルムズ海峡ステータス — 収集スクリプト v2
+ホルムズ海峡ステータス — collect.py（最終版）
 
-【v1 の失敗】
-  UKMTO / MARAD の RSS は存在しなかった（RSS を出していない）。
-  NGA は RSS ではなく JSON API。
-  → 3つとも空振りし、feeds_alive 0/3 → 全部「確認中」になっていた。
-  ただし「取れないなら営業中と言わない」という設計のおかげで、
-  嘘は一度もつかなかった。そこは壊さずに直す。
+設計方針：どこか1つでも死んでいて動く。全部死んだら「確認中」と言う。それだけ。
 
-【v2 の構成】
-  NGA      : JSON API（公式・安定）
-  UKMTO    : サイトHTMLから抽出（RSSが無いため）
-  MARAD    : サイトHTMLから抽出
-  公式発言 : IRNA / PressTV / WhiteHouse / State（RSS。IRNAは v1 でも動いていた）
-  Brent    : Yahoo Finance
-  AIS      : aisstream.io（無料）で「いま海峡にいる商船」をスナップショット計測
+  ・すべての情報源は「取れたら使う、取れなければ黙って捨てる」
+  ・どの情報源も、失敗してもスクリプトは止まらない
+  ・情報源がゼロなら level=9「確認中」。「営業中」とは絶対に言わない
+  ・AISの数字は「AISを発信している船の数」であって「海峡にいる船の数」ではない
+    （紛争下では船はAISを切る。0隻＝船がいない、ではない）
 
-【いまの現実に合わせた設計】
-  2026年7月現在、海峡は当局により閉鎖が宣言されている。だが船はゼロではない。
-  だからこのアプリが出すべきは：
+【v2 までの失敗と、その対処】
+  UKMTO / MARAD  … CDNが GitHub のIPを 403 で弾く → 直接取得は諦め、報道で代替
+  NGA            … RSS ではなく JSON API。複数の呼び方を順に試す
+  AIS            … 無言で失敗していた → サーバーの返事をログに出す
 
-      閉 鎖
-      それでも34隻が通っています
-
-  「閉鎖」は当局の宣言。「34隻」は現実。両方を並べる。
-  どちらか一方だけを出すのは、どちらの側の宣伝にもなってしまう。
-  ★ 通航数は必ず実測。推定・引用・手入力は禁止。取れなければ「計測できていません」。
-
-env (GitHub Secrets):
-  AISSTREAM_KEY      … https://aisstream.io で無料取得。無ければ通航数は出ない
-  DEEPL_KEY          … 任意。無ければ翻訳せず原文のまま
-  ANTHROPIC_API_KEY  … 任意（DeepLの予備）
+env（すべて任意。無くても動く）:
+  AISSTREAM_KEY / DEEPL_KEY / ANTHROPIC_API_KEY
 """
 
 from __future__ import annotations
-import os, re, json, html, asyncio, datetime as dt
+import os, re, json, html, asyncio, traceback, datetime as dt
 from pathlib import Path
 
 import httpx, feedparser
@@ -45,126 +30,156 @@ DOCS = Path(__file__).parent / "docs"
 CACHE = DOCS / "translations.json"
 HISTORY = DOCS / "history.json"
 
-# 政府サイトは素のUAを弾く（403）。ブラウザ相当のヘッダで取りに行く。
 UA = {
     "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                    "(KHTML, like Gecko) Chrome/125.0 Safari/537.36"),
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept": "*/*",
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-AREA_WORDS     = ("hormuz", "persian gulf", "arabian gulf", "gulf of oman", "bandar abbas", "strait")
+AREA_WORDS     = ("hormuz", "persian gulf", "arabian gulf", "gulf of oman", "bandar abbas")
 INCIDENT_WORDS = ("attack", "attacked", "seiz", "board", "hijack", "explos", "drone",
-                  "missile", "struck", "mine", "fire")
-CLOSURE_WORDS  = ("clos", "shut", "block", "blockad", "not possible", "suspend", "halt",
-                  "no ship", "prohibit")
+                  "missile", "struck", "strike", "mine", "fire", "damag")
+CLOSURE_WORDS  = ("clos", "shut", "block", "blockad", "not possible", "suspend",
+                  "halt", "no ship", "prohibit", "ban ")
 
 
 # ══════════════════════════════════════════════════════════
-# 1. 航行警報
+# 安全装置：どの収集も、失敗してスクリプトを止めない
 # ══════════════════════════════════════════════════════════
+def safe(name, fn, default):
+    try:
+        out = fn()
+        print(f"  {name}: {len(out) if hasattr(out, '__len__') else out}")
+        return out
+    except Exception as e:
+        print(f"  [warn] {name} 失敗: {type(e).__name__}: {e}")
+        return default
+
+
 def get(url, **kw):
     try:
         r = httpx.get(url, headers=UA, timeout=25, follow_redirects=True, **kw)
         r.raise_for_status()
         return r
     except Exception as e:
-        print(f"  [warn] {url} -> {e}")
+        print(f"  [warn] GET {url[:70]} -> {type(e).__name__}")
         return None
 
 
-def nga_warnings(days=30) -> list[dict]:
-    """NGA MSI の JSON API。NAVAREA IX = インド洋・ペルシャ湾。
-    ここが一番機械可読で安定している。"""
-    out = []
-    r = get("https://msi.nga.mil/api/publications/broadcast-warn",
-            params={"navArea": "IX", "status": "active", "output": "json"})
-    if not r:
-        return out
+def entries(url):
     try:
-        items = r.json().get("broadcast-warn", [])
-    except Exception as e:
-        print(f"  [warn] nga json: {e}")
-        return out
-
-    for w in items:
-        text = (w.get("text") or "") + " " + (w.get("subregion") or "")
-        if not any(k in text.lower() for k in AREA_WORDS):
-            continue
-        when = w.get("issueDate") or w.get("navAreaIssueDate")
-        try:
-            t = dt.datetime.strptime(when[:10], "%Y-%m-%d").replace(tzinfo=UTC)
-        except Exception:
-            t = NOW
-        if t < NOW - dt.timedelta(days=days):
-            continue
-        title = clean(text)[:180]
-        out.append(mk("advisory", "NGA", title,
-                      f"https://msi.nga.mil/NavWarnings", t.isoformat()))
-    return out
-
-
-def scrape_titles(url, src, days=30) -> list[dict]:
-    """UKMTO / MARAD は RSS が無いので、HTMLから見出しを拾う。
-    構造が変わったら空を返すだけ（= feeds_alive が下がり、自動で確認中に落ちる）。"""
-    r = get(url)
-    if not r:
+        f = feedparser.parse(url, agent=UA["User-Agent"])
+        return f.entries or []
+    except Exception:
         return []
-    # <a> のテキストのうち、警報らしいものだけ
-    cands = re.findall(r"<a[^>]+href=\"([^\"]+)\"[^>]*>(.*?)</a>", r.text, re.S | re.I)
-    out, seen = [], set()
-    for href, raw in cands:
-        title = clean(raw)
-        if len(title) < 12 or title in seen:
-            continue
-        low = title.lower()
-        if not any(k in low for k in AREA_WORDS):
-            continue
-        if not any(k in low for k in ("advisory", "warning", "incident", "alert",
-                                      "attack", "update", "hormuz")):
-            continue
-        seen.add(title)
-        link = href if href.startswith("http") else url.rstrip("/") + "/" + href.lstrip("/")
-        out.append(mk("advisory", src, title, link, NOW.isoformat()))
-    return out[:15]
 
 
-def try_all(src, urls):
-    """複数URLを順に試し、最初に取れたものを使う。全滅なら空 → feeds_alive が下がる。"""
-    for u in urls:
-        got = scrape_titles(u, src)
-        if got:
-            return got
-    return []
+def clean(s):
+    return html.unescape(re.sub(r"<[^>]+>", " ", s or "")).strip()
+
+
+def when(e):
+    for k in ("published_parsed", "updated_parsed"):
+        if e.get(k):
+            try:
+                return dt.datetime(*e[k][:6], tzinfo=UTC)
+            except Exception:
+                pass
+    return None
 
 
 def mk(kind, src, title, url, published, **extra):
-    low = title.lower()
-    d = {
-        "kind": kind, "source": src,
-        "title": title, "title_ja": translate(title),
-        "url": url, "published": published,
-        "is_incident": any(w in low for w in INCIDENT_WORDS),
-        "is_closure":  any(w in low for w in CLOSURE_WORDS),
-    }
+    low = (title or "").lower()
+    d = {"kind": kind, "source": src, "title": title, "title_ja": translate(title),
+         "url": url or "", "published": published,
+         "is_incident": any(w in low for w in INCIDENT_WORDS),
+         "is_closure":  any(w in low for w in CLOSURE_WORDS)}
     d.update(extra)
     return d
 
 
+def within(item, days):
+    try:
+        return dt.datetime.fromisoformat(item["published"]) > NOW - dt.timedelta(days=days)
+    except Exception:
+        return True
+
+
 # ══════════════════════════════════════════════════════════
-# 2. 公式発言（創作しない。見出しをそのまま + 機械翻訳）
+# 情報源 1：NGA（一次情報・公式）
+# ══════════════════════════════════════════════════════════
+def nga(days=45):
+    out = []
+    for params in (
+        {"navArea": "IX", "status": "active", "output": "json"},
+        {"status": "active", "output": "json"},
+    ):
+        r = get("https://msi.nga.mil/api/publications/broadcast-warn", params=params)
+        if not r:
+            continue
+        try:
+            items = r.json().get("broadcast-warn", [])
+        except Exception:
+            continue
+        for w in items:
+            text = f"{w.get('text','')} {w.get('subregion','')}"
+            if not any(k in text.lower() for k in AREA_WORDS):
+                continue
+            raw = (w.get("issueDate") or "")[:10]
+            try:
+                t = dt.datetime.strptime(raw, "%Y-%m-%d").replace(tzinfo=UTC)
+            except Exception:
+                t = NOW
+            if t < NOW - dt.timedelta(days=days):
+                continue
+            out.append(mk("advisory", "NGA", clean(text)[:160],
+                          "https://msi.nga.mil/NavWarnings", t.isoformat()))
+        if out:
+            break
+    return out
+
+
+# ══════════════════════════════════════════════════════════
+# 情報源 2：報道（二次情報。ソース名に「報道」と明記する）
+#   UKMTO / MARAD は CDN が弾くので直接取れない。
+#   「当局が何を出したか」を報じる記事で代替する。一次情報のふりはしない。
+# ══════════════════════════════════════════════════════════
+NEWS = [
+    "https://news.google.com/rss/search?q=%22Strait+of+Hormuz%22+when:7d&hl=en-US&gl=US&ceid=US:en",
+    "https://news.google.com/rss/search?q=Hormuz+shipping+OR+UKMTO+OR+MARAD+when:14d&hl=en-US&gl=US&ceid=US:en",
+]
+
+
+def news(days=14):
+    out, seen = [], set()
+    since = NOW - dt.timedelta(days=days)
+    for url in NEWS:
+        for e in entries(url):
+            title = clean(e.get("title"))
+            if not title or title in seen or "hormuz" not in title.lower():
+                continue
+            t = when(e) or NOW
+            if t < since:
+                continue
+            seen.add(title)
+            out.append(mk("advisory", "報道", title, e.get("link"), t.isoformat()))
+    return out[:25]
+
+
+# ══════════════════════════════════════════════════════════
+# 情報源 3：公式発言（吹き出し。創作しない）
 # ══════════════════════════════════════════════════════════
 STATEMENT_FEEDS = {
     "iran": [("IRNA", "https://en.irna.ir/rss"),
              ("Press TV", "https://www.presstv.ir/rss.xml"),
              ("Mehr", "https://en.mehrnews.com/rss")],
     "usa":  [("White House", "https://www.whitehouse.gov/news/feed/"),
-             ("State Dept", "https://www.state.gov/rss-feed/press-releases/feed/"),
-             ("CENTCOM", "https://www.centcom.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=95")],
+             ("State Dept", "https://www.state.gov/rss-feed/press-releases/feed/")],
 }
 
 
-def statements(days=45) -> list[dict]:
+def statements(days=45):
     out = []
     since = NOW - dt.timedelta(days=days)
     for side, feeds in STATEMENT_FEEDS.items():
@@ -183,20 +198,17 @@ def statements(days=45) -> list[dict]:
 
 
 # ══════════════════════════════════════════════════════════
-# 3. AIS —「いま海峡にいる商船」を実測する
-#    ★ この数字だけは絶対に捏造しない。取れなければ null。
+# 情報源 4：AIS
+#   ★ これは「海峡にいる船の数」ではない。「AISを発信している船の数」である。
+#     紛争下では船はAISを切る。0隻は「船がいない」ことを意味しない。
 # ══════════════════════════════════════════════════════════
-BBOX = [[25.6, 55.7], [27.1, 57.3]]     # ホルムズ海峡
-CARGO_TYPES = set(range(70, 90))         # 70-79 貨物 / 80-89 タンカー
+CARGO_TYPES = set(range(70, 90))
 
 
-async def ais_snapshot(seconds=180) -> dict | None:
-    """指定秒だけ AIS を購読し、海峡内にいた商船をユニークに数える。
-    「24時間の通航数」ではなく「いま海峡にいる商船数」。
-    ラベルもそう表示する。実測できるものだけを、実測した通りに出す。"""
+async def _ais(seconds):
     key = os.environ.get("AISSTREAM_KEY")
     if not key:
-        print("  [info] AISSTREAM_KEY なし → 通航数は出さない")
+        print("  [info] AISSTREAM_KEY なし → AISは使わない")
         return None
     try:
         import websockets
@@ -204,56 +216,64 @@ async def ais_snapshot(seconds=180) -> dict | None:
         print("  [warn] websockets 未インストール")
         return None
 
-    seen: dict[int, dict] = {}
-    static: dict[int, int] = {}
-    sub = {"APIKey": key, "BoundingBoxes": [BBOX],
-           "FilterMessageTypes": ["PositionReport", "ShipStaticData"]}
-    try:
-        async with websockets.connect("wss://stream.aisstream.io/v0/stream",
-                                      open_timeout=20) as ws:
-            await ws.send(json.dumps(sub))
-            end = NOW + dt.timedelta(seconds=seconds)
-            while dt.datetime.now(UTC) < end:
-                try:
-                    raw = await asyncio.wait_for(ws.recv(), timeout=20)
-                except asyncio.TimeoutError:
-                    break
+    sub = {
+        "APIKey": key.strip(),
+        "BoundingBoxes": [[[25.4, 55.4], [27.3, 57.6]]],   # [[SW],[NE]]
+        "FilterMessageTypes": ["PositionReport", "ShipStaticData"],
+    }
+    seen, static, msgs = {}, {}, 0
+
+    async with websockets.connect("wss://stream.aisstream.io/v0/stream",
+                                  open_timeout=30, ping_interval=20) as ws:
+        await ws.send(json.dumps(sub))
+        end = dt.datetime.now(UTC) + dt.timedelta(seconds=seconds)
+        while dt.datetime.now(UTC) < end:
+            try:
+                raw = await asyncio.wait_for(ws.recv(), timeout=60)
+            except asyncio.TimeoutError:
+                print("  [warn] AIS: 60秒受信なし")
+                break
+            try:
                 m = json.loads(raw)
-                mmsi = m.get("MetaData", {}).get("MMSI")
-                if not mmsi:
-                    continue
-                if m["MessageType"] == "ShipStaticData":
-                    static[mmsi] = m["Message"]["ShipStaticData"].get("Type", 0)
-                elif m["MessageType"] == "PositionReport":
-                    seen[mmsi] = m["Message"]["PositionReport"]
-    except Exception as e:
-        print(f"  [warn] ais: {e}")
-        return None
+            except Exception:
+                print(f"  [warn] AIS 生の返答: {str(raw)[:160]}")
+                return None
+            if "MessageType" not in m:
+                # サーバーからのエラー（キー不正など）はここに来る。黙って捨てない。
+                print(f"  [warn] AISサーバーの返答: {str(m)[:160]}")
+                return None
+            msgs += 1
+            mmsi = m.get("MetaData", {}).get("MMSI")
+            if not mmsi:
+                continue
+            if m["MessageType"] == "ShipStaticData":
+                static[mmsi] = m["Message"]["ShipStaticData"].get("Type", 0)
+            else:
+                seen[mmsi] = 1
 
     cargo = [m for m in seen if static.get(m, 0) in CARGO_TYPES]
-    unknown = [m for m in seen if m not in static]
-    total = len(seen)   # 商船かどうかに関わらず、AISを出していた全船
-
+    print(f"  [info] AIS messages={msgs} 全船={len(seen)} 商船={len(cargo)}")
     return {
-        # ★ これは「海峡にいる船の数」ではない。「AISを発信している商船の数」である。
-        #    戦争下では船はAISを切る。0隻は「船がいない」ことを意味しない。
-        #    この区別を消したら、このアプリは嘘つきになる。
         "ais_visible_cargo": len(cargo),
-        "ais_visible_any": total,
-        "unclassified": len(unknown),
+        "ais_visible_any": len(seen),
         "window_sec": seconds,
-        "method": (f"aisstream.io を{seconds}秒購読し、海峡内でAISを発信していた商船"
-                   f"（船種70-89）をMMSIでユニーク集計。"
-                   f"AISを切っている船は数えられない。"),
-        "caveat": ("AISは船が自分で発信するもので、強制ではありません。"
-                   "紛争下では攻撃を避けるためにAISを切る船が多く、"
-                   "この数字は「海峡にいる船の数」ではなく"
+        "method": f"aisstream.io を{seconds}秒購読し、海峡内でAISを発信していた商船（船種70-89）をMMSIでユニーク集計。",
+        "caveat": ("AISは船が自分で発信するもので、義務ではありません。紛争下では攻撃を避けるため"
+                   "AISを切る船が多く、この数字は「海峡にいる船の数」ではなく"
                    "「AISを発信している船の数」です。"),
     }
 
 
+def ais_snapshot(seconds=150):
+    try:
+        return asyncio.run(_ais(seconds))
+    except Exception as e:
+        print(f"  [warn] AIS 失敗: {type(e).__name__}: {e}")
+        return None
+
+
 # ══════════════════════════════════════════════════════════
-# 4. Brent
+# Brent
 # ══════════════════════════════════════════════════════════
 def brent():
     r = get("https://query1.finance.yahoo.com/v8/finance/chart/BZ=F")
@@ -263,68 +283,20 @@ def brent():
         m = r.json()["chart"]["result"][0]["meta"]
         return {"price": round(m["regularMarketPrice"], 2),
                 "change_pct": round((m["regularMarketPrice"] / m["chartPreviousClose"] - 1) * 100, 2)}
-    except Exception as e:
-        print(f"  [warn] brent parse: {e}")
+    except Exception:
         return None
 
 
 # ══════════════════════════════════════════════════════════
-# 5. 判定（ルールベース。LLMは使わない）
-#
-#   ★ 今回の肝：「閉鎖」と「通っている船」は両立する。
-#     当局が閉鎖を宣言していても、船がゼロとは限らない。
-#     宣言は宣言、実測は実測。両方を並べて出す。
+# 翻訳（失敗したら原文のまま。勝手な意訳より安全）
 # ══════════════════════════════════════════════════════════
-def decide(alive, closures, incidents30, advisories7, ais):
-    if alive < 1:
-        return 9, "確認中", "情報源を取得できていません。「開いている」とは断定できません。"
-
-    n = ais["ais_visible_cargo"] if ais else None
-
-    if closures:
-        if n:
-            # 宣言と実測が食い違っている。両方を出す。
-            return 4, "閉 鎖", f"当局が閉鎖を宣言。ただしAIS上、商船{n}隻が海峡内にいます。"
-        if n == 0:
-            # ★ ここが一番慎重を要する。
-            #   AIS 0隻を「船がいない」と読むのは誤り。船はAISを切る。
-            return 4, "閉 鎖", ("当局が閉鎖を宣言。AISを発信している商船はゼロですが、"
-                               "これは「船がいない」ことを意味しません（AISは切れます）。")
-        return 4, "閉 鎖", "当局が閉鎖を宣言しています。AISは未接続です。"
-
-    if incidents30 >= 3:
-        return 3, "一部営業", f"過去30日に{incidents30}件の事案。閉鎖の宣言はありません。"
-    if incidents30 >= 1:
-        return 2, "警 戒", f"過去30日に{incidents30}件の事案。閉鎖の宣言はありません。"
-    if advisories7 >= 1:
-        return 1, "営業中", f"過去7日に{advisories7}件の航行警報。閉鎖の宣言はありません。"
-    return 0, "営業中", "閉鎖の宣言はありません。航行警報・事案ともにゼロ。"
+try:
+    _cache = json.loads(CACHE.read_text())
+except Exception:
+    _cache = {}
 
 
-def subtitle(level, ais):
-    n = ais["ais_visible_cargo"] if ais else None
-    if level == 9:
-        return "「開いている」とは断定できません"
-    if level == 4:
-        if n:
-            return f"それでも{n}隻がAIS上を進んでいます"   # 宣言と現実を並べる
-        if n == 0:
-            return "AISを発信している船はゼロ。ただし船はAISを切れます"
-        return "AIS未接続。通航は計測できていません"
-    if n:
-        return f"AIS上、いま海峡に商船{n}隻"
-    if n == 0:
-        return "AISを発信している商船はゼロです"
-    return "通航は計測していません（AIS未接続）"
-
-
-# ══════════════════════════════════════════════════════════
-# 翻訳
-# ══════════════════════════════════════════════════════════
-_cache: dict[str, str] = json.loads(CACHE.read_text()) if CACHE.exists() else {}
-
-
-def translate(text: str) -> str:
+def translate(text):
     text = (text or "").strip()
     if not text:
         return ""
@@ -339,14 +311,14 @@ def _deepl(text):
     key = os.environ.get("DEEPL_KEY")
     if not key:
         return None
-    host = "api-free" if key.endswith(":fx") else "api"
+    host = "api-free" if key.strip().endswith(":fx") else "api"
     try:
         r = httpx.post(f"https://{host}.deepl.com/v2/translate",
-                       data={"auth_key": key, "text": text, "target_lang": "JA"}, timeout=20)
+                       data={"auth_key": key.strip(), "text": text, "target_lang": "JA"},
+                       timeout=20)
         r.raise_for_status()
         return r.json()["translations"][0]["text"]
-    except Exception as e:
-        print(f"  [warn] deepl: {e}")
+    except Exception:
         return None
 
 
@@ -356,7 +328,7 @@ def _claude(text):
         return None
     try:
         r = httpx.post("https://api.anthropic.com/v1/messages",
-                       headers={"x-api-key": key, "anthropic-version": "2023-06-01",
+                       headers={"x-api-key": key.strip(), "anthropic-version": "2023-06-01",
                                 "content-type": "application/json"},
                        json={"model": "claude-haiku-4-5-20251001", "max_tokens": 300,
                              "system": ("ニュース見出しを日本語に訳す。訳文だけを返す。"
@@ -365,94 +337,112 @@ def _claude(text):
                        timeout=30)
         r.raise_for_status()
         return r.json()["content"][0]["text"].strip()
-    except Exception as e:
-        print(f"  [warn] claude: {e}")
+    except Exception:
         return None
 
 
 # ══════════════════════════════════════════════════════════
-def entries(url):
-    try:
-        f = feedparser.parse(url, agent=UA["User-Agent"])
-        return f.entries or []
-    except Exception as e:
-        print(f"  [warn] feed {url}: {e}")
-        return []
+# 判定（ルールベース。LLMは使わない）
+#
+#   ★ 「閉鎖の宣言」と「実際に船が通っているか」は別の話。
+#     当局が閉鎖と言っていても、船はゼロとは限らない。
+#     宣言は宣言、実測は実測。両方を並べて出す。
+#     片方だけ出したら、どちらかの側の宣伝になる。
+# ══════════════════════════════════════════════════════════
+def decide(alive, closures, inc30, adv7, ais):
+    if alive < 1:
+        return 9, "確認中", "情報源を取得できていません。「開いている」とは断定できません。"
+
+    n = ais["ais_visible_cargo"] if ais else None
+
+    if closures:
+        if n:
+            return 4, "閉 鎖", f"当局が閉鎖を宣言。ただしAIS上、商船{n}隻が海峡内にいます。"
+        if n == 0:
+            return 4, "閉 鎖", ("当局が閉鎖を宣言。AISを発信している商船はゼロですが、"
+                               "これは「船がいない」ことを意味しません（AISは切れます）。")
+        return 4, "閉 鎖", "当局が閉鎖を宣言しています。通航は計測できていません。"
+
+    if inc30 >= 3:
+        return 3, "一部営業", f"過去30日に{inc30}件の事案。閉鎖の宣言はありません。"
+    if inc30 >= 1:
+        return 2, "警 戒", f"過去30日に{inc30}件の事案。閉鎖の宣言はありません。"
+    if adv7 >= 1:
+        return 1, "営業中", f"過去7日に{adv7}件の警報・報道。閉鎖の宣言はありません。"
+    return 0, "営業中", "閉鎖の宣言はありません。警報・事案ともにゼロ。"
 
 
-def when(e):
-    for k in ("published_parsed", "updated_parsed"):
-        if e.get(k):
-            return dt.datetime(*e[k][:6], tzinfo=UTC)
-    return None
-
-
-def clean(s):
-    return html.unescape(re.sub(r"<[^>]+>", " ", s or "")).strip()
-
-
-def within(item, days):
-    try:
-        return dt.datetime.fromisoformat(item["published"]) > NOW - dt.timedelta(days=days)
-    except Exception:
-        return True
+def subtitle(level, ais):
+    n = ais["ais_visible_cargo"] if ais else None
+    if level == 9:
+        return "「開いている」とは断定できません"
+    if level == 4:
+        if n:
+            return f"それでも{n}隻がAIS上を進んでいます"
+        if n == 0:
+            return "AISを発信している船はゼロ。ただし船はAISを切れます"
+        return "通航は計測できていません"
+    if n:
+        return f"AIS上、いま海峡に商船{n}隻"
+    if n == 0:
+        return "AISを発信している商船はゼロです"
+    return "通航は計測していません（AIS未接続）"
 
 
 def severity(i):
     if i["is_closure"] and i["kind"] == "advisory":
-        return "S", "当局が閉鎖に言及した警報。最優先。"
+        return "S", "閉鎖に言及した警報・報道。最優先。"
     if i["is_incident"]:
         return "A", "船舶への実害。通航への影響が生じ得る。"
     if i["kind"] == "advisory":
-        return "B", "航行警報。"
+        return "B", "警報・報道。"
     if i["is_closure"]:
         return "B", "発言のみ。実際の通航状況とは別。"
     return "C", "参考情報。"
 
 
 def history(level):
-    h = json.loads(HISTORY.read_text()) if HISTORY.exists() else {}
+    try:
+        h = json.loads(HISTORY.read_text())
+    except Exception:
+        h = {}
     h[NOW.date().isoformat()] = level
     HISTORY.write_text(json.dumps(h, indent=0, sort_keys=True))
     closed = [d for d, l in sorted(h.items()) if l == 4]
     start = closed[-1] if closed else min(h)
-    return (NOW.date() - dt.date.fromisoformat(start)).days, len(h)
+    try:
+        return (NOW.date() - dt.date.fromisoformat(start)).days, len(h)
+    except Exception:
+        return 0, len(h)
 
 
+# ══════════════════════════════════════════════════════════
 def main():
     print("collecting...")
 
     advisories = []
     alive = 0
-    for name, fn in [
-        ("NGA",   lambda: nga_warnings()),
-        ("UKMTO", lambda: try_all("UKMTO", [
-            "https://www.ukmto.org/indian-ocean/recent-incidents",
-            "https://www.ukmto.org/ukmto-products/warnings/2026",
-            "https://www.ukmto.org/",
-        ])),
-        ("MARAD", lambda: try_all("MARAD", [
-            "https://www.maritime.dot.gov/msci",
-            "https://www.maritime.dot.gov/msci-advisories",
-        ])),
-    ]:
-        got = fn()
-        if got:
-            alive += 1
-        print(f"  {name}: {len(got)}")
-        advisories += got
 
-    stmts = statements()
+    got = safe("NGA", nga, [])
+    if got:
+        alive += 1
+    advisories += got
+
+    got = safe("報道", news, [])
+    if got:
+        alive += 1
+    advisories += got
+
+    stmts = safe("公式発言", statements, [])
     if stmts:
         alive += 1
-    print(f"  statements: {len(stmts)}")
 
-    ais = asyncio.run(ais_snapshot())
-    print(f"  ais: {ais}")
+    ais = ais_snapshot()
+    if ais:
+        alive += 1
 
     adv7  = [a for a in advisories if within(a, 7)]
     inc30 = [a for a in advisories if a["is_incident"] and within(a, 30)]
-    # 閉鎖の宣言は「当局の警報」だけでなく「政府の公式発表」も見る
     closures = [x for x in advisories + stmts if x["is_closure"] and within(x, 7)]
 
     level, label, reason = decide(alive, closures, len(inc30), len(adv7), ais)
@@ -470,13 +460,13 @@ def main():
     status = {
         "level": level,
         "label": label,
-        "en": {0: "O P E N", 1: "O P E N", 2: "C A U T I O N",
-               3: "D I S R U P T E D", 4: "C L O S E D", 9: "N O   D A T A"}[level],
+        "en": {0: "O P E N", 1: "O P E N", 2: "C A U T I O N", 3: "D I S R U P T E D",
+               4: "C L O S E D", 9: "N O   D A T A"}[level],
         "sub": subtitle(level, ais),
         "reason": reason,
-        "evidence": (ais["method"] + " " + ais["caveat"] if ais else
-                     "通航は計測していません（AIS未接続）。当局の警報・宣言のみに基づく判定です。"),
-        "ais": ais,                       # null なら通航数は画面に出さない
+        "evidence": ((ais["method"] + ais["caveat"]) if ais else
+                     "通航は計測していません（AIS未接続）。当局の警報・宣言・報道のみに基づく判定です。"),
+        "ais": ais,
         "tiles": {
             "ais_visible_cargo": ais["ais_visible_cargo"] if ais else None,
             "advisories_7d": len(adv7),
@@ -495,11 +485,33 @@ def main():
 
     DOCS.mkdir(exist_ok=True)
     (DOCS / "status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2))
-    CACHE.write_text(json.dumps(_cache, ensure_ascii=False, indent=0, sort_keys=True))
+    try:
+        CACHE.write_text(json.dumps(_cache, ensure_ascii=False, indent=0, sort_keys=True))
+    except Exception:
+        pass
 
     print(f"\nLV{level} {label} — {reason}")
     print(f"feeds={alive}/4  adv7={len(adv7)}  inc30={len(inc30)}  closures={len(closures)}")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        # ここまで来て落ちても、status.json は絶対に古いまま放置しない
+        traceback.print_exc()
+        DOCS.mkdir(exist_ok=True)
+        (DOCS / "status.json").write_text(json.dumps({
+            "level": 9, "label": "確認中", "en": "N O   D A T A",
+            "sub": "「開いている」とは断定できません",
+            "reason": "収集処理が失敗しました。",
+            "evidence": "情報を取得できていません。",
+            "ais": None,
+            "tiles": {"ais_visible_cargo": None, "advisories_7d": 0, "incidents_30d": 0,
+                      "brent": None, "feeds_alive": "0/4"},
+            "closure_talk_90d": 0, "days_since_change": 0, "days_logged": 0,
+            "statements": {"iran": None, "usa": None}, "feed": [],
+            "updated": NOW.isoformat(timespec="seconds"),
+            "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py",
+        }, ensure_ascii=False, indent=2))
+        raise SystemExit(0)   # ワークフローは緑のまま。だが画面は「確認中」になる。
