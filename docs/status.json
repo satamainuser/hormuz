@@ -1,16 +1,111 @@
 {
-  "level": 0,
-  "label": "営業中",
-  "en": "B R E A K I N G · N O T H I N G",
-  "sub": "きょうも海峡は開いています。特にお伝えすることはありません",
-  "reason": "どの当局も閉鎖を報告していません。航行警報・事案ともにゼロ。",
+  "level": 9,
+  "label": "確認中",
+  "en": "N O   D A T A",
+  "sub": "「開いている」とは断定できません",
+  "reason": "情報源を取得できていません。「開いている」とは断定できません。",
   "evidence": "通航実績（AIS）は計測していません。当局の警報・事案報告のみに基づく判定です。",
-  "tiles": { "advisories_7d": 0, "incidents_30d": 0, "brent": { "price": 71.2, "change_pct": 0.31 }, "feeds_alive": "3/3" },
+  "tiles": {
+    "advisories_7d": 0,
+    "incidents_30d": 0,
+    "brent": {
+      "price": 84.73,
+      "change_pct": 1.72
+    },
+    "feeds_alive": "0/3"
+  },
   "closure_talk_90d": 0,
   "days_no_closure": 0,
   "days_logged": 1,
-  "statements": { "iran": null, "usa": null },
-  "feed": [],
-  "updated": "2026-07-14T05:32:00+00:00",
+  "statements": {
+    "iran": {
+      "kind": "statement",
+      "side": "iran",
+      "source": "IRNA",
+      "title": "Araghchi: US actions in Strait of Hormuz jeopardize regional peace, security",
+      "title_ja": "Araghchi: US actions in Strait of Hormuz jeopardize regional peace, security",
+      "url": "https://en.irna.ir/news/86208537/Araghchi-US-actions-in-Strait-of-Hormuz-jeopardize-regional",
+      "published": "2026-07-13T22:10:53+00:00",
+      "is_closure": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
+    },
+    "usa": null
+  },
+  "feed": [
+    {
+      "kind": "statement",
+      "side": "iran",
+      "source": "IRNA",
+      "title": "Araghchi: US actions in Strait of Hormuz jeopardize regional peace, security",
+      "title_ja": "Araghchi: US actions in Strait of Hormuz jeopardize regional peace, security",
+      "url": "https://en.irna.ir/news/86208537/Araghchi-US-actions-in-Strait-of-Hormuz-jeopardize-regional",
+      "published": "2026-07-13T22:10:53+00:00",
+      "is_closure": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
+    },
+    {
+      "kind": "statement",
+      "side": "iran",
+      "source": "IRNA",
+      "title": "Araghchi: Iran eternal guardian of Hormuz; Trump 20 percent toll too much",
+      "title_ja": "Araghchi: Iran eternal guardian of Hormuz; Trump 20 percent toll too much",
+      "url": "https://en.irna.ir/news/86208535/Araghchi-Iran-eternal-guardian-of-Hormuz-Trump-20-percent-toll",
+      "published": "2026-07-13T21:30:59+00:00",
+      "is_closure": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
+    },
+    {
+      "kind": "statement",
+      "side": "iran",
+      "source": "IRNA",
+      "title": "Iran to steadfastly maintain control over Strait of Hormuz: IRGC",
+      "title_ja": "Iran to steadfastly maintain control over Strait of Hormuz: IRGC",
+      "url": "https://en.irna.ir/news/86208321/Iran-to-steadfastly-maintain-control-over-Strait-of-Hormuz-IRGC",
+      "published": "2026-07-13T14:39:44+00:00",
+      "is_closure": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
+    },
+    {
+      "kind": "statement",
+      "side": "iran",
+      "source": "IRNA",
+      "title": "Iran’s Armed Forces ‘will not allow US to interfere’ in Strait of Hormuz",
+      "title_ja": "Iran’s Armed Forces ‘will not allow US to interfere’ in Strait of Hormuz",
+      "url": "https://en.irna.ir/news/86208307/Iran-s-Armed-Forces-will-not-allow-US-to-interfere-in-Strait",
+      "published": "2026-07-13T14:20:27+00:00",
+      "is_closure": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
+    },
+    {
+      "kind": "statement",
+      "side": "iran",
+      "source": "IRNA",
+      "title": "Iran notifies UN shipping agency of temporary safe corridor in Strait of Hurmuz",
+      "title_ja": "Iran notifies UN shipping agency of temporary safe corridor in Strait of Hurmuz",
+      "url": "https://en.irna.ir/news/86208208/Iran-notifies-UN-shipping-agency-of-temporary-safe-corridor-in",
+      "published": "2026-07-13T14:16:43+00:00",
+      "is_closure": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
+    },
+    {
+      "kind": "statement",
+      "side": "iran",
+      "source": "IRNA",
+      "title": "Transit through Strait of Hormuz currently ‘not possible’ due to illegal US actions: PGSA",
+      "title_ja": "Transit through Strait of Hormuz currently ‘not possible’ due to illegal US actions: PGSA",
+      "url": "https://en.irna.ir/news/86207369/Transit-through-Strait-of-Hormuz-currently-not-possible-due",
+      "published": "2026-07-12T14:02:27+00:00",
+      "is_closure": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
+    }
+  ],
+  "updated": "2026-07-14T03:55:07+00:00",
   "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
 }
