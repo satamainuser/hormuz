@@ -9,8 +9,8 @@
     "advisories_7d": 0,
     "incidents_30d": 0,
     "brent": {
-      "price": 84.73,
-      "change_pct": 1.72
+      "price": 84.64,
+      "change_pct": 1.61
     },
     "feeds_alive": "0/3"
   },
@@ -106,6 +106,6 @@
       "sev_why": "参考情報。"
     }
   ],
-  "updated": "2026-07-14T03:55:07+00:00",
+  "updated": "2026-07-14T03:57:39+00:00",
   "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
 }
