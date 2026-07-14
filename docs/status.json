@@ -18,8 +18,8 @@
     "advisories_7d": 0,
     "incidents_30d": 0,
     "brent": {
-      "price": 84.59,
-      "change_pct": 1.55
+      "price": 84.61,
+      "change_pct": 1.57
     },
     "feeds_alive": "1/4"
   },
@@ -187,6 +187,6 @@
       "sev_why": "発言のみ。実際の通航状況とは別。"
     }
   ],
-  "updated": "2026-07-14T04:34:52+00:00",
+  "updated": "2026-07-14T04:35:45+00:00",
   "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
 }
