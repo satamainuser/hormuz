@@ -1,4 +1,3 @@
-
 """
 ホルムズ海峡ステータス — 収集スクリプト v2
 
@@ -46,7 +45,13 @@ DOCS = Path(__file__).parent / "docs"
 CACHE = DOCS / "translations.json"
 HISTORY = DOCS / "history.json"
 
-UA = {"User-Agent": "hormuz-status/2.0 (+https://github.com/satamainuser/hormuz)"}
+# 政府サイトは素のUAを弾く（403）。ブラウザ相当のヘッダで取りに行く。
+UA = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/125.0 Safari/537.36"),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+}
 
 AREA_WORDS     = ("hormuz", "persian gulf", "arabian gulf", "gulf of oman", "bandar abbas", "strait")
 INCIDENT_WORDS = ("attack", "attacked", "seiz", "board", "hijack", "explos", "drone",
@@ -122,6 +127,15 @@ def scrape_titles(url, src, days=30) -> list[dict]:
         link = href if href.startswith("http") else url.rstrip("/") + "/" + href.lstrip("/")
         out.append(mk("advisory", src, title, link, NOW.isoformat()))
     return out[:15]
+
+
+def try_all(src, urls):
+    """複数URLを順に試し、最初に取れたものを使う。全滅なら空 → feeds_alive が下がる。"""
+    for u in urls:
+        got = scrape_titles(u, src)
+        if got:
+            return got
+    return []
 
 
 def mk(kind, src, title, url, published, **extra):
@@ -218,11 +232,23 @@ async def ais_snapshot(seconds=180) -> dict | None:
 
     cargo = [m for m in seen if static.get(m, 0) in CARGO_TYPES]
     unknown = [m for m in seen if m not in static]
+    total = len(seen)   # 商船かどうかに関わらず、AISを出していた全船
+
     return {
-        "vessels_now": len(cargo),
-        "unclassified": len(unknown),   # 船種不明はカウントに含めない（正直に別で出す）
+        # ★ これは「海峡にいる船の数」ではない。「AISを発信している商船の数」である。
+        #    戦争下では船はAISを切る。0隻は「船がいない」ことを意味しない。
+        #    この区別を消したら、このアプリは嘘つきになる。
+        "ais_visible_cargo": len(cargo),
+        "ais_visible_any": total,
+        "unclassified": len(unknown),
         "window_sec": seconds,
-        "method": "aisstream.io を{}秒購読し、海峡内で位置情報を発信していた商船（AIS船種70-89）をMMSIでユニーク集計".format(seconds),
+        "method": (f"aisstream.io を{seconds}秒購読し、海峡内でAISを発信していた商船"
+                   f"（船種70-89）をMMSIでユニーク集計。"
+                   f"AISを切っている船は数えられない。"),
+        "caveat": ("AISは船が自分で発信するもので、強制ではありません。"
+                   "紛争下では攻撃を避けるためにAISを切る船が多く、"
+                   "この数字は「海峡にいる船の数」ではなく"
+                   "「AISを発信している船の数」です。"),
     }
 
 
@@ -253,15 +279,18 @@ def decide(alive, closures, incidents30, advisories7, ais):
     if alive < 1:
         return 9, "確認中", "情報源を取得できていません。「開いている」とは断定できません。"
 
-    n = ais["vessels_now"] if ais else None
+    n = ais["ais_visible_cargo"] if ais else None
 
     if closures:
-        if n == 0:
-            return 4, "閉 鎖", "当局が閉鎖を宣言。海峡内に商船を確認できません。"
         if n:
-            # ★ これが今の現実。宣言と実測が食い違っている。
-            return 4, "閉 鎖", f"当局が閉鎖を宣言しています。ただし現在、海峡内に商船{n}隻を確認。"
-        return 4, "閉 鎖", "当局が閉鎖を宣言しています。通航は計測できていません。"
+            # 宣言と実測が食い違っている。両方を出す。
+            return 4, "閉 鎖", f"当局が閉鎖を宣言。ただしAIS上、商船{n}隻が海峡内にいます。"
+        if n == 0:
+            # ★ ここが一番慎重を要する。
+            #   AIS 0隻を「船がいない」と読むのは誤り。船はAISを切る。
+            return 4, "閉 鎖", ("当局が閉鎖を宣言。AISを発信している商船はゼロですが、"
+                               "これは「船がいない」ことを意味しません（AISは切れます）。")
+        return 4, "閉 鎖", "当局が閉鎖を宣言しています。AISは未接続です。"
 
     if incidents30 >= 3:
         return 3, "一部営業", f"過去30日に{incidents30}件の事案。閉鎖の宣言はありません。"
@@ -273,17 +302,19 @@ def decide(alive, closures, incidents30, advisories7, ais):
 
 
 def subtitle(level, ais):
-    n = ais["vessels_now"] if ais else None
+    n = ais["ais_visible_cargo"] if ais else None
     if level == 9:
         return "「開いている」とは断定できません"
     if level == 4:
         if n:
-            return f"それでも{n}隻が海峡にいます"          # ← 現実は現実として出す
+            return f"それでも{n}隻がAIS上を進んでいます"   # 宣言と現実を並べる
         if n == 0:
-            return "海峡に商船を確認できません。UKMTO / MARAD を確認してください"
-        return "通航は計測できていません"
-    if n is not None:
-        return f"いま海峡に商船{n}隻"
+            return "AISを発信している船はゼロ。ただし船はAISを切れます"
+        return "AIS未接続。通航は計測できていません"
+    if n:
+        return f"AIS上、いま海峡に商船{n}隻"
+    if n == 0:
+        return "AISを発信している商船はゼロです"
     return "通航は計測していません（AIS未接続）"
 
 
@@ -395,8 +426,15 @@ def main():
     alive = 0
     for name, fn in [
         ("NGA",   lambda: nga_warnings()),
-        ("UKMTO", lambda: scrape_titles("https://www.ukmto.org/", "UKMTO")),
-        ("MARAD", lambda: scrape_titles("https://www.maritime.dot.gov/msci-advisories", "MARAD")),
+        ("UKMTO", lambda: try_all("UKMTO", [
+            "https://www.ukmto.org/indian-ocean/recent-incidents",
+            "https://www.ukmto.org/ukmto-products/warnings/2026",
+            "https://www.ukmto.org/",
+        ])),
+        ("MARAD", lambda: try_all("MARAD", [
+            "https://www.maritime.dot.gov/msci",
+            "https://www.maritime.dot.gov/msci-advisories",
+        ])),
     ]:
         got = fn()
         if got:
@@ -436,11 +474,11 @@ def main():
                3: "D I S R U P T E D", 4: "C L O S E D", 9: "N O   D A T A"}[level],
         "sub": subtitle(level, ais),
         "reason": reason,
-        "evidence": (ais["method"] if ais else
+        "evidence": (ais["method"] + " " + ais["caveat"] if ais else
                      "通航は計測していません（AIS未接続）。当局の警報・宣言のみに基づく判定です。"),
         "ais": ais,                       # null なら通航数は画面に出さない
         "tiles": {
-            "vessels_now": ais["vessels_now"] if ais else None,
+            "ais_visible_cargo": ais["ais_visible_cargo"] if ais else None,
             "advisories_7d": len(adv7),
             "incidents_30d": len(inc30),
             "brent": brent(),
