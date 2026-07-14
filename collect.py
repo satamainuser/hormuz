@@ -341,12 +341,22 @@ except Exception:
 
 
 def translate(text):
+    """★ 失敗した結果をキャッシュしない。
+    以前は翻訳に失敗したとき「原文＝訳文」としてキャッシュに保存していた。
+    その結果、後からキーを入れても『もう訳した』と判断されて英語のまま出続けた。
+    失敗は記録しない。次回また試す。"""
     text = (text or "").strip()
     if not text:
         return ""
-    if text in _cache:
-        return _cache[text]
-    ja = _deepl(text) or _claude(text) or text
+
+    hit = _cache.get(text)
+    if hit and hit != text:          # 原文と同じものはキャッシュとして信用しない
+        return hit
+
+    ja = _deepl(text) or _claude(text)
+    if not ja or ja == text:
+        return text                  # 訳せなければ原文のまま出す。ただし記録はしない。
+
     _cache[text] = ja
     return ja
 
