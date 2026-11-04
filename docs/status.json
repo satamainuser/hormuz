@@ -16,16 +16,16 @@
   "tiles": {
     "ais_visible_cargo": 0,
     "advisories_7d": 25,
-    "incidents_30d": 16,
+    "incidents_30d": 15,
     "brent": {
-      "price": 104.42,
-      "change_pct": -0.33
+      "price": 102.91,
+      "change_pct": -0.67
     },
     "feeds_alive": "3/4"
   },
-  "closure_talk_90d": 3,
+  "closure_talk_90d": 2,
   "days_since_change": 0,
-  "days_logged": 113,
+  "days_logged": 114,
   "statements": {
     "iran": {
       "kind": "statement",
@@ -45,11 +45,11 @@
     "usa": {
       "kind": "statement",
       "source": "報道",
-      "title": "U.S. limited strike on Strait of Hormuz raises questions what’s next - Global News",
-      "title_ja": "U.S. limited strike on Strait of Hormuz raises questions what’s next - Global News",
+      "title": "U.S. strikes Strait of Hormuz hours before Tuesday midterms - PBS",
+      "title_ja": "U.S. strikes Strait of Hormuz hours before Tuesday midterms - PBS",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE51MVBKbnhjdnhQQjhacVdsay1jRzlrOC14MHFmVUVMRExDSXBVNVZ6M3IzSThza3VZVW5hSEJoSEdvaXgyZzhXUGV0S3doWVlDTW5WakhyMjBsZmVSZDcwcWg5emZDV2hrWmxWb0w3LXI?oc=5",
-      "published": "2026-11-03T20:05:53+00:00",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPUkE4ZGpqYlp5ZkIwQ2oyVDF3dWdFeG9XM0pDMnBxQm5CR0gtWXpIcWt2V2J3Mlg5TFJrUmpfcFdBdm54VEgzRW1jSUtPbGhPR25qMmg3MEtDUHBrQ1FaU3p3bGxBUGMzd1hzRXFSbi10cDg2Wmd5Vzl1YXJDdkg4QVlGd1NmbkxKdjBYZlVCQ1hWTDAzOUlTVnBFRVNDd9IBngFBVV95cUxPUkE4ZGpqYlp5ZkIwQ2oyVDF3dWdFeG9XM0pDMnBxQm5CR0gtWXpIcWt2V2J3Mlg5TFJrUmpfcFdBdm54VEgzRW1jSUtPbGhPR25qMmg3MEtDUHBrQ1FaU3p3bGxBUGMzd1hzRXFSbi10cDg2Wmd5Vzl1YXJDdkg4QVlGd1NmbkxKdjBYZlVCQ1hWTDAzOUlTVnBFRVNDdw?oc=5",
+      "published": "2026-11-04T01:15:33+00:00",
       "is_incident": true,
       "is_closure": false,
       "side": "usa",
@@ -59,6 +59,47 @@
     }
   },
   "feed": [
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "U.S. strikes Strait of Hormuz hours before Tuesday midterms - PBS",
+      "title_ja": "U.S. strikes Strait of Hormuz hours before Tuesday midterms - PBS",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPUkE4ZGpqYlp5ZkIwQ2oyVDF3dWdFeG9XM0pDMnBxQm5CR0gtWXpIcWt2V2J3Mlg5TFJrUmpfcFdBdm54VEgzRW1jSUtPbGhPR25qMmg3MEtDUHBrQ1FaU3p3bGxBUGMzd1hzRXFSbi10cDg2Wmd5Vzl1YXJDdkg4QVlGd1NmbkxKdjBYZlVCQ1hWTDAzOUlTVnBFRVNDd9IBngFBVV95cUxPUkE4ZGpqYlp5ZkIwQ2oyVDF3dWdFeG9XM0pDMnBxQm5CR0gtWXpIcWt2V2J3Mlg5TFJrUmpfcFdBdm54VEgzRW1jSUtPbGhPR25qMmg3MEtDUHBrQ1FaU3p3bGxBUGMzd1hzRXFSbi10cDg2Wmd5Vzl1YXJDdkg4QVlGd1NmbkxKdjBYZlVCQ1hWTDAzOUlTVnBFRVNDdw?oc=5",
+      "published": "2026-11-04T01:15:33+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "side": "usa",
+      "primary": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Iran Turns to Guerrilla Tactics in Bid to Reassert Grip on Strait of Hormuz - WSJ",
+      "title_ja": "Iran Turns to Guerrilla Tactics in Bid to Reassert Grip on Strait of Hormuz - WSJ",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNY0NDalZkZFhSSHNoLW9LRnRFdFVQVUFQaUVZRkdwSzliM2k3RHh2VnAwTk84Uy0zTmlzQUttejQ3cjl4bXEyNHQxYWlBWlRpTEota1JVT0trQS03cUJqVGNPRFhPSEEtT0V3bEpOZmlPYXF0bHFydWt0V3ZlWkFqQ1F4ZUllZXlKbndnUFhoUEMtS1RIdWNzbGx0V3Z1dVIzTUFXQWw5UU1fZWI2ZE0xUUlzYWh4NG11N1Jza3ZLUQ?oc=5",
+      "published": "2026-11-04T01:00:00+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
+      "title_ja": "2026年イラン戦争 | 石油、解説、米国、イスラエル、ホルムズ海峡、地図、&紛争 - ブリタニカ",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
+      "published": "2026-11-03T23:00:52+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
     {
       "kind": "statement",
       "source": "報道",
@@ -77,15 +118,15 @@
     {
       "kind": "advisory",
       "source": "報道",
-      "title": "2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
-      "title_ja": "2026年イラン戦争 | 石油、解説、米国、イスラエル、ホルムズ海峡、地図、&紛争 - ブリタニカ",
+      "title": "US strikes in the Strait of Hormuz create more questions about what’s ahead - AP News",
+      "title_ja": "US strikes in the Strait of Hormuz create more questions about what’s ahead - AP News",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
-      "published": "2026-11-03T19:58:48+00:00",
-      "is_incident": false,
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQbjU1Vjk0S2NySC14ZnByNG9Ld0J4cnZZaUxaTDdBeHgwMm41Q1Y3OGpVeXpKVWQ3dFNlcGtNTERub3h1Z1g3Rl93NzhqamZhWm1HYkhXVFBWNFdqbko2eWlUVU1HSmcxZmJJSlIyQlFZUjdTY1pxcU5kWjJyV3d1UTlfTjhPQXVOZW42MlBCc1Ztc3c?oc=5",
+      "published": "2026-11-03T19:11:00+00:00",
+      "is_incident": true,
       "is_closure": false,
-      "sev": "B",
-      "sev_why": "警報・報道。"
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
     {
       "kind": "advisory",
@@ -112,19 +153,6 @@
       "is_closure": false,
       "side": "usa",
       "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "advisory",
-      "source": "報道",
-      "title": "US carries out ‘defensive’ strikes on Iran’s Qeshm island in Strait of Hormuz - The Times of Israel",
-      "title_ja": "US carries out ‘defensive’ strikes on Iran’s Qeshm island in Strait of Hormuz - The Times of Israel",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOOW0tRlhmb3AtbjI2TGE0dGJjWURQVHN6RVNoLUlfYkJ5a1VFc2JhYlR2Q1BndmFNYXJoaWZYRVdYaDdVNUJlUTluSEV3YXJaY2g1Z0N5T2JvNTFITHRheF9vRkhwT3QzaHZ1TGpSMUdmMkRPQVJsNXVLdHdMSmpXVHhUeWxMaWNJR3VuQzJOQ3pEVDVHdXFWZnNpWkVxZDFwX3MzNnpwUG3SAa4BQVVfeXFMUDcyeGVGUHVlbXlUejZrcU9IMnlpdlpKcW9IZjV5VzgwWERlWHJ1cVZHbHF3TGRLU0J5bVNVQTRmSnF6UUJWVmpVbFR2MkdfREZQeHotbnljdzU1b3Z4RVo1c0tIeWloTWotZnFsa3o0LXdtaGg5TVJaR0NhWm14UGhpOG1rQllwUnFZVVhvT200b2tVYnlqSHFTd1JMSmQ2NlMxR3l2dVVwenZyS3BB?oc=5",
-      "published": "2026-11-03T17:36:59+00:00",
-      "is_incident": true,
-      "is_closure": false,
       "sev": "A",
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
@@ -204,6 +232,21 @@
     {
       "kind": "statement",
       "source": "報道",
+      "title": "US Iran strike: Iranian Qeshm Island for Strait of Hormuz attacked bifor midterm elections - BBC",
+      "title_ja": "US Iran strike: Iranian Qeshm Island for Strait of Hormuz attacked bifor midterm elections - BBC",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFB5dW41UjVHdzhTZ1pPSFNMczJLYzI1RmNiajRlekdCV0Q2UktZWmxseXRDdDZiemdlang2WDVwU0xDRlFrajA1c3YyTTBiZlI5LUZtby1CbFUwTTNRUEHSAWNBVV95cUxOT181QVZ5ekdVLU1sdWg3LVdCa3NjNHhCWlRRVVY1WmhoajhxbzlHVm9VODhTMFJLQUp0WU1Xc09kdy1aLUI3cUQ3NnRUeG9tSUJwZ3FsUmU0ckxoNm1MVzJPTkU?oc=5",
+      "published": "2026-11-03T15:42:30+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "side": "usa",
+      "primary": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
+      "kind": "statement",
+      "source": "報道",
       "title": "Trump’s Iran Moratorium Expires With 2-Day Hormuz Deal Unanswered - https://houseofsaud.com/",
       "title_ja": "Trump’s Iran Moratorium Expires With 2-Day Hormuz Deal Unanswered - https://houseofsaud.com/",
       "summarized": false,
@@ -215,21 +258,6 @@
       "primary": false,
       "sev": "C",
       "sev_why": "参考情報。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "US strike Iran island: Iranian Qeshm Island for Strait of Hormuz attacked bifor midterm elections - BBC",
-      "title_ja": "US strike Iran island: Iranian Qeshm Island for Strait of Hormuz attacked bifor midterm elections - BBC",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFB5dW41UjVHdzhTZ1pPSFNMczJLYzI1RmNiajRlekdCV0Q2UktZWmxseXRDdDZiemdlang2WDVwU0xDRlFrajA1c3YyTTBiZlI5LUZtby1CbFUwTTNRUEHSAWNBVV95cUxOT181QVZ5ekdVLU1sdWg3LVdCa3NjNHhCWlRRVVY1WmhoajhxbzlHVm9VODhTMFJLQUp0WU1Xc09kdy1aLUI3cUQ3NnRUeG9tSUJwZ3FsUmU0ckxoNm1MVzJPTkU?oc=5",
-      "published": "2026-11-03T15:15:28+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "usa",
-      "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
     {
       "kind": "statement",
@@ -260,6 +288,19 @@
       "primary": false,
       "sev": "C",
       "sev_why": "参考情報。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "US Strikes Iranian Targets in the Strait of Hormuz, Official Says, Leaving Unclear What Comes Next - Military.com",
+      "title_ja": "US Strikes Iranian Targets in the Strait of Hormuz, Official Says, Leaving Unclear What Comes Next - Military.com",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNdkwzOHhGQ1JlZk1OazBlbGU4bkRSZGFXU1Y1dWl2VHpfWHpNeWgxUURhRWdFUmFMNmJVMjNzRTBDTVNhbjdDczhadVRnaWlNY3FsY2h4QUphRXhQSkZ3Y1BuYnlwTUFGRVhyakF6bW84UERZaDBzSGJRYnBBUF9lSThjR1NBNlduZUlEX2hSZURYSFJ3UV9LZkk3d05HYlZYdE4zUkJyZ2FDb0FPeWE4dy1oaG92eWhtUzZRZ1hR?oc=5",
+      "published": "2026-11-03T14:22:30+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
     {
       "kind": "statement",
@@ -307,6 +348,19 @@
       "sev_why": "参考情報。"
     },
     {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "U.S. launches strikes on Iranian targets in Strait of Hormuz, officials say - CBS News",
+      "title_ja": "U.S. launches strikes on Iranian targets in Strait of Hormuz, officials say - CBS News",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNMUwyMTJnQUVVbUxIZTFaRXpEMHREWGU5MEljUkJvZXhTTlJ1ZjdVdjNRNXdQTzFvQVhiUUgycndlVENwRzU3ZEVKR3pLbkpuRlFWNjN0a1dkMWpuNnRHLS1iZHNING4yNXVHMXVVNUhicjFYUlFiVnlVYVdVT1diWTN6U2hKSVFBSkJzXzhCVk13RHVZbDVGRE1Pa1l4a2dMS0M4NXFB?oc=5",
+      "published": "2026-11-03T12:03:00+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
       "kind": "statement",
       "source": "Mehr",
       "title": "3 tankers exploded after hitting naval mines in Hormuz: IRGC",
@@ -337,13 +391,41 @@
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
     {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "US quietly strikes Iranian island in Strait of Hormuz as Trump weighs next steps - Stars and Stripes",
+      "title_ja": "US quietly strikes Iranian island in Strait of Hormuz as Trump weighs next steps - Stars and Stripes",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOYWpYXzZuNEZ0RWZMX0xEOE5xdHVtMmdZN3hXdDFLOVpaa3pvS3h0VnVIUXJpSGNLODVYTGZKSUZZZ0VIWGV6UGZHY256dTJPajR1RmNsZHUzbnAzU2wtVWZSdkFwUjFlMjQ0bV9sMlZ4eWxIYjJyeXpCRExhQ3RDeXdEbThqRUQ0cFBKeTZCbHlSSU9NZ09neVBFTWFlcnpGRTNySXJuNU8?oc=5",
+      "published": "2026-11-03T10:59:20+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
       "kind": "statement",
       "source": "報道",
-      "title": "US strikes Iranian targets in Strait of Hormuz - JC Post",
-      "title_ja": "US strikes Iranian targets in Strait of Hormuz - JC Post",
+      "title": "US quietly strikes Iranian island in Strait of Hormuz as Trump weighs next steps - Stars and Stripes",
+      "title_ja": "US quietly strikes Iranian island in Strait of Hormuz as Trump weighs next steps - Stars and Stripes",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE91eENCQmlVRzJSaDQ3bnBPZUhxamRLT05vdW54b0x2Vk95SE5aRU9KeWNvVkZqaDNmXzUtOXdoSkcwQjlZMnY5Mng0Ykd1Ry1HWjl0VDAxSnNLeUdUdDB6NXFROHdQNjRDenBlY09n?oc=5",
-      "published": "2026-11-03T11:03:08+00:00",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOYWpYXzZuNEZ0RWZMX0xEOE5xdHVtMmdZN3hXdDFLOVpaa3pvS3h0VnVIUXJpSGNLODVYTGZKSUZZZ0VIWGV6UGZHY256dTJPajR1RmNsZHUzbnAzU2wtVWZSdkFwUjFlMjQ0bV9sMlZ4eWxIYjJyeXpCRExhQ3RDeXdEbThqRUQ0cFBKeTZCbHlSSU9NZ09neVBFTWFlcnpGRTNySXJuNU8?oc=5",
+      "published": "2026-11-03T10:59:20+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "side": "usa",
+      "primary": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "US strikes Iranian targets in the Strait of Hormuz, leaving unclear what comes next - The New Arab",
+      "title_ja": "US strikes Iranian targets in the Strait of Hormuz, leaving unclear what comes next - The New Arab",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1VNjNBd2tEWEltLU1WQmlpb3l2eTU4YzlaNHhPVWRyRXZKNnkyZmd2UERPSzZ6MFZhWlNLS1Q3dXc3Njd2VkQyWVVnRGI1b3pfZWdnQXd6UzhTNlpjTlNRejhNOEVoY0o2eHdIOXNtMU0zQXAxTjlxaA?oc=5",
+      "published": "2026-11-03T10:36:32+00:00",
       "is_incident": true,
       "is_closure": false,
       "side": "usa",
@@ -382,32 +464,15 @@
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
     {
-      "kind": "statement",
+      "kind": "advisory",
       "source": "報道",
-      "title": "US strikes in the Strait of Hormuz create more questions about what’s ahead - WKMG",
-      "title_ja": "US strikes in the Strait of Hormuz create more questions about what’s ahead - WKMG",
+      "title": "US carries out ‘defensive’ strikes on Iran’s Qeshm island in Strait of Hormuz - The Times of Israel",
+      "title_ja": "US carries out ‘defensive’ strikes on Iran’s Qeshm island in Strait of Hormuz - The Times of Israel",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNeThUaUMzV1RKZnQzWUhaRmJPLXFZclJ4cmctVjJsYzItOXdfSlhSRllFV3lKLXpfMzdkZU40SEhrYU56MWczRl9hWVJIcXJDajl6eWdvUXhucFdrZWJmakc4WVE1Rm9DUmo1Rk5HVWdEclNOa0ZOeXdINm5jR2w2Z0FQQnFlNjNJbmpIM2c4dF9LaktVM1JlV2Z0M21IamYzOGk0NTFnQzc5Vnp6WFZWTHEwR3JMMC1KWDF1Vk9rQS11SlE0TVQ3YjI3U3hfZWJQMzh0OWpDVm9vaDdtNndHakxR?oc=5",
-      "published": "2026-11-03T09:57:33+00:00",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOOW0tRlhmb3AtbjI2TGE0dGJjWURQVHN6RVNoLUlfYkJ5a1VFc2JhYlR2Q1BndmFNYXJoaWZYRVdYaDdVNUJlUTluSEV3YXJaY2g1Z0N5T2JvNTFITHRheF9vRkhwT3QzaHZ1TGpSMUdmMkRPQVJsNXVLdHdMSmpXVHhUeWxMaWNJR3VuQzJOQ3pEVDVHdXFWZnNpWkVxZDFwX3MzNnpwUG3SAa4BQVVfeXFMUDcyeGVGUHVlbXlUejZrcU9IMnlpdlpKcW9IZjV5VzgwWERlWHJ1cVZHbHF3TGRLU0J5bVNVQTRmSnF6UUJWVmpVbFR2MkdfREZQeHotbnljdzU1b3Z4RVo1c0tIeWloTWotZnFsa3o0LXdtaGg5TVJaR0NhWm14UGhpOG1rQllwUnFZVVhvT200b2tVYnlqSHFTd1JMSmQ2NlMxR3l2dVVwenZyS3BB?oc=5",
+      "published": "2026-11-03T08:59:00+00:00",
       "is_incident": true,
       "is_closure": false,
-      "side": "usa",
-      "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "US quietly strikes Iranian island in Strait of Hormuz as Trump weighs next steps - Stars and Stripes",
-      "title_ja": "US quietly strikes Iranian island in Strait of Hormuz as Trump weighs next steps - Stars and Stripes",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOYWpYXzZuNEZ0RWZMX0xEOE5xdHVtMmdZN3hXdDFLOVpaa3pvS3h0VnVIUXJpSGNLODVYTGZKSUZZZ0VIWGV6UGZHY256dTJPajR1RmNsZHUzbnAzU2wtVWZSdkFwUjFlMjQ0bV9sMlZ4eWxIYjJyeXpCRExhQ3RDeXdEbThqRUQ0cFBKeTZCbHlSSU9NZ09neVBFTWFlcnpGRTNySXJuNU8?oc=5",
-      "published": "2026-11-03T08:20:30+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "usa",
-      "primary": false,
       "sev": "A",
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
@@ -473,21 +538,6 @@
     },
     {
       "kind": "statement",
-      "source": "報道",
-      "title": "Video | Explosions Reported At Qeshm Near Hormuz As Trump Says 'No Rush' To Bomb Iran - NDTV",
-      "title_ja": "Video | Explosions Reported At Qeshm Near Hormuz As Trump Says 'No Rush' To Bomb Iran - NDTV",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWmVpVngxUmNqS1JHUTdHWEEyRHRXdFZ6ZUdfWkV0MTNEMDdncGIxSy1GbDFoLUF1ZU1WWDJTN2ZOaGpUNm1zQTRsaUJ2TEUtY2xzemJTeTQ5OWg1LUd0VjZGYVRuajdtR2c0OEFSVnBtcHVqVWdhWV9qUEt2bnB3TDRndTVHRkxRdF81RVNXOXN4U3NqZmxZTnQ1a0VUbVNqMEdibnJoVmZFemdzOGtj?oc=5",
-      "published": "2026-11-03T03:55:02+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "usa",
-      "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
       "source": "Mehr",
       "title": "IRGC downs 55th US MQ-9 over Strait of Hormuz",
       "title_ja": "IRGC downs 55th US MQ-9 over Strait of Hormuz",
@@ -523,21 +573,6 @@
       "title_ja": "US conducted defensive strikes on Iranian targets in Strait of Hormuz, US official says - The Korea Times",
       "summarized": false,
       "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPeGhCcU56VE40LU1CS2QyZzVwZXVlaThTMk91NkFOWEg3RkNsbTB1ajdvYTV6azZ4bDd6emFHWFJEQnptVXRWX2JwZTJOMlp6UUw4Z28zaVJvaDdFQUoxMTJaUE01ZmxUUHdEWS1LN2o4WWZ0ZnU1V1p6azFENzEwZ2lIQURBSm83eGwxRHFuaXB6ZncyY1NpamRMSjlOVmtRWHlLVU9vUVNMUGIycmFWUE96Wkc1eE9EbHJ2UVhKd2FScElsMjRJOXdLNnV5WlXSAc8BQVVfeXFMT3hoQnFOelRONC1NQktkMmc1cGV1ZWk4UzJPdTZBTlhIN0ZDbG0wdWo3b2E1ems2eGw3enphR1hSREJ6bVV0Vl9icGUyTjJaelFMOGdvM2lSb2g3RUFKMTEyWlBNNWZsVFB3RFktSzdqOFlmdGZ1NVdaemsxRDcxMGdpSEFEQUpvN3hsMURxbmlwemZ3MmNTaWpkTEo5TlZrUVh5S1VPb1FTTFBiMnJhVlBPelpHNXhPRGxydlFYSndhUnBJbDI0STl3SzZ1eVpV?oc=5",
-      "published": "2026-11-03T03:40:03+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "usa",
-      "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "US has conducted defensive strikes on Iranian targets in the Strait of Hormuz, US official says - The Korea Times",
-      "title_ja": "US has conducted defensive strikes on Iranian targets in the Strait of Hormuz, US official says - The Korea Times",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQRHJET1ZZUUpIOFRJVE5jMnUwdHR0c1ZNeS04dllBVVBmSm0wM1pvQTNPT0VmSjJoUlduTXZ4SHJ0RGlBYjhZXzh2X3NtbkphVnFuaHp5dUhLOC1ZZ1M3a0RHejc0NHlGc2RqMDhVSlkwVHNBQzZKOFI2MVZUT1pLSHpOeG5HVmhFS0xaTlhETExZRHFrMGp4cjZvZEpzTGI1aDl6UkxsNHpCM2toMDhsN0RhMFFiQk1nbmd1S01pOVR2SzM5alM0aGhGcVFlV3ZfRlVXd3hfRVB1Z9IB2gFBVV95cUxQRHJET1ZZUUpIOFRJVE5jMnUwdHR0c1ZNeS04dllBVVBmSm0wM1pvQTNPT0VmSjJoUlduTXZ4SHJ0RGlBYjhZXzh2X3NtbkphVnFuaHp5dUhLOC1ZZ1M3a0RHejc0NHlGc2RqMDhVSlkwVHNBQzZKOFI2MVZUT1pLSHpOeG5HVmhFS0xaTlhETExZRHFrMGp4cjZvZEpzTGI1aDl6UkxsNHpCM2toMDhsN0RhMFFiQk1nbmd1S01pOVR2SzM5alM0aGhGcVFlV3ZfRlVXd3hfRVB1Zw?oc=5",
       "published": "2026-11-03T03:40:03+00:00",
       "is_incident": true,
       "is_closure": false,
@@ -601,51 +636,8 @@
       "is_closure": false,
       "sev": "A",
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "U.S. launches limited strikes on Iranian targets in Strait of Hormuz, officials say - CBS News",
-      "title_ja": "U.S. launches limited strikes on Iranian targets in Strait of Hormuz, officials say - CBS News",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5TeXlqY01ONURoNE53TFo3aGpqX3lyTE5yeTUxcUpoUGoyMEVPa0dvZ2wwVkFaNy16R1kxRTFWUXltOEVPUjJBR2pNS2dFQmNjZ3c3UXJ5RUhHRGsyTEMxb1FJOGM?oc=5",
-      "published": "2026-11-03T02:52:00+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "usa",
-      "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "advisory",
-      "source": "報道",
-      "title": "US has conducted defensive strikes on Iranian targets in the Strait of Hormuz, US official says - AP News",
-      "title_ja": "US has conducted defensive strikes on Iranian targets in the Strait of Hormuz, US official says - AP News",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOSlZQOGFnNWxyTG91ZkxGMkdDdlNhd1RuRUZzblYtZGxfOGpReXI2cE5oazAzZkFQRW96Y3VrUkdfenVFWWtPS1BfaFBYYWQ1WVBMVmpuaTZuU3llOGZNMF85QnVGRHAwZlphVWVoaDFiZWhoMWVjalhyTE5na3BVWjVHcmIyWDFoU0FnU2ZBaFZyOE5GRGJqQzdR?oc=5",
-      "published": "2026-11-03T02:38:00+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "US has conducted defensive strikes on Iranian targets in the Strait of Hormuz, US official says - AP News",
-      "title_ja": "US has conducted defensive strikes on Iranian targets in the Strait of Hormuz, US official says - AP News",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOSlZQOGFnNWxyTG91ZkxGMkdDdlNhd1RuRUZzblYtZGxfOGpReXI2cE5oazAzZkFQRW96Y3VrUkdfenVFWWtPS1BfaFBYYWQ1WVBMVmpuaTZuU3llOGZNMF85QnVGRHAwZlphVWVoaDFiZWhoMWVjalhyTE5na3BVWjVHcmIyWDFoU0FnU2ZBaFZyOE5GRGJqQzdR?oc=5",
-      "published": "2026-11-03T02:38:00+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "usa",
-      "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
     }
   ],
-  "updated": "2026-11-03T22:14:40+00:00",
+  "updated": "2026-11-04T02:36:20+00:00",
   "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
 }
