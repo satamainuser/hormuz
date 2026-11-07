@@ -45,20 +45,35 @@
     "usa": {
       "kind": "statement",
       "source": "報道",
-      "title": "Trump confirms new US strikes on Iran near Strait of Hormuz - WJAR",
-      "title_ja": "Trump confirms new US strikes on Iran near Strait of Hormuz - WJAR",
+      "title": "Trump Insists On Strait Of Hormuz Blockade, Claims 'Nothing Is Going To Iran, No Oil Going There' - Sahara Reporters",
+      "title_ja": "Trump Insists On Strait Of Hormuz Blockade, Claims 'Nothing Is Going To Iran, No Oil Going There' - Sahara Reporters",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMikwNBVV95cUxQd3FUb2lCc09KdFpmZEU5MGluLUhCbkJ4alZDcUI0cDVpUHdKWEVvWUJKZW5SSGFBbmNoWUNJZ0thNnFRYkRZa2JkdmFnNlF0Y2ZWQmxPWlpfOTJTUW1qamdYRGpYSl8xNHl3S3VIbXZiV3AtSmdVOVNGeGtvam9ma0NHNWx4cTNubWtlNTVNQnBHa0JMWS1waXliTk1RQWNIYVNEZHJRZ1NvSS13WGh1OFExdXVuem5CTHhERTU4TC1VUDAtMDN4bzBSYjdDVHBtMFVaUFpJVHBFdXFhUmNkTS05ajc2b1VRVVdNUDNONzdJbFQxQmN5WnVOQUMxWC02NkhJYjAyQmI1enBfdmZxMXl6UkJBUHQzUzJoelB6Nm9RR0l2T3NYbHVfMFE3NlRkNnQ4ZGdhcXFLTC1vLVJTbkg1MWZxaTlsTkRWM0dDa09QZ0tfM292dFZUUThjVS15Tkw2YU9sMWxWM0gtbGNsNC1ZMjZkM2RaNXVqZ2czOE03Wmtma1I2VHpzOC1XT3Byemt3?oc=5",
-      "published": "2026-11-07T13:47:53+00:00",
-      "is_incident": true,
-      "is_closure": false,
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPMFVpdGozdEFzdG5vQmhFczY1aEk2UWNyTHFKajhPYWtKQTc3VlRvZ2QxRkdKOS1NME96WVFuTVBGQ1lMWTdqaUdWd2k5ZjV1QnFFUHhoeFgta2ZBSHlVN1dJZzFrc1FqeFF5VjNrV0NNYWFSWUtGNGNZYlpFT2RNNE5FRktZRnY4bnBuT1J5Z0xHcU9jUXBVci1uZnBpLVpmQkV3UEt0MXViUmpPRlpHUjB0cjExRFdDOWVvSA?oc=5",
+      "published": "2026-11-07T18:56:15+00:00",
+      "is_incident": false,
+      "is_closure": true,
       "side": "usa",
       "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+      "sev": "B",
+      "sev_why": "発言のみ。実際の通航状況とは別。"
     }
   },
   "feed": [
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "Trump Insists On Strait Of Hormuz Blockade, Claims 'Nothing Is Going To Iran, No Oil Going There' - Sahara Reporters",
+      "title_ja": "Trump Insists On Strait Of Hormuz Blockade, Claims 'Nothing Is Going To Iran, No Oil Going There' - Sahara Reporters",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPMFVpdGozdEFzdG5vQmhFczY1aEk2UWNyTHFKajhPYWtKQTc3VlRvZ2QxRkdKOS1NME96WVFuTVBGQ1lMWTdqaUdWd2k5ZjV1QnFFUHhoeFgta2ZBSHlVN1dJZzFrc1FqeFF5VjNrV0NNYWFSWUtGNGNZYlpFT2RNNE5FRktZRnY4bnBuT1J5Z0xHcU9jUXBVci1uZnBpLVpmQkV3UEt0MXViUmpPRlpHUjB0cjExRFdDOWVvSA?oc=5",
+      "published": "2026-11-07T18:56:15+00:00",
+      "is_incident": false,
+      "is_closure": true,
+      "side": "usa",
+      "primary": false,
+      "sev": "B",
+      "sev_why": "発言のみ。実際の通航状況とは別。"
+    },
     {
       "kind": "statement",
       "source": "報道",
@@ -92,36 +107,6 @@
     {
       "kind": "statement",
       "source": "報道",
-      "title": "Trump confirms new US strikes on Iran near Strait of Hormuz - WGXA",
-      "title_ja": "Trump confirms new US strikes on Iran near Strait of Hormuz - WGXA",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiiwNBVV95cUxOUWxWYUowc0YyYnJodjcxeUdFaXBEbnk3MHZfYktWbE9HRUpOZDlYNzVpX2tIdkJOWUNjSmtxRjBvNnQtLXpmUS14Umk5dFY0ZXlCM0VOTGhvd3F2MzNxUVdpeUFUTmh6dzhudUVscXRRblFVNVVhZnhaN3luY2VDWjh5dUpGeDJZUFhaR0RMYnBvV0JhMHA5YzdaeFhSLWpfOXBrR3ctQ1Q2WVJ6cmFGV090RmVRdVY1WkdsT3hQeUVUOThsdzRPeGl4WDlGOXYtTXRUV2Z0dFNpZ0RiRFdNSHh3T1pIdktkWmc0UURrazhCaHE2NG51YVBWaGxGRWtkaWRzV0pZQVJZWkw1ejd4eC02bVdsWDZXalNWaWtBbjE1OXVvenhwd2NEU2Q2ZVduaWZteHJjRmxWS1FxamZZcGpNQ0tjeXdfYXJlcnJuZUtGWVpOU0ZNN1F6Unl4Y1ljZWVpMVgwXzNMelNTWWI3UHZCWEU3aHNibGNjRUlCY01wRTZUQTBNSFFzNA?oc=5",
-      "published": "2026-11-07T13:43:27+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "usa",
-      "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "Trump confirms new US strikes on Iran near Strait of Hormuz - 13WHAM-TV",
-      "title_ja": "Trump confirms new US strikes on Iran near Strait of Hormuz - 13WHAM-TV",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMihgNBVV95cUxQMUJ6c0tiWmtTekNXX2Q0NlVISkNic0VMTjRqSllOOFFYNWNwMlExdERsTDhVVkRRUzRCcWk2a09sYV9FLWdHQkpjaEFQem5WUm01R2dMVkMwaVJjMGNEMGotRG9fbTZfa1dWUm1rdW9Wanl2V1FVR2hHQ0JzbWUyV2lDakh0VUxlLWFNdE1nTHF6SXBxZjRMWUFjMURUdEY0dXFGZmI5R29fNmpzbUt5NmtwSzdvQVlMMm5KRkZtR18tdnM3S2p1YWtIZFpnZ0xWUDJtRi11bnZOWVVxaXlQS0dITDVoUTlWendwTnlJQmdKR0NMdFN0ODZIMmtJS3dxWC1GaXpvTFN3eUtCQTh4cjNVc3lmb3ZfVWZsTm4zYmJVSGhpY1M3SjdDbWJ4R0wtMkxBb0hyTFdEdWpKWXpybXpQcEFWNGpJbjV2UEF2YVpUckZTSExRMzFBVWVHX1pfWXl1YUN4SVd6RjhCMXFaWTY0bXFHa080Mk1KbGtfU3RtXzVVaGc?oc=5",
-      "published": "2026-11-07T13:43:04+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "usa",
-      "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
       "title": "Iran Army Spokesman Says Hormuz Stays Closed Until US Accepts 7 Conditions - https://houseofsaud.com/",
       "title_ja": "Iran Army Spokesman Says Hormuz Stays Closed Until US Accepts 7 Conditions - https://houseofsaud.com/",
       "summarized": false,
@@ -133,6 +118,21 @@
       "primary": false,
       "sev": "B",
       "sev_why": "発言のみ。実際の通航状況とは別。"
+    },
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "Trump confirms new US strikes on Iran near Strait of Hormuz - The National News Desk",
+      "title_ja": "Trump confirms new US strikes on Iran near Strait of Hormuz - The National News Desk",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMimANBVV95cUxQOVY3YmUxNUVBY1hsMk1BLW1aeWw4UThqZVJEb1d6V012VkJ6SU1vcWtKbzdaMFh1TmktdEFVUFRzdDVlU0RlLTFWRDhGMkZiSnY1SG0xb3QxejlCVkZnckVuRHhpZ3R6Z0tEZHN2cURPVXAyRUlhdmtLS21PbkRkejljb3l4OUI4UWlLNGlrQUZyaXdMMW9aX1NTejJHSDhaRlNVaWd1cTdLWTlpMzIwZGV2aHFYTHprY21ZQ0VlZF9OYUllcW1YaTZ0OHQ0cUo3MXFEa1lvNGpqS2Q0RWVJOG9qZ2M0eVFCUjJXc3dsNjk0emFsMzZiMGd0S3lRVE5rbXAzeElwX0VoMVFWWF83RjJFWk1ZRGkwcGQ3UlJRTjA3NFFxTUpUMVVvcndHSURGb1RQVGlySi1ld3hRQ2lWN1d0cmtzbklIN3pTb1EtU0VKNF9qTE1fVTlEZnNmV0pCZDhBWWh1YnR2d3hEWGFKVl9icG1uUnhEeWJXVmJlemhMaFJ3U0d0Tkh4Vklla3dFVEFYQ0cyZUc?oc=5",
+      "published": "2026-11-07T13:40:19+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "side": "usa",
+      "primary": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
     {
       "kind": "statement",
@@ -181,21 +181,6 @@
     },
     {
       "kind": "statement",
-      "source": "報道",
-      "title": "Trump Insists On Strait Of Hormuz Blockade, Claims 'Nothing Is Going To Iran, No Oil Going There' - Sahara Reporters",
-      "title_ja": "Trump Insists On Strait Of Hormuz Blockade, Claims 'Nothing Is Going To Iran, No Oil Going There' - Sahara Reporters",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPMFVpdGozdEFzdG5vQmhFczY1aEk2UWNyTHFKajhPYWtKQTc3VlRvZ2QxRkdKOS1NME96WVFuTVBGQ1lMWTdqaUdWd2k5ZjV1QnFFUHhoeFgta2ZBSHlVN1dJZzFrc1FqeFF5VjNrV0NNYWFSWUtGNGNZYlpFT2RNNE5FRktZRnY4bnBuT1J5Z0xHcU9jUXBVci1uZnBpLVpmQkV3UEt0MXViUmpPRlpHUjB0cjExRFdDOWVvSA?oc=5",
-      "published": "2026-11-07T12:00:45+00:00",
-      "is_incident": false,
-      "is_closure": true,
-      "side": "usa",
-      "primary": false,
-      "sev": "B",
-      "sev_why": "発言のみ。実際の通航状況とは別。"
-    },
-    {
-      "kind": "statement",
       "source": "IRNA",
       "title": "Iran’s Navy: Tanker catches fire after hitting sea mine east of Strait of Hormuz",
       "title_ja": "Iran’s Navy: Tanker catches fire after hitting sea mine east of Strait of Hormuz",
@@ -221,6 +206,21 @@
       "is_closure": false,
       "side": "iran",
       "primary": true,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "Iran reports tanker fire after mine explosion in Strait of Hormuz - Report.az",
+      "title_ja": "Iran reports tanker fire after mine explosion in Strait of Hormuz - Report.az",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOOVlfSUpIU283WllWbGhtTTJkZ2Y5YTNyS2QwYjBoVFFfd0EtN3FwTDJpQnU3eklHWXNLUUhQOUVtT3hBZXNvWjRQbHg4RG9kREtZLXFWcGZQMXR4VUdFUjNyVVF5TGhYX0Z0N0pVX2pXRXlsSi1FU3BIQldPTk0tcGZxZ1U5a2pxOVRXUW9OWVBjUU5IbTZuX2F4X2RIN0xtaHZCUQ?oc=5",
+      "published": "2026-11-07T10:40:02+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "side": "iran",
+      "primary": false,
       "sev": "A",
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
@@ -399,21 +399,6 @@
       "is_closure": false,
       "side": "iran",
       "primary": true,
-      "sev": "C",
-      "sev_why": "参考情報。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
-      "title_ja": "2026年イラン戦争 | 石油、解説、米国、イスラエル、ホルムズ海峡、地図、&紛争 - ブリタニカ",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
-      "published": "2026-11-07T05:07:03+00:00",
-      "is_incident": false,
-      "is_closure": false,
-      "side": "iran",
-      "primary": false,
       "sev": "C",
       "sev_why": "参考情報。"
     },
@@ -626,17 +611,17 @@
     {
       "kind": "statement",
       "source": "報道",
-      "title": "Trump confirms new US strikes on Iran near Strait of Hormuz - The National News Desk",
-      "title_ja": "Trump confirms new US strikes on Iran near Strait of Hormuz - The National News Desk",
+      "title": "2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
+      "title_ja": "2026年イラン戦争 | 石油、解説、米国、イスラエル、ホルムズ海峡、地図、&紛争 - ブリタニカ",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiowNBVV95cUxNLTBxVUtmaEp5MV9IcVlKYkFRb1ZqdjIxLUpGbFhub210YUN0UU84RGh0Z1hPUW5OREFzV25GbThiS1R6bDVVdlBFU0NuVnYtWF91ZzJ5VGswV2JwdWdkNUdwSW1OTXhIVUZtUDNaMWVSTldsbmZVeXJFZ094ZXpJTzJOU2V3TG5OVS1JUE0zNnc0RzE3UkpWdmtCakpGMzRsRktQZDl6dHBSZlZhdUI3MWtvRmszaldaN1AxZ0pFYnF6bFkxUkVTNnBnWHBXdDhPa2ktX2dLWVhtNkp5dXRhemVpTjJ2RFlGUXQzSDFzanJyOXdaOGZhOElHRnkzUHpVTHJ1QWRuRjd6NzF4cG9PMzZvTmU2M1FKZXh3NExSRl9EVVRJanVvYTdzMm1OeldlTDh4X0diSUJkWEFmTzZhc2o1X0hRdDU4UzhtVkp2NWdEYUstbzc0eGR5R2UxdlFOU3ljY3gxbkhIZnZFV2I3WTkxSWRVWXNYa1VDRjFMb3l6Q3NKUTVWakR6bVJDOXFrVjZ5TzNZaU9mSUwwZFZrZUkwdw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5nTzlhOGZTS180cWNtVG91c2VWRVJFYlk0cW5Ba1RHUEFOSEtldU15QktQT0EzRVY1ZVdZZ0VTRHVWTVhyN1IzeU1wbmlDMUhrQ3Roc1YxcmdMUQ?oc=5",
       "published": "2026-11-06T08:00:00+00:00",
-      "is_incident": true,
+      "is_incident": false,
       "is_closure": false,
-      "side": "usa",
+      "side": "iran",
       "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+      "sev": "C",
+      "sev_why": "参考情報。"
     },
     {
       "kind": "statement",
@@ -652,8 +637,23 @@
       "primary": false,
       "sev": "A",
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "Strait of Hormuz: Chinese ships get free pass, Iranian official says - South China Morning Post",
+      "title_ja": "Strait of Hormuz: Chinese ships get free pass, Iranian official says - South China Morning Post",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQV0lwT0ZGeVZweFlDNk5kZEcyZWg5ZmJEby1wYzl2bkVXc1hTcWpGZEdBVlhMLW4wYmdNanpxVzNMeGNxaW9QVHNUUS1DbnBadlFKYklhVjhjT2h6U2NCY3BwaEV2aUpocmtBV1NDR2tYSTNEU3BONWlSYkVZMExjSUVBRjRPTkhfOG9HLThtQjJiS0x3cGJjSU9jXzhaVGRfMWIwRjhubzhMd0tO0gGsAUFVX3lxTE1FVVV2dGFOOUlZTjdZNDl4cVc1Y0xhYldrZF85cEhqclZ4dEdoNWVpYlFmSkpST0piWlQwSGh1OVZYcHV1Rm1lNUNtMmdSNkRBVUZGQnAxcGRGOG5IT3owMmtKNzR1Z21zREJIUHVDbUdjZFhwZU5IaEo0WmZDckQ3UkFxX1VJNXRPWDVTVEUyOWdhUkpxOW9FOXVCdDEzRWpzZXV2Uy1EWldhVWs?oc=5",
+      "published": "2026-11-06T07:53:07+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "side": "iran",
+      "primary": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
     }
   ],
-  "updated": "2026-11-07T15:50:46+00:00",
+  "updated": "2026-11-07T20:02:58+00:00",
   "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
 }
