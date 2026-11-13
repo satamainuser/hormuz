@@ -16,25 +16,25 @@
   "tiles": {
     "ais_visible_cargo": 0,
     "advisories_7d": 25,
-    "incidents_30d": 9,
+    "incidents_30d": 7,
     "brent": {
-      "price": 96.5,
-      "change_pct": 0.71
+      "price": 96.29,
+      "change_pct": 0.49
     },
     "feeds_alive": "3/4"
   },
-  "closure_talk_90d": 8,
+  "closure_talk_90d": 7,
   "days_since_change": 0,
   "days_logged": 123,
   "statements": {
     "iran": {
       "kind": "statement",
       "source": "報道",
-      "title": "IRGC says tanker hits mines on unauthorized route in Strait of Hormuz - 巴士的報",
-      "title_ja": "IRGC says tanker hits mines on unauthorized route in Strait of Hormuz - 巴士的報",
+      "title": "IRGC Aerospace Force Warns of ‘Unlimited Response’ Over Strait of Hormuz After Sirik Strike - https://houseofsaud.com/",
+      "title_ja": "IRGC Aerospace Force Warns of ‘Unlimited Response’ Over Strait of Hormuz After Sirik Strike - https://houseofsaud.com/",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPOUFMQTd3amJ5TVNVdml5Vk1Uak14R21fNDM3eFZITkd1X3pacVllWFBhR3Z4SVFFSGZrLWNZaDhGS0wxZ3pyOGR4elFsM0pHMEtMLXZHLWtsSVJVNkJfeWgtb01sR2ZSUWRfVDF6VzNGSnBvWDVLcmxkdnhEYm5GeWktSTF1NUxfTXl1SDQzbzhTNHRjMTM4V0Zoa2F1bHNHN29ybUxUNlN1d0UzaUFKMVhOVE5NbllBQXhnVlp3?oc=5",
-      "published": "2026-11-13T12:37:00+00:00",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9mWk5zOFdtbU8wNTQzT3I5QUhUUnV3Rk1EUXVCTl9zRTFBTVk0SEtNMU1yQnZUSXY5TVlSNlBJaFlHeFN1VWdvRGVNSEc2MURfeV9icHoxTHZWMmZfSF9QeGs4Ym9YbHJvWGV2dzl3?oc=5",
+      "published": "2026-11-13T15:53:58+00:00",
       "is_incident": true,
       "is_closure": false,
       "side": "iran",
@@ -45,20 +45,63 @@
     "usa": {
       "kind": "statement",
       "source": "報道",
-      "title": "Explained: Trump Steps Back on Iran Deal Amid Hormuz Deadlock, Fresh Strikes | Spotlight - Firstpost",
-      "title_ja": "Explained: Trump Steps Back on Iran Deal Amid Hormuz Deadlock, Fresh Strikes | Spotlight - Firstpost",
+      "title": "Qatar Just Handed the World a Big Clue the Strait of Hormuz Could Reopen and Donald Trump Then Ended the Talks - National Security Journal",
+      "title_ja": "Qatar Just Handed the World a Big Clue the Strait of Hormuz Could Reopen and Donald Trump Then Ended the Talks - National Security Journal",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOXzlJekxadVVGZmVhWUswLUdOOUUtMmdfdzJvWnZmS01Sb0JrUXJBQXZhY251aEk5TmtrMXlNcWpnUDlCV21TR3YxaTFXMDdKVkJaclVtTlBJQ0stRDYtT0lKRmxmU2NfdFg4ZWRxZy0wcUVJM0o1a3lfaHNsb2djRTBWblRZY0pQYXdjMVFiUXNMbVMyMkZRTkdSamlzZnlnMGhHcHhnV3UwbFZDc0lHdi14ZWdzYlo4TVBVTU5xSUVQeUp1bFZxeVRDd1ZhenR4UE1FdTkwTdIB3AFBVV95cUxOOXhmUm1ia09OY0pldU5vZ2NhQ0dUQ05xZ3k1TW1VWTVXdUF3bUVTM3REUE54Z21od3p0enRPU0IwSXFJYzE3TERiTm9DWTctb3lFNHFrSW8xaVZ4MzlxNEpod0E2UUNEUGRHOG96SWlUZWRMVHdvWVlzbVJPVzBFdjdRTUZ0S3pmcnFmSy1nMURaSW9sYkhiNlFhNWFrN2FZb3h5dTVGakk1dGNmT3hhSGt4b0pKTHFTMkc1Y1JtSF93NXRNRFozYXNKX3NDd1IwYlpCYU1ycXM2WGNT?oc=5",
-      "published": "2026-11-13T13:59:58+00:00",
-      "is_incident": true,
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNal9yS090cGt0LXJJTWZybENJUi1heE90ZU1wWHVIVEE3Mjg3cmV6T1JEQ2ZZNk9PalF3dEtsN1RrRHRVYjhENEdULWlpRHozR2FwbV91WkZpZzNUX3Z5T2VCZnR2Yl9fTkZtX283MFExb2YzcWY4RkVheHFBeU9KNWJ6MnE4Y2xBQmJOaER4bFE5bGdzWm1CUWVZR2lXbk1jX01JSkh4dmExdHl4OVFBbzUzMm1qT1d6OE5XYTVsUDlwS053RFloNHE4ck5BaDkwZFVtSVcxRnRyc0JSZTEyLQ?oc=5",
+      "published": "2026-11-13T17:32:32+00:00",
+      "is_incident": false,
       "is_closure": false,
       "side": "usa",
       "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+      "sev": "C",
+      "sev_why": "参考情報。"
     }
   },
   "feed": [
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "Qatar Just Handed the World a Big Clue the Strait of Hormuz Could Reopen and Donald Trump Then Ended the Talks - National Security Journal",
+      "title_ja": "Qatar Just Handed the World a Big Clue the Strait of Hormuz Could Reopen and Donald Trump Then Ended the Talks - National Security Journal",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNal9yS090cGt0LXJJTWZybENJUi1heE90ZU1wWHVIVEE3Mjg3cmV6T1JEQ2ZZNk9PalF3dEtsN1RrRHRVYjhENEdULWlpRHozR2FwbV91WkZpZzNUX3Z5T2VCZnR2Yl9fTkZtX283MFExb2YzcWY4RkVheHFBeU9KNWJ6MnE4Y2xBQmJOaER4bFE5bGdzWm1CUWVZR2lXbk1jX01JSkh4dmExdHl4OVFBbzUzMm1qT1d6OE5XYTVsUDlwS053RFloNHE4ck5BaDkwZFVtSVcxRnRyc0JSZTEyLQ?oc=5",
+      "published": "2026-11-13T17:32:32+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "side": "usa",
+      "primary": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Strait of Hormuz Watch: Negotiations Uncertain as Vessel Attacks Continue - IndustryWeek",
+      "title_ja": "Strait of Hormuz Watch: Negotiations Uncertain as Vessel Attacks Continue - IndustryWeek",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQMzdGVkRCRkxtektNWVpJYUlyU2dMRFBSeVNxOVNsaHlDblpiblVTQ2d1SWotMmhUSk52YlNoalZKaGJkV1N4LUdjbXFFLVN4dk9JX1dYYnhZbHU1anY4QjBMNFF4N1JpVHNHNGUxcjk0YzRfSHFjWExic3NLTFFiVUhRVVhZaW1iZEt4eldXVFBfMnlaSmw0T1BMMnhfOGM2WmpROTF0OTZuc2t1Z1llRklEaVRwQ3FPT0tPdGo4Z052c3ZvQTMyVnRrVk9xM1JKRGJsUjhVMA?oc=5",
+      "published": "2026-11-13T16:56:50+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "IRGC Aerospace Force Warns of ‘Unlimited Response’ Over Strait of Hormuz After Sirik Strike - https://houseofsaud.com/",
+      "title_ja": "IRGC Aerospace Force Warns of ‘Unlimited Response’ Over Strait of Hormuz After Sirik Strike - https://houseofsaud.com/",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9mWk5zOFdtbU8wNTQzT3I5QUhUUnV3Rk1EUXVCTl9zRTFBTVk0SEtNMU1yQnZUSXY5TVlSNlBJaFlHeFN1VWdvRGVNSEc2MURfeV9icHoxTHZWMmZfSF9QeGs4Ym9YbHJvWGV2dzl3?oc=5",
+      "published": "2026-11-13T15:53:58+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "side": "iran",
+      "primary": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
     {
       "kind": "statement",
       "source": "報道",
@@ -71,6 +114,19 @@
       "is_closure": false,
       "side": "usa",
       "primary": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Iran Says Gas Tanker Hit Mine in Strait of Hormuz - Crude Oil Prices Today | OilPrice.com",
+      "title_ja": "Iran Says Gas Tanker Hit Mine in Strait of Hormuz - Crude Oil Prices Today | OilPrice.com",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQWXdvbHV6NmJUR3NQSTd0dk93RlNPWTR1anR6c20xQVNWOTM5eDJaU2dDR3NCb3g3RGJYRVBWQ0tWczNiYUJpN2V4M1dDTkNSc1JVVWZOU0J5NDYyenQwM0NLT0pBVmxWaGVpUmtnZlByOUs2dW5hak9YQi02LTBrRHZKT2NlYlFJQ0hjVm93WWpXMkFXUmZOd1doT2xKRzMyTkwwVGFVYmTSAa4BQVVfeXFMTUVoUlBfQ3N1UzZpTEVyaXFGa1oyN19OQnhMLTlTNmYtQmtLSC0zZEpqdkNnNWxNY0JsOUp3Q0lMR3E3dFFMUVFnSGR5U2xtel9uT2RicWYxT3ppWmNxM2k1aGtJVWNpb2NFQWFnQzRITjdQdm1Ma0ZDVzFqZk0zNGdSNEF0NGxSTXVSS200ek9qU1R4TF93TjJobEFBeVBlbXNOOUlZM1g2eFFNbnNR?oc=5",
+      "published": "2026-11-13T12:45:00+00:00",
+      "is_incident": true,
+      "is_closure": false,
       "sev": "A",
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
@@ -120,26 +176,13 @@
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
     {
-      "kind": "advisory",
-      "source": "報道",
-      "title": "Strait of Hormuz Watch: Negotiations Uncertain as Vessel Attacks Continue - IndustryWeek",
-      "title_ja": "Strait of Hormuz Watch: Negotiations Uncertain as Vessel Attacks Continue - IndustryWeek",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQMzdGVkRCRkxtektNWVpJYUlyU2dMRFBSeVNxOVNsaHlDblpiblVTQ2d1SWotMmhUSk52YlNoalZKaGJkV1N4LUdjbXFFLVN4dk9JX1dYYnhZbHU1anY4QjBMNFF4N1JpVHNHNGUxcjk0YzRfSHFjWExic3NLTFFiVUhRVVhZaW1iZEt4eldXVFBfMnlaSmw0T1BMMnhfOGM2WmpROTF0OTZuc2t1Z1llRklEaVRwQ3FPT0tPdGo4Z052c3ZvQTMyVnRrVk9xM1JKRGJsUjhVMA?oc=5",
-      "published": "2026-11-13T09:47:45+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
       "kind": "statement",
       "source": "報道",
       "title": "IRGC Reports Gas Carrier Mine Strike Near Hormuz; Ship Unidentified - The Eastern Herald",
       "title_ja": "IRGC Reports Gas Carrier Mine Strike Near Hormuz; Ship Unidentified - The Eastern Herald",
       "summarized": false,
       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1WVDYxclpjT3JCcjRqNlN4ekZPempoekZ6bWZLYms3b2ZtVG1XMTFLZklNdWhHSjVSd3VTU2l5NnNlaWVSUXZLS3NHZ0ZXdG9mRWRmdzEzN1NoV0k3ck5uZTVqdGlTOWhVUEhJOVRpUmlCS05N?oc=5",
-      "published": "2026-11-13T08:57:12+00:00",
+      "published": "2026-11-13T08:58:55+00:00",
       "is_incident": true,
       "is_closure": false,
       "side": "iran",
@@ -221,19 +264,6 @@
       "primary": false,
       "sev": "C",
       "sev_why": "参考情報。"
-    },
-    {
-      "kind": "advisory",
-      "source": "報道",
-      "title": "Iran says tanker carrying LNG hit mine, suffered explosion in Hormuz - Reuters",
-      "title_ja": "Iran says tanker carrying LNG hit mine, suffered explosion in Hormuz - Reuters",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPbWY4UFhVeWZBSkUteDV4dHd0b3cyU3czTkdkU3ZLbU9zZzlhOGhTcDlDcTlmSVlKVUZFZDhwTWdmdG9zQkJHZ05jaXVad0ZpVGdsTHJvZ0VRT3Q4cXRMZFZ5cFpkR0Y5dmo4b3dlQ0F4RUVxZFFGanB4M1cxZmJlSERVQ0dQVDNWbVFVV2pJZ09XNG5DWlV2Zk4xdi1xRm9jUjhzVFl1akd1QQ?oc=5",
-      "published": "2026-11-13T07:00:00+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
     {
       "kind": "statement",
@@ -520,26 +550,11 @@
       "title": "'We don't need a deal with Iran': Trump claims US has control of Hormuz, rules out need for talks - Moneycontrol.com",
       "title_ja": "'We don't need a deal with Iran': Trump claims US has control of Hormuz, rules out need for talks - Moneycontrol.com",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxObmxHTHI5b1RkZWt6OEpuSlpTSno4OWs5TmVWVVJyanlzN0pmUDFZRTBMWUJ6eDJYclRJenAyMDRhMmxuaWtVNFpnVTZzb0huX3NMMlR0Q1dLRHhuU2dMdUxZVHZFbEd2YlIzdV9Dd09ydndQNFI2R2Y1bHd4bVUxZEZLMDRUellZYksyWVZsWmdCNkV4cTR2QVVHb2NsSURURGt6cXhnT2lneFJ4QnE2T3NuaG9IUmY3NFJ3U0lqbklNV0FTRGdyRldRRXQtYl80aE5PYXd2RUxPS0JxSEpjRlJBbDg?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxObmxHTHI5b1RkZWt6OEpuSlpTSno4OWs5TmVWVVJyanlzN0pmUDFZRTBMWUJ6eDJYclRJenAyMDRhMmxuaWtVNFpnVTZzb0huX3NMMlR0Q1dLRHhuU2dMdUxZVHZFbEd2YlIzdV9Dd09ydndQNFI2R2Y1bHd4bVUxZEZLMDRUellZYksyWVZsWmdCNkV4cTR2QVVHb2NsSURURGt6cXhnT2lneFJ4QnE2T3NuaG9IUmY3NFJ3U0lqbklNV0FTRGdyRldRRXQtYl80aE5PYXd2RUxPS0JxSEpjRlJBbDjSAeoBQVVfeXFMTUdyd0hLRVhMNmJIcWF0UHpZZWF0empiODk5Y1lXN1RkRGVRVzkzSGNqbE04OEtPQU1vQzUwYndXaDU2enpoVzljS3RYcVB2TVNkQjFhUEMxb0ZQelB0WXFPOERCT3VyZEJCSE9aOGRjTHg2LS1tLWwzSkxoQ0dsQVJRSFlzcDJ6eTJJT3VRMW96Z0RZY3NBdnpOaWxldjYyS1d2LW9BZ25RMmNlNkVOMDRYa19fWENGZUt1aUM2RUhtc3FnUnYxU0dWa2twLUJUUWRfeXZnRWJLN3lBbVRBWEhoLVdoWmZPd29R?oc=5",
       "published": "2026-11-12T14:57:56+00:00",
       "is_incident": false,
       "is_closure": false,
       "side": "iran",
-      "primary": false,
-      "sev": "C",
-      "sev_why": "参考情報。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "Trump says US does not need deal with Iran, claims control of Hormuz - Operativ Məlumat Mərkəzi",
-      "title_ja": "Trump says US does not need deal with Iran, claims control of Hormuz - Operativ Məlumat Mərkəzi",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQQThZSWNCdDQ4YmNueEF5Z2NvUHR0eHFmbEdqU2hqXzQxNWRlSE9iNlZHSXkxRmF4YUhvcEZUWDdCM1FaTWo1aUsycGs0QllUZVVUTlJ4OFhtMXZ3dDBXcDFpZlRUWlNyclVsNUtqTWNUQjhlekluSWpvRDJZWXdDVTNBOTdGY05zMzhpYW5fak9odWNGZ3I2bllEdGM3VzdGMHNhUXR3?oc=5",
-      "published": "2026-11-12T14:05:35+00:00",
-      "is_incident": false,
-      "is_closure": false,
-      "side": "usa",
       "primary": false,
       "sev": "C",
       "sev_why": "参考情報。"
@@ -603,6 +618,19 @@
       "sev_why": "参考情報。"
     },
     {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "The Strait of Hormuz was the biggest game changer for markets in 2026 - Yahoo Finance",
+      "title_ja": "The Strait of Hormuz was the biggest game changer for markets in 2026 - Yahoo Finance",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPWEFRbWdwR1hxczhhWndWaTktQlV6X0hYWE0tVXJST3VEcVpVbU1meloxVmllTkpJUnQ0dlhqZEd3ZTFCT29YN2lBbjdqbUR3WW9XYVgtczd2UDJyZ3RLUVFvSTI2ZVF2dGlVMjl1TnlQczJDeVhNdnVEcmszRHZ4TnhEV0JNUVZPbXUtMmU2ZDU4ZjZrUDVJeGs2NmpUVEJ1cjlEWl80WFJETUhrX3Ezc1Q1SGczWjJWTzRrTC1hREdQT3Mx?oc=5",
+      "published": "2026-11-12T12:00:00+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
       "kind": "statement",
       "source": "報道",
       "title": "Iran's IRGC says 2 \"violating\" oil tankers disabled by blasts in Hormuz Strait - Global Times",
@@ -616,36 +644,8 @@
       "primary": false,
       "sev": "C",
       "sev_why": "参考情報。"
-    },
-    {
-      "kind": "advisory",
-      "source": "報道",
-      "title": "Iran’s Revolutionary Guard says 2 oil tankers exploded in Strait of Hormuz - Anadolu Ajansı",
-      "title_ja": "Iran’s Revolutionary Guard says 2 oil tankers exploded in Strait of Hormuz - Anadolu Ajansı",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPd0dVRHZuQnJxdGFrLW5KZ1lndzRNOXVOSm13aWZuZmQ2bVJRQ3ctMl94dVVfYWNWVUJPbWhydWozRXRKQmJvWGJhel8wZUlRRFd0Y2VpVWx4UHdTX1NFN3c2TFJIb2Q1WFRBcGVXeWJuMjNYVUU0ZXdjUE1SakRlbnhkbW9JYVZvQ25MXzlsdmIxS0pqbEY3TV81Y3pxSndRSmNPZXdFWlFLY2xYU24xSV9CYXc5dw?oc=5",
-      "published": "2026-11-12T08:54:05+00:00",
-      "is_incident": false,
-      "is_closure": false,
-      "sev": "B",
-      "sev_why": "警報・報道。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "Iran’s Revolutionary Guard says 2 oil tankers exploded in Strait of Hormuz - Anadolu Ajansı",
-      "title_ja": "Iran’s Revolutionary Guard says 2 oil tankers exploded in Strait of Hormuz - Anadolu Ajansı",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQLVBRR3dMMWVSUVBuVmhJamZ3TXlqdjFQZTFFSnFRQ2VSSjkyMDk2Q2VSTVpocnZ1cUt3N21BQnNWeXVibTVWNUtGeGZaRVVZZmU5R0RxZWtVakV6NEZ3cFZqbFpwTWNpWmYwZVJMbGJrTFRYVGExUHNGMmhQRzkzLVZVc1daazNYNkpyX0JoaGctMWVwb29FSk1MYlFrZjMwc2kxSUYtYnBlcWJkTGt2VmFseXNVSGpXM01j?oc=5",
-      "published": "2026-11-12T08:54:05+00:00",
-      "is_incident": false,
-      "is_closure": false,
-      "side": "iran",
-      "primary": false,
-      "sev": "C",
-      "sev_why": "参考情報。"
     }
   ],
-  "updated": "2026-11-13T15:38:00+00:00",
+  "updated": "2026-11-13T21:51:29+00:00",
   "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
 }
