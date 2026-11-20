@@ -16,10 +16,10 @@
   "tiles": {
     "ais_visible_cargo": 0,
     "advisories_7d": 25,
-    "incidents_30d": 12,
+    "incidents_30d": 10,
     "brent": {
-      "price": 88.48,
-      "change_pct": -1.07
+      "price": 89.09,
+      "change_pct": -0.39
     },
     "feeds_alive": "3/4"
   },
@@ -30,17 +30,17 @@
     "iran": {
       "kind": "statement",
       "source": "報道",
-      "title": "‘Eyes on Hormuz’: Analyst Warns Iran May Defy US Blockade With Oil Exports, Flags Hormuz Vessel Strikes a - Benzinga",
-      "title_ja": "‘Eyes on Hormuz’: Analyst Warns Iran May Defy US Blockade With Oil Exports, Flags Hormuz Vessel Strikes a - Benzinga",
+      "title": "IRGC Chief Says Iran Controls Waters 500 km Beyond Strait of Hormuz - https://houseofsaud.com/",
+      "title_ja": "IRGC Chief Says Iran Controls Waters 500 km Beyond Strait of Hormuz - https://houseofsaud.com/",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxQUzJxZ0lIY1c1aVhOTnJVd2JweDVvcmtYT3pteWRSSnNlekhfLXpNQUlWcmN3N2VaMVM3OXRWa2o1dW1sdmlyQW9yUXo2dVduME9hVXEySW9GVXhoOUdhY0p4NVd1S01zWUgxRlpBd3ZxbzFYN1V0UjZGSHlTSGVHUFd5d0R1U3N3ZGY0OU55TWtzOVhwRkJTUUF5VlBBMHFpbXRYRnpZNFI0dzF2bXFmTXlwaVlxRExud2dmeW5FeUtrWUFBNndCQmxYT2RmRVU2VmlYaGpUWU05ck4xLUpPaHdyRjJPQjh5MmZIaFlmZGJSaDJ6TGNnQVZQMll1bW1rdkhOcEw1a1pGcmlpTzg4UUVMWk9Ndw?oc=5",
-      "published": "2026-11-20T05:33:29+00:00",
-      "is_incident": true,
-      "is_closure": true,
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNZUZkUHpxZlFfSm9YbjZmNFVPZ0VSeGdoWnR4Y29VeXVIbV9vdDBXX2pGbENhZmQ2R3c2RThONERLaTNpaU5FOGd1RzBvLUJFVzRmbTNvU0ZQNlhLbVZENzdkOHpxNl9yUjE5bU9hUG1ldl9VOTVkVWxWSEtBM19XS213?oc=5",
+      "published": "2026-11-20T11:46:44+00:00",
+      "is_incident": false,
+      "is_closure": false,
       "side": "iran",
       "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+      "sev": "C",
+      "sev_why": "参考情報。"
     },
     "usa": {
       "kind": "statement",
@@ -66,11 +66,26 @@
       "title_ja": "Strait of Hormuz Watch: Peace Negotiations Stall, Vessel Attacks Persist - IndustryWeek",
       "summarized": false,
       "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQMzdGVkRCRkxtektNWVpJYUlyU2dMRFBSeVNxOVNsaHlDblpiblVTQ2d1SWotMmhUSk52YlNoalZKaGJkV1N4LUdjbXFFLVN4dk9JX1dYYnhZbHU1anY4QjBMNFF4N1JpVHNHNGUxcjk0YzRfSHFjWExic3NLTFFiVUhRVVhZaW1iZEt4eldXVFBfMnlaSmw0T1BMMnhfOGM2WmpROTF0OTZuc2t1Z1llRklEaVRwQ3FPT0tPdGo4Z052c3ZvQTMyVnRrVk9xM1JKRGJsUjhVMA?oc=5",
-      "published": "2026-11-20T07:07:33+00:00",
+      "published": "2026-11-20T13:07:33+00:00",
       "is_incident": true,
       "is_closure": false,
       "sev": "A",
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "IRGC Chief Says Iran Controls Waters 500 km Beyond Strait of Hormuz - https://houseofsaud.com/",
+      "title_ja": "IRGC Chief Says Iran Controls Waters 500 km Beyond Strait of Hormuz - https://houseofsaud.com/",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNZUZkUHpxZlFfSm9YbjZmNFVPZ0VSeGdoWnR4Y29VeXVIbV9vdDBXX2pGbENhZmQ2R3c2RThONERLaTNpaU5FOGd1RzBvLUJFVzRmbTNvU0ZQNlhLbVZENzdkOHpxNl9yUjE5bU9hUG1ldl9VOTVkVWxWSEtBM19XS213?oc=5",
+      "published": "2026-11-20T11:46:44+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "side": "iran",
+      "primary": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
     },
     {
       "kind": "statement",
@@ -80,6 +95,21 @@
       "summarized": false,
       "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxQUzJxZ0lIY1c1aVhOTnJVd2JweDVvcmtYT3pteWRSSnNlekhfLXpNQUlWcmN3N2VaMVM3OXRWa2o1dW1sdmlyQW9yUXo2dVduME9hVXEySW9GVXhoOUdhY0p4NVd1S01zWUgxRlpBd3ZxbzFYN1V0UjZGSHlTSGVHUFd5d0R1U3N3ZGY0OU55TWtzOVhwRkJTUUF5VlBBMHFpbXRYRnpZNFI0dzF2bXFmTXlwaVlxRExud2dmeW5FeUtrWUFBNndCQmxYT2RmRVU2VmlYaGpUWU05ck4xLUpPaHdyRjJPQjh5MmZIaFlmZGJSaDJ6TGNnQVZQMll1bW1rdkhOcEw1a1pGcmlpTzg4UUVMWk9Ndw?oc=5",
       "published": "2026-11-20T05:33:29+00:00",
+      "is_incident": true,
+      "is_closure": true,
+      "side": "iran",
+      "primary": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "‘Eyes on Hormuz’: Analyst Warns Iran May Defy US Blockade With Oil Exports, Flags Hormuz Vessel Strikes as Trump Is ‘Not Rushing’ Decisions (CORRECTED) - TradingView",
+      "title_ja": "‘Eyes on Hormuz’: Analyst Warns Iran May Defy US Blockade With Oil Exports, Flags Hormuz Vessel Strikes as Trump Is ‘Not Rushing’ Decisions (CORRECTED) - TradingView",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxQcm12eG13X0ZURV9jRUNyYjYyaUV6T3lfSUJ5dkhwbkNWbDJvVU9qOWp2SUd0ajRmcGJGR0x0UlhJNmRZM3YtMnk0aEJjNDlld2d2VFJOYVdXeUlOSFF6WlM4ZzZQeXc5R1pYNVl3OE1HdFNTaFZyYU5kVlYtVlZsam13eE8zeE5RS0FyeWVyYUx6QlQwemxySFJneDAwbFM5Y3E4MF93MWtZNE1WQ2otSnBKRlN6TkRMWmxFdnppQ2lxWGZyc2pOSXRzaU1paXk4ZEo1UHRZTEZ1dUdSbUk0TGtESGU0aHM3Rk5IQ1ZQTzlDVm4tWUw3YUpMb3RSRmlRaHE4dU1meDZ0eDgybHBMUHB2NWh3UTFDRDBBUVo2d2VyelB4RjF3QUVB?oc=5",
+      "published": "2026-11-20T05:33:00+00:00",
       "is_incident": true,
       "is_closure": true,
       "side": "iran",
@@ -123,8 +153,8 @@
       "title": "2 oil tankers catch fire after hitting mines in waters east of Strait of Hormuz: Iranian army - Anadolu Ajansı",
       "title_ja": "2 oil tankers catch fire after hitting mines in waters east of Strait of Hormuz: Iranian army - Anadolu Ajansı",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPMWcwdUoydUNIZXMwZGthWGtpc1hoQkN0RzM2STUzRllJblphcjEwU3JyMmVWWkM5OW1GcXd0RlI1YWZEMTJrakpjeUt2a2szamJJLU90N0dXNG9QVHJuUzlCaWdxNDBaaEpCNkhFQ1ZLeG56cEdrMmRiMXZNaEhGbld3ZTc2bTRQREI4c09KaXhsQTNMQjEza3ZKaXlXXzdZRlJRUUNRMWRyd0JvbEFsNld6QkYyZThnTE16RUdJYmdtcVJFSFVCMmVnTDAwdy1jdmhR?oc=5",
-      "published": "2026-11-19T21:41:03+00:00",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQYlBUQVJQeGQ1NFVUTXZ6LUZwNVQzcFo0QzNFNkxVd19TcDhUd0duVHVaR1M3Nl9RTXM3Q1QzTjVtYXRrNnNkSVAtRDd0UXZzNlc3NGI2d2N5ZWoxMVhubHpDYnJLX0VqQmNxWjA5Tm5DMGZnYzJFRUF1ZWtaTVcyMzEyajBTNXFkdmNEU043YmZOZDYzdUZBRmNlS0lIWE1NVUpJU0FmVzRqX0llTWxrQ0trTjZ5bGx6SDFFeHhmcTVxV2FjZGlNalIwR2dLdw?oc=5",
+      "published": "2026-11-19T21:44:30+00:00",
       "is_incident": true,
       "is_closure": false,
       "side": "iran",
@@ -606,38 +636,8 @@
       "primary": false,
       "sev": "A",
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "‘We’re Leaving Hormuz’: Hegseth Forced To Quit Iran Amid Impeachment Row? Shock Speech In Venezuela - The Times of India",
-      "title_ja": "‘We’re Leaving Hormuz’: Hegseth Forced To Quit Iran Amid Impeachment Row? Shock Speech In Venezuela - The Times of India",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNRnVDQnRUY2trbElscDdfdHRtUzRJYkdEYUJEVG9JY2h5ZFlycExZNjVDclpuX1RaWTNfRkR4MVUzamxRSGkzWGlWWUdXbkI5d3A5RlJPSTYzX2NlalVZM2lZMVNYTGtmZzMxMnVjR05lUEJVVXVKQjI2UjNMYWplZTI4cmZwUnJoYW94aFJ1R1A5cmc3V0c5NnpNNUpHRDg3cFdjVGJocms1RjQzTjl5U1c1YUlOWGt3WEtKRmwwS3pRNlJUR3JlMzhRTlZXdFZ0aDRtMVNxX2gtVUJRbjRSc1NXZDB1LUFqMHVCZERVa2RWV2RmNUdIM3pnT25sR3hzSDZnMWV30gGLAkFVX3lxTFBPUWVlNm12VjRJYkdjOE1PTE9Rb0s0V2RPU3AyamZocVd1OUtyR2MyX1NNd0lZVjg1NW1HQWtCMUQtLTBfWXkzVjM5cXE0cjZJYTk3SkpsZnZYLS0yOG9vekl0T3MzNTU2TDlJMlRhTkxPZDUxSzMzUzZWcDAxMHdibkViOGlsV0hLSU03SEFXRWlGZEZRNFB0cm82RzZrbWkzeEIxekJsVkh5OFRuRy12Q1NFS296R05HMVVkb0w3QWZaYW5fVXJOZzZLMGZjblprc1J3RGZBaklWTFFiSF9NOW9oaTU5S3BEdzV0Sm9rbGNoMDlpbEU0RFJyQXJpWjQ4R1JIbDA4dGNqZw?oc=5",
-      "published": "2026-11-18T22:36:08+00:00",
-      "is_incident": false,
-      "is_closure": false,
-      "side": "iran",
-      "primary": false,
-      "sev": "C",
-      "sev_why": "参考情報。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "Strait of Hormuz tanker engulfed in flames as Donald Trump launches fresh strikes on Iran - GB News",
-      "title_ja": "Strait of Hormuz tanker engulfed in flames as Donald Trump launches fresh strikes on Iran - GB News",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxObndvWHJuQVlMV2NHTC04bkZFaGRfcVllY255VnBuTU5yM2VYaFpIVEh0RmJiVFJVcnVvZzhaTFRDRHlHUGxhT0NpZU5NVDRhRTVjNmlZcUg1Zm5Lc1JySk5rdGhtRDYwMEF1NzByUkg2QTV3bTlFbHU3QmZBZ2dHY2NVS2I0ZGlGYy02dHVOSTdXWVo5Z3pkZk9B?oc=5",
-      "published": "2026-11-18T21:36:51+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "usa",
-      "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
     }
   ],
-  "updated": "2026-11-20T09:00:21+00:00",
+  "updated": "2026-11-20T17:56:35+00:00",
   "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
 }
