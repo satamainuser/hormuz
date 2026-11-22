@@ -23,24 +23,24 @@
     },
     "feeds_alive": "3/4"
   },
-  "closure_talk_90d": 7,
+  "closure_talk_90d": 5,
   "days_since_change": 0,
   "days_logged": 132,
   "statements": {
     "iran": {
       "kind": "statement",
-      "source": "報道",
-      "title": "Will the Strait of Hormuz remain closed? – Araghchi sets condition for US - TodayPress.tv",
-      "title_ja": "Will the Strait of Hormuz remain closed? – Araghchi sets condition for US - TodayPress.tv",
+      "source": "Mehr",
+      "title": "IRGC downs 20th US-made MQ-1 drone in eastern Hormuz Strait",
+      "title_ja": "IRGC downs 20th US-made MQ-1 drone in eastern Hormuz Strait",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOV0o4dUdOdkhLR1BRWnpnLXhvQlRvRFpWLU8xZFQ1RFo4YjlMZzNLTU0xV0k0RV92ZE83Y1R4S2hTS2JpRFlFamVIMXFwTk56MVJaYTczQTY3czFHbGpYY0hSeDhVUDl5SU9XTFFXeXhuRnJQS0F6NFdWZmxZUXJyNV9DNGdlektDWmFxMW5rUWZaa0ZrcHM3RjhORzc3bjlBcXdv?oc=5",
-      "published": "2026-11-21T17:42:29+00:00",
-      "is_incident": false,
-      "is_closure": true,
+      "url": "https://en.mehrnews.com/news/249601/IRGC-downs-20th-US-MQ-1-drone-in-eastern-Hormuz-Strait",
+      "published": "2026-11-22T08:30:26+00:00",
+      "is_incident": true,
+      "is_closure": false,
       "side": "iran",
-      "primary": false,
-      "sev": "B",
-      "sev_why": "発言のみ。実際の通航状況とは別。"
+      "primary": true,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
     "usa": {
       "kind": "statement",
@@ -59,6 +59,64 @@
     }
   },
   "feed": [
+    {
+      "kind": "statement",
+      "source": "Mehr",
+      "title": "IRGC downs 20th US-made MQ-1 drone in eastern Hormuz Strait",
+      "title_ja": "IRGC downs 20th US-made MQ-1 drone in eastern Hormuz Strait",
+      "summarized": false,
+      "url": "https://en.mehrnews.com/news/249601/IRGC-downs-20th-US-MQ-1-drone-in-eastern-Hormuz-Strait",
+      "published": "2026-11-22T08:30:26+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "side": "iran",
+      "primary": true,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
+      "kind": "statement",
+      "source": "IRNA",
+      "title": "Army exercising sovereignty over Strait of Hormuz: Iran",
+      "title_ja": "Army exercising sovereignty over Strait of Hormuz: Iran",
+      "summarized": false,
+      "url": "https://en.irna.ir/news/86328803/Army-exercising-sovereignty-over-Strait-of-Hormuz-Iran",
+      "published": "2026-11-22T05:30:44+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "side": "iran",
+      "primary": true,
+      "sev": "C",
+      "sev_why": "参考情報。"
+    },
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "Two tankers attacked in Strait of Hormuz; Qatar steps in to mediate Iran-US conflict - Daijiworld",
+      "title_ja": "Two tankers attacked in Strait of Hormuz; Qatar steps in to mediate Iran-US conflict - Daijiworld",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE41bmNjQUI3bWYtN2N4cmM0M3F6ZW9jNF9PM1VYSVRHbmx0czMwVmxkaGdZVmI1Zm55UHRSSktiRk9lOEd6a2pXZ3drajdncE5PbFJhelczQXVOb29BNVk5c2kydlc?oc=5",
+      "published": "2026-11-22T03:48:33+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "side": "iran",
+      "primary": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Endurance athlete swims in Strait of Hormuz to highlight Iran war’s impact on wildlife - AP News",
+      "title_ja": "Endurance athlete swims in Strait of Hormuz to highlight Iran war’s impact on wildlife - AP News",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNQ0JtX0ptcWJJLXVuYkhxaG1uNTFXV0hEdzRSUDZIckpCQWVfVWZtMWU5b3AzYjhUcTdvdjNrQmNXMnVFSTdZWE9wTnhWQ2NBSnpBT0thUEdMQ1hKcGY0aURSMXFiM1UtUktHVEIzbzFCM2JYRGRvb01yOGhFSkNVSlJabk9fUUx1ekk0QWFNQzBOVDRvamdrRmZmcw?oc=5",
+      "published": "2026-11-21T19:02:00+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
     {
       "kind": "advisory",
       "source": "報道",
@@ -86,21 +144,6 @@
       "primary": false,
       "sev": "A",
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "Will the Strait of Hormuz remain closed? – Araghchi sets condition for US - TodayPress.tv",
-      "title_ja": "Will the Strait of Hormuz remain closed? – Araghchi sets condition for US - TodayPress.tv",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOV0o4dUdOdkhLR1BRWnpnLXhvQlRvRFpWLU8xZFQ1RFo4YjlMZzNLTU0xV0k0RV92ZE83Y1R4S2hTS2JpRFlFamVIMXFwTk56MVJaYTczQTY3czFHbGpYY0hSeDhVUDl5SU9XTFFXeXhuRnJQS0F6NFdWZmxZUXJyNV9DNGdlektDWmFxMW5rUWZaa0ZrcHM3RjhORzc3bjlBcXdv?oc=5",
-      "published": "2026-11-21T17:42:29+00:00",
-      "is_incident": false,
-      "is_closure": true,
-      "side": "iran",
-      "primary": false,
-      "sev": "B",
-      "sev_why": "発言のみ。実際の通航状況とは別。"
     },
     {
       "kind": "advisory",
@@ -265,34 +308,6 @@
     },
     {
       "kind": "statement",
-      "source": "Mehr",
-      "title": "Non-compliant tanker blasts after hitting mine near Oman port",
-      "title_ja": "Non-compliant tanker blasts after hitting mine near Oman port",
-      "summarized": false,
-      "url": "https://en.mehrnews.com/news/249562/Non-compliant-tanker-blasts-after-hitting-mine-near-Oman-port",
-      "published": "2026-11-21T06:05:18+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "iran",
-      "primary": true,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "advisory",
-      "source": "報道",
-      "title": "Endurance athlete swims in Strait of Hormuz to highlight Iran war’s impact on wildlife - AP News",
-      "title_ja": "Endurance athlete swims in Strait of Hormuz to highlight Iran war’s impact on wildlife - AP News",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNQ0JtX0ptcWJJLXVuYkhxaG1uNTFXV0hEdzRSUDZIckpCQWVfVWZtMWU5b3AzYjhUcTdvdjNrQmNXMnVFSTdZWE9wTnhWQ2NBSnpBT0thUEdMQ1hKcGY0aURSMXFiM1UtUktHVEIzbzFCM2JYRGRvb01yOGhFSkNVSlJabk9fUUx1ekk0QWFNQzBOVDRvamdrRmZmcw?oc=5",
-      "published": "2026-11-21T06:02:03+00:00",
-      "is_incident": false,
-      "is_closure": false,
-      "sev": "B",
-      "sev_why": "警報・報道。"
-    },
-    {
-      "kind": "statement",
       "source": "報道",
       "title": "Strait of Hormuz tensions intensify as Iran claims downing of US MQ-9 drone - Trend News Agency",
       "title_ja": "Strait of Hormuz tensions intensify as Iran claims downing of US MQ-9 drone - Trend News Agency",
@@ -318,36 +333,6 @@
       "is_closure": false,
       "side": "iran",
       "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "IRNA",
-      "title": "IRGC shoots down 58th US MQ-9 drone over Strait of Hormuz",
-      "title_ja": "IRGC shoots down 58th US MQ-9 drone over Strait of Hormuz",
-      "summarized": false,
-      "url": "https://en.irna.ir/news/86327810/IRGC-shoots-down-58th-US-MQ-9-drone-over-Strait-of-Hormuz",
-      "published": "2026-11-21T05:49:55+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "iran",
-      "primary": true,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "Mehr",
-      "title": "Iran shoots down 58th US-made MQ-9 drone over Hormuz: IRGC",
-      "title_ja": "Iran shoots down 58th US-made MQ-9 drone over Hormuz: IRGC",
-      "summarized": false,
-      "url": "https://en.mehrnews.com/news/249559/Iran-shoots-down-58th-US-MQ-9-drone-over-Hormuz-IRGC",
-      "published": "2026-11-21T04:58:41+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "iran",
-      "primary": true,
       "sev": "A",
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
@@ -479,6 +464,21 @@
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
     {
+      "kind": "statement",
+      "source": "報道",
+      "title": "German Chancellor Calls for Hormuz Strait to Reopen, Iran to End Nuclear Program - TOKENPOST",
+      "title_ja": "German Chancellor Calls for Hormuz Strait to Reopen, Iran to End Nuclear Program - TOKENPOST",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0zWEI3UEZDdDlMUng4VGlGNkI3cllRUDQwQ2dKV00zTHg4MWNCSlZUSEtPVTk5eXJWOGg5NWZyS0VuLUtMRGRLMGV1cFBMQ2pHUUFtMUxiR3BKOE0?oc=5",
+      "published": "2026-11-20T15:52:23+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "side": "iran",
+      "primary": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
+    },
+    {
       "kind": "advisory",
       "source": "報道",
       "title": "US targets mine-laying vessels in the Strait of Hormuz amid blockade disrupting global oil markets - ABC News - Breaking News, Latest News and Videos",
@@ -505,21 +505,6 @@
       "primary": false,
       "sev": "C",
       "sev_why": "参考情報。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "Iran Declares Strait of Hormuz Closed as ‘Unauthorised’ Vessel Hit - EnergyNow.com",
-      "title_ja": "イラン、「無許可」船がホルムズ海峡で衝突したため海峡を閉鎖と宣言 - EnergyNow.com",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNU3BGdU5KMkwwNVNINnRuYnZBdWZpYUNjSHlXSGh2MWJWck1INVRtbXNyS2t5WXZPRGxlVEpGcnM5NUkyQnlmNEtLazBSM2dFcDROdVJ1RC1Bd1haYUlXbnphM2tzenhjNm1PQUNnRkNRYi1SNVBxX2RsNTJhY19vVUU4ejhtRlRlUkdpcmxvd1YtRXZ1dVBuaVBLWQ?oc=5",
-      "published": "2026-11-20T11:46:29+00:00",
-      "is_incident": false,
-      "is_closure": true,
-      "side": "iran",
-      "primary": false,
-      "sev": "B",
-      "sev_why": "発言のみ。実際の通航状況とは別。"
     },
     {
       "kind": "statement",
@@ -636,8 +621,21 @@
       "primary": false,
       "sev": "C",
       "sev_why": "参考情報。"
+    },
+    {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Iran Keeps Up Unrelenting Attacks on Ships in the Strait of Hormuz - The New York Times",
+      "title_ja": "Iran Keeps Up Unrelenting Attacks on Ships in the Strait of Hormuz - The New York Times",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNczJXN3dIbXJITGpRV1BQQzdMRlp4QVl0ZE5jZnM2Vk9SNm5tZ2ZJV1NlbXA4em01SGZxM3p3b0FQemFMS0dTNGhhdzdPZzhCdXZDVzJTRXYtRThDWHRQa3dZQzRTOGdPZWxuQThVTGo5RGVzUHluWnNVaWRmNE5XQ2VpSS1aMVZUT3IyOA?oc=5",
+      "published": "2026-11-19T10:58:32+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
     }
   ],
-  "updated": "2026-11-22T01:09:29+00:00",
+  "updated": "2026-11-22T08:40:07+00:00",
   "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
 }
