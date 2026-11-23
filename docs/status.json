@@ -16,49 +16,94 @@
   "tiles": {
     "ais_visible_cargo": 0,
     "advisories_7d": 25,
-    "incidents_30d": 13,
+    "incidents_30d": 11,
     "brent": {
-      "price": 89.95,
-      "change_pct": 0.0
+      "price": 89.46,
+      "change_pct": -0.54
     },
     "feeds_alive": "3/4"
   },
-  "closure_talk_90d": 3,
+  "closure_talk_90d": 5,
   "days_since_change": 0,
-  "days_logged": 132,
+  "days_logged": 133,
   "statements": {
     "iran": {
       "kind": "statement",
-      "source": "Mehr",
-      "title": "Two oil tankers explode in east of Hormuz: Iran Army",
-      "title_ja": "Two oil tankers explode in east of Hormuz: Iran Army",
+      "source": "報道",
+      "title": "Iran's IRGC says two 'violating' supertankers exploded after hitting mines in Hormuz Strait - The Hans India",
+      "title_ja": "Iran's IRGC says two 'violating' supertankers exploded after hitting mines in Hormuz Strait - The Hans India",
       "summarized": false,
-      "url": "https://en.mehrnews.com/news/249612/Two-oil-tankers-explode-in-east-of-Hormuz-Iran-Army",
-      "published": "2026-11-22T18:09:03+00:00",
-      "is_incident": false,
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPbkMwOHhER09jMmw3Rmt5OVRYUkVpdHQyVzNqUTliQ2M3dGdWSEdCNnVrQS03djliUVlNWThGa2ZUOHFubFZKU1d4R3dxR1RuazNlYlJnTDZwWUctVl9aWE0ybFY2RWxiVXRPMzNUV1VGa200djFzRzVleFpYRDlHNm1aeHJMWnA3Mm5zbHhFREM0X1ViamhGaEU3aTRES0Z4Mk9fUEhxQi1nZUtsd0E5d0M0WEstTFBRYkdQcldZRjRzNE5oU0dBdEhfU0RwSzYtMHYzUy1qNmtkZ1FY?oc=5",
+      "published": "2026-11-23T01:41:54+00:00",
+      "is_incident": true,
       "is_closure": false,
       "side": "iran",
-      "primary": true,
-      "sev": "C",
-      "sev_why": "参考情報。"
+      "primary": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
     },
     "usa": {
       "kind": "statement",
       "source": "報道",
-      "title": "Trump Threatens More Strikes on Iran’s Kharg Island, Pushes Allies on Strait of Hormuz - EnergyNow.com",
-      "title_ja": "Trump Threatens More Strikes on Iran’s Kharg Island, Pushes Allies on Strait of Hormuz - EnergyNow.com",
+      "title": "Trump Warns Iran: Make a Deal or Face US Military Action Again As Hormuz Tensions Escalate - News18",
+      "title_ja": "Trump Warns Iran: Make a Deal or Face US Military Action Again As Hormuz Tensions Escalate - News18",
       "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNSEJkYjV5SWxuU3RxOUo2eHR0ZklpbDhsenVUMXdNNlhmRDRJTW95MVB2LVp4c0VHdWpPaFRRS0JLcHVtM0pyTkdZWUp2bU5aZ3R6enFxb3FRUUQ5SllCNEs2bkh0WmZObjFZT1NPQmswM3lGQThGUEVIdVBUeHZEeTBhcUZxNlpNa1htdW9IeG5PMFZjMFdVMzFHRHFhU3BweWdaS0phNUgxWUw2Z3N3WTlldFh3QQ?oc=5",
-      "published": "2026-11-22T16:24:11+00:00",
-      "is_incident": true,
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPOU54dGM2ZjZhUlhTRldOZUxLUnRzazJtSmZ5T1lPMFlObjhRbFZXek0zUWV2a2ZrNGhqZmVLdzh6LVZ6UXUzVkhLdElBcWpLdDRMbTBpVGR2WENQYXgzUzMwX0RVaUlva0M4YzlsT0s5SjZ2clRMUlFYTHpxb0NJYWRXSlVROFJXanRORkRwdlY1SVFqX0o5eFlDSTJ2UmVVUTUwNXhMall0bUFLWEx2WTM0MF82S05kb1BjRERnb21ncGFPMXVjbnoyX0VZTlFOVEk1eGFR0gHbAUFVX3lxTE10QloyVERkWW1UV1lETm00V3djeC1Tc2p2TVJDMHZmR3RWc3ZXMWF4VFBsWlNWTDEwUnJRVF9QT0Rnb0dSMFhtV2xWbnlQNmo3dm84b0JqNi16UDZLWGdoQmFsWkZOU2N2T0JmLTdZemRWNGs4Qi1MZ2JCSHZmOUFrZWlhejlfUWFoeEt6bXV6TGhXSEVINWFORHg2OXMtbFlnVjR5YllnMFdNVExfeDQzUTRtc0RFYU12R05ReHo0QU9XeXNuSWNsaTJYdHFKb2c5anZRdG83dU9GQQ?oc=5",
+      "published": "2026-11-23T01:59:00+00:00",
+      "is_incident": false,
       "is_closure": false,
       "side": "usa",
       "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+      "sev": "C",
+      "sev_why": "参考情報。"
     }
   },
   "feed": [
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "Trump Warns Iran: Make a Deal or Face US Military Action Again As Hormuz Tensions Escalate - News18",
+      "title_ja": "Trump Warns Iran: Make a Deal or Face US Military Action Again As Hormuz Tensions Escalate - News18",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPOU54dGM2ZjZhUlhTRldOZUxLUnRzazJtSmZ5T1lPMFlObjhRbFZXek0zUWV2a2ZrNGhqZmVLdzh6LVZ6UXUzVkhLdElBcWpLdDRMbTBpVGR2WENQYXgzUzMwX0RVaUlva0M4YzlsT0s5SjZ2clRMUlFYTHpxb0NJYWRXSlVROFJXanRORkRwdlY1SVFqX0o5eFlDSTJ2UmVVUTUwNXhMall0bUFLWEx2WTM0MF82S05kb1BjRERnb21ncGFPMXVjbnoyX0VZTlFOVEk1eGFR0gHbAUFVX3lxTE10QloyVERkWW1UV1lETm00V3djeC1Tc2p2TVJDMHZmR3RWc3ZXMWF4VFBsWlNWTDEwUnJRVF9QT0Rnb0dSMFhtV2xWbnlQNmo3dm84b0JqNi16UDZLWGdoQmFsWkZOU2N2T0JmLTdZemRWNGs4Qi1MZ2JCSHZmOUFrZWlhejlfUWFoeEt6bXV6TGhXSEVINWFORHg2OXMtbFlnVjR5YllnMFdNVExfeDQzUTRtc0RFYU12R05ReHo0QU9XeXNuSWNsaTJYdHFKb2c5anZRdG83dU9GQQ?oc=5",
+      "published": "2026-11-23T01:59:00+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "side": "usa",
+      "primary": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
+    },
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "Trump Dares Iran to Test Hormuz Blockade: ‘They’ll All Be at the Bottom of the Sea’ - Breitbart News",
+      "title_ja": "Trump Dares Iran to Test Hormuz Blockade: ‘They’ll All Be at the Bottom of the Sea’ - Breitbart News",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNcjNmUU1oQ3FNVmUzelFKLXJyS2dObjF3ZnJHejVEcUd4OGpha2xJTE5pSWppS2tvR1ktSktmd1o3UDAxeC1WS0ZmNHBsamdxZHV0MXc3SjVaNmVTTjdnMjJmNHJHTGl2a0c3M3g4RkxaaHdlOHlkb3ZEZnpiVXVqeFFEX09qLTFuX3ViWU5DeTRiNUM5R0pnbGtoYw?oc=5",
+      "published": "2026-11-23T01:49:45+00:00",
+      "is_incident": false,
+      "is_closure": true,
+      "side": "usa",
+      "primary": false,
+      "sev": "B",
+      "sev_why": "発言のみ。実際の通航状況とは別。"
+    },
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "Iran's IRGC says two 'violating' supertankers exploded after hitting mines in Hormuz Strait - The Hans India",
+      "title_ja": "Iran's IRGC says two 'violating' supertankers exploded after hitting mines in Hormuz Strait - The Hans India",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPbkMwOHhER09jMmw3Rmt5OVRYUkVpdHQyVzNqUTliQ2M3dGdWSEdCNnVrQS03djliUVlNWThGa2ZUOHFubFZKU1d4R3dxR1RuazNlYlJnTDZwWUctVl9aWE0ybFY2RWxiVXRPMzNUV1VGa200djFzRzVleFpYRDlHNm1aeHJMWnA3Mm5zbHhFREM0X1ViamhGaEU3aTRES0Z4Mk9fUEhxQi1nZUtsd0E5d0M0WEstTFBRYkdQcldZRjRzNE5oU0dBdEhfU0RwSzYtMHYzUy1qNmtkZ1FY?oc=5",
+      "published": "2026-11-23T01:41:54+00:00",
+      "is_incident": true,
+      "is_closure": false,
+      "side": "iran",
+      "primary": false,
+      "sev": "A",
+      "sev_why": "船舶への実害。通航への影響が生じ得る。"
+    },
     {
       "kind": "advisory",
       "source": "報道",
@@ -219,6 +264,19 @@
       "sev_why": "参考情報。"
     },
     {
+      "kind": "advisory",
+      "source": "報道",
+      "title": "Tracker says Iranian tanker reported in Strait of Hormuz is fake - Euronews.com",
+      "title_ja": "Tracker says Iranian tanker reported in Strait of Hormuz is fake - Euronews.com",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNaVRCYVIyR0tZVjg3NE9uV0ZCaWdIR0p1bzE5OE13U2E5blhjdjk1eHdMTnp2N1ZoZ1BMOUt1X0tORVptaWhnamdUdHd2NkxoendrbURLVXc3c3J4b3MyOFNVWTNCR0F0WWV1aUZyUEVtcDZydzAtMmJldnNTSnl6ajNUN0FPTmpCR2JCM1NxQ1FiRGxxUXdMWV83ZkcxOFVwZlhERS1JZjhXOXk1RzhXYk8yNm1MWnpQTFZBbmhVMlhxR1d2?oc=5",
+      "published": "2026-11-22T09:54:50+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "sev": "B",
+      "sev_why": "警報・報道。"
+    },
+    {
       "kind": "statement",
       "source": "報道",
       "title": "IRGC Says Iran Downed US MQ-1 Drone Near Strait of Hormuz - Kurdistan TV",
@@ -326,21 +384,6 @@
     {
       "kind": "statement",
       "source": "報道",
-      "title": "Two tankers attacked in Strait of Hormuz; Qatar steps in to mediate Iran-US conflict - Daijiworld",
-      "title_ja": "Two tankers attacked in Strait of Hormuz; Qatar steps in to mediate Iran-US conflict - Daijiworld",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE41bmNjQUI3bWYtN2N4cmM0M3F6ZW9jNF9PM1VYSVRHbmx0czMwVmxkaGdZVmI1Zm55UHRSSktiRk9lOEd6a2pXZ3drajdncE5PbFJhelczQXVOb29BNVk5c2kydlc?oc=5",
-      "published": "2026-11-22T03:48:33+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "iran",
-      "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
       "title": "Iran Sets Terms for Reopening Strait of Hormuz as Trump Demands ‘Permanent’ Nuclear Deal - Open Magazine",
       "title_ja": "Iran Sets Terms for Reopening Strait of Hormuz as Trump Demands ‘Permanent’ Nuclear Deal - Open Magazine",
       "summarized": false,
@@ -438,6 +481,21 @@
       "is_closure": false,
       "sev": "B",
       "sev_why": "警報・報道。"
+    },
+    {
+      "kind": "statement",
+      "source": "報道",
+      "title": "IRGC Navy Warns It Will Act Against Any Ship Passing Through Hormuz Without Coordinating With Iran - Kurdistan24",
+      "title_ja": "IRGC Navy Warns It Will Act Against Any Ship Passing Through Hormuz Without Coordinating With Iran - Kurdistan24",
+      "summarized": false,
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPRzhyalc3OWxHMnE1dENJZG9zdjRrSGdCUXdiWG5DeGlvWVRCa2d1RU15UXlvT09UWVdTUV8yNndOZTJ3bDFKN1I3TFFpcXAySms4Qm9tN2JZZ1hVcjh2aTZaZFY0aWQ3azhDd0xRcFBHNV82MktQTU1BNEtHb3ZRa21zQVZsU1RnUnAzMFdtSFBIUnhWdXBlNWtlNWQyX2h6RlUzTER0cGVLYnVpQmNnZnVzNmQ0WWRBeG1uNVowa0RXN21fOFpaMkpORkZveGZuSWVKNko1V2RqZw?oc=5",
+      "published": "2026-11-21T13:53:06+00:00",
+      "is_incident": false,
+      "is_closure": false,
+      "side": "iran",
+      "primary": false,
+      "sev": "C",
+      "sev_why": "参考情報。"
     },
     {
       "kind": "statement",
@@ -560,21 +618,6 @@
     {
       "kind": "statement",
       "source": "報道",
-      "title": "Strait of Hormuz tensions intensify as Iran claims downing of US MQ-9 drone - Trend News Agency",
-      "title_ja": "Strait of Hormuz tensions intensify as Iran claims downing of US MQ-9 drone - Trend News Agency",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1NOU5QZUJjV184UjAySllZQUdMUW9DMzVmSm9JTHhINTZIampvaHFUQUlGZzlMa1lueENTS2hzMEZwaGNTSGpJSmp1MGMzbUU?oc=5",
-      "published": "2026-11-21T06:01:20+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "iran",
-      "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
       "title": "IRGC reports destruction of US military drone over Strait of Hormuz - AzerNews",
       "title_ja": "IRGC reports destruction of US military drone over Strait of Hormuz - AzerNews",
       "summarized": false,
@@ -601,53 +644,8 @@
       "primary": false,
       "sev": "A",
       "sev_why": "船舶への実害。通航への影響が生じ得る。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "Trump Claims US Has Total Control of Hormuz as Iran Sets Terms for Reopening - https://houseofsaud.com/",
-      "title_ja": "Trump Claims US Has Total Control of Hormuz as Iran Sets Terms for Reopening - https://houseofsaud.com/",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE95RUZvZzJQYVBRaThrRzR5Rm9IY3RFU25wS2YxMDBhWF9oamFTQTFCV0FtZms3QXZVYWtwMHQ1ZFRVNGFiV185aG9TVlNEckNxQWdZN1lZcFJBR3c5NHRDLU8zdVh2Q1pmMzRmdmQzZw?oc=5",
-      "published": "2026-11-21T04:23:49+00:00",
-      "is_incident": false,
-      "is_closure": false,
-      "side": "usa",
-      "primary": false,
-      "sev": "C",
-      "sev_why": "参考情報。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "Trump claims ‘total control’ of Strait of Hormuz as Iran sets terms for reopening it - Open Magazine",
-      "title_ja": "Trump claims ‘total control’ of Strait of Hormuz as Iran sets terms for reopening it - Open Magazine",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPZ2Z2dHM0LXBWWndBYnU1MFFIZERWZl9vZUhScHZTQ3dtMExHRWQ5ZEtvVkxJaVE4UVVBbjhqMmNFeFZyV0l6cUlER2hDQUx6UWcwVlg4NjN6dndKcXVPN2tyRG9CU3hDZ2poU3MwT1Q1dy0weTJOcGp1LTNvSWVxUXlDclJVaHFQd2FNcVc5ZkNFOXFuOHFUeXAzRkZkclFaX3FURk9GNGZPSG9VZ3pTdUQySXRfY0U?oc=5",
-      "published": "2026-11-21T03:07:42+00:00",
-      "is_incident": false,
-      "is_closure": false,
-      "side": "usa",
-      "primary": false,
-      "sev": "C",
-      "sev_why": "参考情報。"
-    },
-    {
-      "kind": "statement",
-      "source": "報道",
-      "title": "New Attacks Reported on Ships Near Hormuz as Trump Discusses Iran with Xi - EnergyNow.com",
-      "title_ja": "New Attacks Reported on Ships Near Hormuz as Trump Discusses Iran with Xi - EnergyNow.com",
-      "summarized": false,
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNOTlGWjlEeGYtdkpEckRTT3pFMDk3OER0NVZaNVhVS1dOazRXMU14VVR1QlhkV0daYlUxLWtNR1dRdHphU0Rxd2hETExKNmtlNl80ekNXN2Fpa1hCY3ZreEQ5c0VYYVgycFEtX1c4UkdweGRqVWZfWkdMbkJUTl9CNTZKQzBhMGdGWjBjS0VKajZlWU9yWkE2WWxPWW8wZjlUMTVNT0tmdw?oc=5",
-      "published": "2026-11-20T21:40:32+00:00",
-      "is_incident": true,
-      "is_closure": false,
-      "side": "usa",
-      "primary": false,
-      "sev": "A",
-      "sev_why": "船舶への実害。通航への影響が生じ得る。"
     }
   ],
-  "updated": "2026-11-22T22:24:32+00:00",
+  "updated": "2026-11-23T03:00:14+00:00",
   "rules_url": "https://github.com/satamainuser/hormuz/blob/main/collect.py"
 }
